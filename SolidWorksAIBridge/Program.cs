@@ -12,7 +12,7 @@ namespace SolidWorksAIBridge
                 var connector = new SolidWorksConnector();
                 connector.Connect();
                 var modeler = new SolidWorksModeler(connector.Application);
-                modeler.CreateWall(180, 220, 5);
+                modeler.CreateWall(180, 220, 3);
                 modeler.CreateWindowGrid(
                     4,      // floors
                     4,      // windows per floor
@@ -25,7 +25,7 @@ namespace SolidWorksAIBridge
                     true,   // create sills
                     1,      // sill thickness
                     1);     // sill outward projection
-                Console.WriteLine("Created an unsaved 180 x 220 x 5 mm wall with 4 floors, 16 windows, 10 mm horizontal and 15 mm vertical clear gaps, and 1 mm exterior sills.");
+                Console.WriteLine("Created an unsaved 180 x 220 x 3 mm wall with 4 floors, 16 windows, 10 mm horizontal and 15 mm vertical clear gaps, and 1 mm exterior sills.");
             }
             catch (Exception ex)
             {

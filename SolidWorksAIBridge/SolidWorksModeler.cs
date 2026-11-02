@@ -634,7 +634,18 @@ namespace SolidWorksAIBridge
                         (additive ? "SillWidth" : "WindowWidth") + dimensionSuffix,
                         (additive ? "SillThickness" : "WindowHeight") + dimensionSuffix,
                         pitch == width && i > 0, pitch == width && i < count - 1,
-                        (rowContext ?? featureName) + " Window" + dimensionSuffix, additive));
+                        (rowContext ?? featureName) + " Window" + dimensionSuffix, additive,
+                        additive || i == 0));
+                    if (!additive && i > 0)
+                    {
+                        operation = "adding shared window-row relations";
+                        AddWindowRowRelations(model, rectangles[0], rectangles[i]);
+                    }
+                }
+                if (!additive && count > 1 && pitch > width)
+                {
+                    operation = "adding equal clear-gap construction geometry";
+                    AddWindowRowGaps(model, sketch, rectangles, pitch - width);
                 }
                 // Recheck earlier rectangles after all subsequent dimensions/relations.
                 operation = "verifying completed sketch geometry";
@@ -726,7 +737,7 @@ namespace SolidWorksAIBridge
         private RowRectangleGeometry AddRowRectangle(ModelDoc2 model, Sketch sketch,
             double width, double height, double centerX, double centerY,
             string widthName, string heightName,
-            bool internalLeft, bool internalRight, string context, bool sill)
+            bool internalLeft, bool internalRight, string context, bool sill, bool dimensionSize = true)
         {
             SketchManager sketches = model.SketchManager;
             bool originalAddToDb = sketches.AddToDB;
@@ -794,14 +805,17 @@ namespace SolidWorksAIBridge
                 }
                 VerifyRowRectangle(rectangle);
 
-                operation = "adding width dimension";
-                AddRowSizeDimension(model, rectangle.Edges[0], widthName, width,
-                    math, toModel, rectangle.Corners[0][0], rectangle.Corners[0][1] - height);
-                VerifyRowRectangle(rectangle);
-                operation = "adding " + (sill ? "thickness" : "height") + " dimension";
-                AddRowSizeDimension(model, rectangle.Edges[1], heightName, height,
-                    math, toModel, rectangle.Corners[1][0] + width, rectangle.Corners[1][1]);
-                VerifyRowRectangle(rectangle);
+                if (dimensionSize)
+                {
+                    operation = "adding width dimension";
+                    AddRowSizeDimension(model, rectangle.Edges[0], widthName, width,
+                        math, toModel, rectangle.Corners[0][0], rectangle.Corners[0][1] - height);
+                    VerifyRowRectangle(rectangle);
+                    operation = "adding " + (sill ? "thickness" : "height") + " dimension";
+                    AddRowSizeDimension(model, rectangle.Edges[1], heightName, height,
+                        math, toModel, rectangle.Corners[1][0] + width, rectangle.Corners[1][1]);
+                    VerifyRowRectangle(rectangle);
+                }
 
                 // For zero gap, shared interior sides must not be duplicate profile edges.
                 operation = "marking shared interior sides as construction geometry";
@@ -820,6 +834,92 @@ namespace SolidWorksAIBridge
             }
         }
 
+        // Row openings have identical sizes and elevations. Only the first window
+        // needs size dimensions; top/bottom alignment already implies equal height.
+        private static void AddWindowRowRelations(ModelDoc2 model,
+            RowRectangleGeometry first, RowRectangleGeometry current)
+        {
+            int[] edges = { 2, 0, 0 }; // top, bottom, width
+            string[] relations = { "sgCOLINEAR", "sgCOLINEAR", "sgSAMELENGTH" };
+            try
+            {
+                for (int i = 0; i < edges.Length; i++)
+                {
+                    model.ClearSelection2(true);
+                    if (!first.Edges[edges[i]].Select4(false, null) ||
+                        !current.Edges[edges[i]].Select4(true, null))
+                        throw new InvalidOperationException("Could not select window-row edges for " + relations[i] + ".");
+                    model.SketchAddConstraints(relations[i]);
+                    VerifyRowRectangle(first);
+                    VerifyRowRectangle(current);
+                }
+            }
+            finally { model.ClearSelection2(true); }
+        }
+
+        // Use existing corners so each gap follows its adjacent windows when edited.
+        // Bottom collinearity already makes these connectors horizontal in model space;
+        // another orientation relation would duplicate that constraint.
+        private void AddWindowRowGaps(ModelDoc2 model, Sketch sketch,
+            List<RowRectangleGeometry> rectangles, double clearGap)
+        {
+            SketchManager sketches = model.SketchManager;
+            bool originalAddToDb = sketches.AddToDB;
+            var math = (MathUtility)application.GetMathUtility();
+            MathTransform toModel = (MathTransform)sketch.ModelToSketchTransform.Inverse();
+            SketchSegment firstGap = null;
+            try
+            {
+                for (int i = 1; i < rectangles.Count; i++)
+                {
+                    double[] start = rectangles[i - 1].Corners[1];
+                    double[] end = rectangles[i].Corners[0];
+                    model.ClearSelection2(true);
+                    sketches.AddToDB = true; // No inferred relations or merged endpoints.
+                    SketchSegment gap = sketches.CreateLine(start[0], start[1], 0, end[0], end[1], 0);
+                    if (gap == null)
+                        throw new InvalidOperationException("Could not create clear-gap construction line.");
+                    gap.ConstructionGeometry = true;
+                    sketches.AddToDB = false;
+
+                    var gapLine = (SketchLine)gap;
+                    var leftBottom = (SketchLine)rectangles[i - 1].Edges[0];
+                    var rightBottom = (SketchLine)rectangles[i].Edges[0];
+                    AddGapEndpointRelation(model, (SketchPoint)gapLine.GetStartPoint2(),
+                        (SketchPoint)leftBottom.GetEndPoint2());
+                    AddGapEndpointRelation(model, (SketchPoint)gapLine.GetEndPoint2(),
+                        (SketchPoint)rightBottom.GetStartPoint2());
+
+                    if (firstGap == null)
+                    {
+                        firstGap = gap;
+                        AddRowSizeDimension(model, gap, "ClearGap", clearGap, math, toModel,
+                            (start[0] + end[0]) / 2, (start[1] + end[1]) / 2 - clearGap);
+                    }
+                    else
+                    {
+                        model.ClearSelection2(true);
+                        if (!firstGap.Select4(false, null) || !gap.Select4(true, null))
+                            throw new InvalidOperationException("Could not select equal clear-gap lines.");
+                        model.SketchAddConstraints("sgSAMELENGTH");
+                    }
+                }
+            }
+            finally
+            {
+                model.ClearSelection2(true);
+                sketches.AddToDB = originalAddToDb;
+            }
+        }
+
+        private static void AddGapEndpointRelation(ModelDoc2 model, SketchPoint endpoint, SketchPoint corner)
+        {
+            model.ClearSelection2(true);
+            if (!endpoint.Select4(false, null) || !corner.Select4(true, null))
+                throw new InvalidOperationException("Could not select a clear-gap endpoint and window corner.");
+            model.SketchAddConstraints("sgCOINCIDENT");
+            model.ClearSelection2(true);
+        }
         private static void AddRowSizeDimension(ModelDoc2 model, SketchSegment edge, string name,
             double expectedMeters, MathUtility math, MathTransform toModel, double textX, double textY)
         {
