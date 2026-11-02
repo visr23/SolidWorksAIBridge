@@ -1,0 +1,67 @@
+# Visual Studio local caches and user-specific settings
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sln.ide
+*.rsuser
+*.DotSettings.user
+
+# Build outputs (including custom CompileCheck configurations)
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+[Dd]ebugPublic/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Bb]ld/
+[Aa]rtifacts/
+
+# Test, coverage, and profiling results
+[Tt]est[Rr]esult*/
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# NuGet restore outputs; keep package manifests and NuGet configuration
+packages/
+*.nupkg
+*.snupkg
+
+# IDE and analysis caches
+_ReSharper*/
+*.ReSharper
+*.Cache
+*.cache
+*.pidb
+*.svclog
+
+# Local secrets and machine-specific publishing settings
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pfx
+*.p12
+*.publishsettings
+*.pubxml
+*.pubxml.user
+
+# Temporary and operating system files
+*.tmp
+*.temp
+*.bak
+*.log
+~$*
+Thumbs.db
+Desktop.ini
+.DS_Store
