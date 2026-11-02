@@ -13,19 +13,11 @@ namespace SolidWorksAIBridge
                 connector.Connect();
                 var modeler = new SolidWorksModeler(connector.Application);
                 modeler.CreateWall(180, 220, 3);
-                modeler.CreateWindowGrid(
-                    4,      // floors
-                    4,      // windows per floor
-                    20,     // window width
-                    30,     // window height
-                    10,     // horizontal clear gap
-                    15,     // vertical clear gap
-                    0,      // grid center X
-                    0,      // grid center Y
-                    true,   // create sills
-                    1,      // sill thickness
-                    1);     // sill outward projection
-                Console.WriteLine("Created an unsaved 180 x 220 x 3 mm wall with 4 floors, 16 windows, 10 mm horizontal and 15 mm vertical clear gaps, and 1 mm exterior sills.");
+                modeler.CreateDoorRow(
+                    new double[] { 25, 35, 45 },  // widths
+                    new double[] { 55, 65, 60 },  // heights
+                    new double[] { -55, 0, 55 }); // centers X
+                Console.WriteLine("Created an unsaved 180 x 220 x 3 mm wall with three independently sized ground-door openings in one shared sketch and Blind cut.");
             }
             catch (Exception ex)
             {

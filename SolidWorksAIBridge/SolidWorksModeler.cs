@@ -14,10 +14,25 @@ namespace SolidWorksAIBridge
         private double wallWidth;
         private double wallHeight;
         private double wallThickness;
+        private double openingCutToleranceMm = 0.2;
+
+        /// <summary>Extra inward opening cut depth in millimeters; finite and nonnegative.
+        /// Applies to subsequently created openings.</summary>
+        public double OpeningCutToleranceMm
+        {
+            get { return openingCutToleranceMm; }
+            set
+            {
+                NonnegativeMeters(value, nameof(OpeningCutToleranceMm));
+                openingCutToleranceMm = value;
+            }
+        }
         private bool hasWindow;
         private string latestWindowSketchName;
         private string latestWindowCutName;
         private int nextRowIndex = 1;
+        private int nextDoorIndex = 1;
+        private int nextDoorRowIndex = 1;
         // Bounds in model meters for features created by this modeler.
         private readonly List<OpeningBounds> occupiedBounds = new List<OpeningBounds>();
 
@@ -60,6 +75,8 @@ namespace SolidWorksAIBridge
             latestWindowSketchName = null;
             latestWindowCutName = null;
             nextRowIndex = 1;
+            nextDoorIndex = 1;
+            nextDoorRowIndex = 1;
             occupiedBounds.Clear();
             wallModel = null;
             mainWall = null;
@@ -189,6 +206,349 @@ namespace SolidWorksAIBridge
             return CreateWindowCore(width, height, centerX, centerY, "WindowSketch", "WindowCut");
         }
 
+        /// <summary>Creates only a door opening in the current wall shell. Lengths are
+        /// millimeters; the opening bottom follows the wall bottom edge.</summary>
+        public ModelDoc2 CreateDoor(double widthMm, double heightMm, double centerXmm)
+        {
+            double width = PositiveMeters(widthMm, nameof(widthMm));
+            double height = PositiveMeters(heightMm, nameof(heightMm));
+            if (double.IsNaN(centerXmm) || double.IsInfinity(centerXmm))
+                throw new ArgumentOutOfRangeException(nameof(centerXmm), "Door center X must be finite.");
+            double centerX = UnitConverter.MillimetersToMeters(centerXmm);
+            if (wallModel == null || mainWall == null)
+                throw new InvalidOperationException("Call CreateWall successfully before creating a door.");
+            if (width >= wallWidth || Math.Abs(centerX) >= (wallWidth - width) / 2)
+                throw new ArgumentException("The door must fit strictly inside the wall's left and right boundaries.");
+            if (height > wallHeight)
+                throw new ArgumentOutOfRangeException(nameof(heightMm), "Door height must not exceed wall height.");
+            double centerY = -wallHeight / 2 + height / 2;
+            if (centerX - width / 2 == centerX + width / 2 || centerY - height / 2 == centerY + height / 2)
+                throw new ArgumentException("Door dimensions are too small to produce nonzero opening geometry.");
+            ValidateNoOverlap(width, height, centerX, centerY);
+            ModelDoc2 model = wallModel;
+            if (!ReferenceEquals(application.ActiveDoc, model))
+                throw new InvalidOperationException("Activate the wall Part before creating a door.");
+            SketchManager sketches = model.SketchManager;
+            if (sketches.ActiveSketch != null)
+                throw new InvalidOperationException("Exit the active sketch before creating a door.");
+            string suffix = RowSuffix(nextDoorIndex);
+            string sketchName = "DoorSketch" + suffix;
+            string cutName = "DoorCut" + suffix;
+            var part = (PartDoc)model;
+            if (part.FeatureByName(sketchName) != null || part.FeatureByName(cutName) != null)
+                throw new InvalidOperationException("A door feature or unfinished sketch already exists: " + sketchName);
+            Face2 exteriorFace = FindWallFrontFace();
+            Edge bottomEdge = FindWallBottomEdge(exteriorFace);
+            bool sketchOpen = false;
+            bool originalAddToDb = sketches.AddToDB;
+            int inputPreference = (int)swUserPreferenceToggle_e.swInputDimValOnCreate;
+            bool originalPrompt = application.GetUserPreferenceToggle(inputPreference);
+            string operation = "opening the exterior-face sketch";
+            try
+            {
+                model.ClearSelection2(true);
+                if (!((Entity)exteriorFace).Select4(false, null))
+                    throw new InvalidOperationException("Could not select the wall exterior face for the door.");
+                sketches.InsertSketch(true);
+                Sketch sketch = sketches.ActiveSketch;
+                if (sketch == null)
+                    throw new InvalidOperationException("Could not start the door sketch.");
+                sketchOpen = true;
+                Feature sketchFeature = (Feature)model.FeatureByPositionReverse(0);
+                if (sketchFeature == null || sketchFeature.GetTypeName2() != "ProfileFeature")
+                    throw new InvalidOperationException("Could not find the new door sketch feature.");
+                sketchFeature.Name = sketchName;
+                application.SetUserPreferenceToggle(inputPreference, false);
+                // As with standalone window position dimensions, seed a nonzero X
+                // distance before assigning zero. Do not ask AddDimension to create
+                // a new dimension between already aligned midpoint/origin references.
+                double seedX = centerX == 0 ? (wallWidth - width) / 4 : centerX;
+                operation = "creating the dimensioned door rectangle";
+                RowRectangleGeometry rectangle = AddRowRectangle(model, sketch, width, height, seedX, centerY,
+                    "DoorWidth" + suffix, "DoorHeight" + suffix, false, false, sketchName, false);
+
+                operation = "constraining the door bottom to the wall bottom edge";
+                // One point-on-edge relation removes only vertical translation. The
+                // rectangle's existing orientation keeps its whole bottom on this edge.
+                model.ClearSelection2(true);
+                var bottom = (SketchLine)rectangle.Edges[0];
+                if (!((SketchPoint)bottom.GetStartPoint2()).Select4(false, null) ||
+                    !((Entity)bottomEdge).Select4(true, null))
+                    throw new InvalidOperationException("Could not select the door bottom and wall bottom edge.");
+                model.SketchAddConstraints("sgCOINCIDENT");
+                model.ClearSelection2(true);
+                var math = (MathUtility)application.GetMathUtility();
+                MathTransform toModel = (MathTransform)sketch.ModelToSketchTransform.Inverse();
+                double[] start = rectangle.Corners[0];
+                double[] end = rectangle.Corners[1];
+                bool xIsHorizontal = Math.Abs(end[0] - start[0]) > Math.Abs(end[1] - start[1]);
+                operation = "creating and setting DoorCenterX";
+                AddWindowPositionDimension(model, rectangle.Edges[0], xIsHorizontal,
+                    "DoorCenterX" + suffix, Math.Abs(centerX), math, toModel,
+                    (start[0] + end[0]) / 2, (start[1] + end[1]) / 2 - height);
+                // The position dimension intentionally moves only X from its seed.
+                // Verify against the final requested corners, including exact sill level.
+                MathTransform toSketch = sketch.ModelToSketchTransform;
+                rectangle.Corners = new[] {
+                    TransformPoint(math, toSketch, centerX - width / 2, -wallHeight / 2, wallThickness / 2),
+                    TransformPoint(math, toSketch, centerX + width / 2, -wallHeight / 2, wallThickness / 2),
+                    TransformPoint(math, toSketch, centerX + width / 2, -wallHeight / 2 + height, wallThickness / 2),
+                    TransformPoint(math, toSketch, centerX - width / 2, -wallHeight / 2 + height, wallThickness / 2)
+                };
+                operation = "verifying the final door contour";
+                VerifyRowRectangle(rectangle);
+                operation = "exiting and rebuilding the door sketch";
+                model.ClearSelection2(true);
+                sketches.InsertSketch(true);
+                sketchOpen = sketches.ActiveSketch != null;
+                if (sketchOpen)
+                    throw new InvalidOperationException("SOLIDWORKS did not exit " + sketchName + ".");
+                if (!model.EditRebuild3())
+                    throw new InvalidOperationException("SOLIDWORKS could not rebuild " + sketchName + " before the cut.");
+                operation = "selecting the closed door sketch";
+                model.ClearSelection2(true);
+                if (!sketchFeature.Select2(false, 0))
+                    throw new InvalidOperationException("Could not select " + sketchName + " for the door cut.");
+                operation = "creating the wall-aware Blind door cut";
+                Feature cut = CreateOpeningCut(model, sketch, exteriorFace, wallThickness, cutName);
+                if (cut == null)
+                    throw new InvalidOperationException("Could not create the Blind door opening cut.");
+                operation = "naming and rebuilding the door cut";
+                cut.Name = cutName;
+                if (!model.EditRebuild3())
+                    throw new InvalidOperationException("SOLIDWORKS reported a rebuild failure for " + cutName + ".");
+                RememberBounds(width, height, centerX, centerY);
+                nextDoorIndex++;
+                model.ClearSelection2(true);
+                model.ViewZoomtofit2();
+                return model;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(sketchName + " / " + cutName +
+                    ": failed while " + operation + ". " + ex.Message, ex);
+            }
+            finally
+            {
+                try
+                {
+                    model.ClearSelection2(true);
+                    if (sketchOpen) sketches.InsertSketch(true);
+                }
+                finally
+                {
+                    try { sketches.AddToDB = originalAddToDb; }
+                    finally { application.SetUserPreferenceToggle(inputPreference, originalPrompt); }
+                }
+            }
+        }
+
+        /// <summary>Creates independently sized ground-door openings in one sketch/cut.
+        /// Each list has one entry per door, in millimeters. Doors require clear separation.</summary>
+        public ModelDoc2 CreateDoorRow(IReadOnlyList<double> widthsMm,
+            IReadOnlyList<double> heightsMm, IReadOnlyList<double> centerXmm)
+        {
+            if (widthsMm == null) throw new ArgumentNullException(nameof(widthsMm));
+            if (heightsMm == null) throw new ArgumentNullException(nameof(heightsMm));
+            if (centerXmm == null) throw new ArgumentNullException(nameof(centerXmm));
+            int count = widthsMm.Count;
+            if (count == 0 || heightsMm.Count != count || centerXmm.Count != count)
+                throw new ArgumentException("Door widths, heights and centers must have the same nonzero count.");
+            if (wallModel == null || mainWall == null)
+                throw new InvalidOperationException("Call CreateWall successfully before creating a door row.");
+            var widths = new double[count];
+            var heights = new double[count];
+            var centers = new double[count];
+            // Preflight the entire row, including existing openings/sills, before mutation.
+            for (int i = 0; i < count; i++)
+            {
+                string door = "Door" + RowSuffix(i + 1);
+                widths[i] = PositiveMeters(widthsMm[i], door + " widthMm");
+                heights[i] = PositiveMeters(heightsMm[i], door + " heightMm");
+                if (double.IsNaN(centerXmm[i]) || double.IsInfinity(centerXmm[i]))
+                    throw new ArgumentException(door + ": center X must be finite.", nameof(centerXmm));
+                centers[i] = UnitConverter.MillimetersToMeters(centerXmm[i]);
+                if (widths[i] >= wallWidth || Math.Abs(centers[i]) >= (wallWidth - widths[i]) / 2)
+                    throw new ArgumentException(door + ": must fit strictly inside the wall horizontally.");
+                if (heights[i] > wallHeight)
+                    throw new ArgumentException(door + ": height must not exceed wall height.");
+                double bottom = -wallHeight / 2;
+                if (centers[i] - widths[i] / 2 == centers[i] + widths[i] / 2 || bottom + heights[i] == bottom)
+                    throw new ArgumentException(door + ": dimensions are too small to create nonzero geometry.");
+                ValidateNoOverlap(widths[i], heights[i], centers[i], bottom + heights[i] / 2);
+                for (int j = 0; j < i; j++)
+                    if (Math.Abs(centers[i] - centers[j]) <= (widths[i] + widths[j]) / 2)
+                        throw new ArgumentException(door + " and Door" + RowSuffix(j + 1) +
+                            ": door-row openings must not overlap or touch; provide a positive clear separation.");
+            }
+            ModelDoc2 model = wallModel;
+            if (!ReferenceEquals(application.ActiveDoc, model))
+                throw new InvalidOperationException("Activate the wall Part before creating a door row.");
+            SketchManager sketches = model.SketchManager;
+            if (sketches.ActiveSketch != null)
+                throw new InvalidOperationException("Exit the active sketch before creating a door row.");
+            string rowSuffix = RowSuffix(nextDoorRowIndex);
+            string sketchName = "DoorRowSketch" + rowSuffix;
+            string cutName = "DoorRowCut" + rowSuffix;
+            var part = (PartDoc)model;
+            if (part.FeatureByName(sketchName) != null || part.FeatureByName(cutName) != null)
+                throw new InvalidOperationException("A door-row feature or unfinished sketch already exists: " + sketchName);
+            Face2 exteriorFace = FindWallFrontFace();
+            Edge bottomEdge = FindWallBottomEdge(exteriorFace);
+            bool sketchOpen = false;
+            bool originalAddToDb = sketches.AddToDB;
+            int inputPreference = (int)swUserPreferenceToggle_e.swInputDimValOnCreate;
+            bool originalPrompt = application.GetUserPreferenceToggle(inputPreference);
+            string operation = "opening the shared exterior-face sketch";
+            try
+            {
+                model.ClearSelection2(true);
+                if (!((Entity)exteriorFace).Select4(false, null))
+                    throw new InvalidOperationException("Could not select the wall exterior face.");
+                sketches.InsertSketch(true);
+                Sketch sketch = sketches.ActiveSketch;
+                if (sketch == null) throw new InvalidOperationException("Could not start the door-row sketch.");
+                sketchOpen = true;
+                Feature sketchFeature = (Feature)model.FeatureByPositionReverse(0);
+                if (sketchFeature == null || sketchFeature.GetTypeName2() != "ProfileFeature")
+                    throw new InvalidOperationException("Could not find the new door-row sketch feature.");
+                sketchFeature.Name = sketchName;
+                application.SetUserPreferenceToggle(inputPreference, false);
+                var rectangles = new List<RowRectangleGeometry>();
+                for (int i = 0; i < count; i++)
+                {
+                    operation = "creating Door" + RowSuffix(i + 1) + " and its center reference";
+                    rectangles.Add(AddGroundDoorRowRectangle(model, sketch, bottomEdge,
+                        widths[i], heights[i], centers[i], RowSuffix(i + 1)));
+                }
+                operation = "verifying all door contours";
+                foreach (RowRectangleGeometry rectangle in rectangles) VerifyRowRectangle(rectangle);
+                operation = "exiting and rebuilding the shared sketch";
+                model.ClearSelection2(true);
+                sketches.InsertSketch(true);
+                sketchOpen = sketches.ActiveSketch != null;
+                if (sketchOpen) throw new InvalidOperationException("SOLIDWORKS did not exit " + sketchName + ".");
+                if (!model.EditRebuild3()) throw new InvalidOperationException("Could not rebuild " + sketchName + ".");
+                operation = "creating the single wall-aware Blind cut";
+                model.ClearSelection2(true);
+                if (!sketchFeature.Select2(false, 0))
+                    throw new InvalidOperationException("Could not select " + sketchName + ".");
+                Feature cut = CreateOpeningCut(model, sketch, exteriorFace, wallThickness, cutName);
+                cut.Name = cutName;
+                if (!model.EditRebuild3()) throw new InvalidOperationException("Could not rebuild " + cutName + ".");
+                for (int i = 0; i < count; i++)
+                    RememberBounds(widths[i], heights[i], centers[i], -wallHeight / 2 + heights[i] / 2);
+                nextDoorRowIndex++;
+                model.ClearSelection2(true);
+                model.ViewZoomtofit2();
+                return model;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(sketchName + " / " + cutName +
+                    ": failed while " + operation + ". " + ex.Message, ex);
+            }
+            finally
+            {
+                try
+                {
+                    model.ClearSelection2(true);
+                    if (sketchOpen) sketches.InsertSketch(true);
+                }
+                finally
+                {
+                    try { sketches.AddToDB = originalAddToDb; }
+                    finally { application.SetUserPreferenceToggle(inputPreference, originalPrompt); }
+                }
+            }
+        }
+
+        private RowRectangleGeometry AddGroundDoorRowRectangle(ModelDoc2 model, Sketch sketch,
+            Edge bottomEdge, double width, double height, double centerX, string suffix)
+        {
+            double seedX = centerX == 0 ? (wallWidth - width) / 4 : centerX;
+            double bottomY = -wallHeight / 2;
+            RowRectangleGeometry rectangle = AddRowRectangle(model, sketch, width, height, seedX,
+                bottomY + height / 2, "DoorWidth" + suffix, "DoorHeight" + suffix,
+                false, false, "Door" + suffix, false);
+            model.ClearSelection2(true);
+            if (!((SketchPoint)((SketchLine)rectangle.Edges[0]).GetStartPoint2()).Select4(false, null) ||
+                !((Entity)bottomEdge).Select4(true, null))
+                throw new InvalidOperationException("Could not select the door bottom and wall bottom edge.");
+            model.SketchAddConstraints("sgCOINCIDENT");
+            model.ClearSelection2(true);
+
+            var math = (MathUtility)application.GetMathUtility();
+            MathTransform toSketch = sketch.ModelToSketchTransform;
+            MathTransform toModel = (MathTransform)toSketch.Inverse();
+            double[] start = TransformPoint(math, toSketch, seedX, bottomY + height, wallThickness / 2);
+            double[] end = TransformPoint(math, toSketch, seedX, bottomY + height * 1.25, wallThickness / 2);
+            SketchManager sketches = model.SketchManager;
+            bool originalAddToDb = sketches.AddToDB;
+            SketchSegment reference;
+            try
+            {
+                sketches.AddToDB = true;
+                reference = sketches.CreateLine(start[0], start[1], 0, end[0], end[1], 0);
+                if (reference == null) throw new InvalidOperationException("Could not create the door center reference.");
+                reference.ConstructionGeometry = true;
+            }
+            finally { sketches.AddToDB = originalAddToDb; }
+            // Use local orientation because face sketch axes may swap or reverse.
+            bool xIsHorizontal = Math.Abs(rectangle.Corners[1][0] - rectangle.Corners[0][0]) >
+                Math.Abs(rectangle.Corners[1][1] - rectangle.Corners[0][1]);
+            sketches.AddToDB = false;
+            model.ClearSelection2(true);
+            if (!reference.Select4(false, null)) throw new InvalidOperationException("Could not select the door center reference.");
+            model.SketchAddConstraints(xIsHorizontal ? "sgVERTICAL" : "sgHORIZONTAL");
+            model.ClearSelection2(true);
+            if (!((SketchPoint)((SketchLine)reference).GetStartPoint2()).Select4(false, null) ||
+                !rectangle.Edges[2].Select4(true, null))
+                throw new InvalidOperationException("Could not select the center reference endpoint and door top edge.");
+            model.SketchAddConstraints("sgATMIDDLE");
+            model.ClearSelection2(true);
+            AddWindowPositionDimension(model, reference, xIsHorizontal, "DoorCenterX" + suffix,
+                Math.Abs(centerX), math, toModel, start[0] + width / 2, start[1] + height / 4);
+            rectangle.Corners = new[] {
+                TransformPoint(math, toSketch, centerX - width / 2, bottomY, wallThickness / 2),
+                TransformPoint(math, toSketch, centerX + width / 2, bottomY, wallThickness / 2),
+                TransformPoint(math, toSketch, centerX + width / 2, bottomY + height, wallThickness / 2),
+                TransformPoint(math, toSketch, centerX - width / 2, bottomY + height, wallThickness / 2)
+            };
+            VerifyRowRectangle(rectangle);
+            var line = (SketchLine)reference;
+            var actualStart = (SketchPoint)line.GetStartPoint2();
+            var actualEnd = (SketchPoint)line.GetEndPoint2();
+            double[] expected = TransformPoint(math, toSketch, centerX, bottomY + height, wallThickness / 2);
+            double[] endModel = TransformPoint(math, toModel, actualEnd.X, actualEnd.Y, 0);
+            if (!reference.ConstructionGeometry || Math.Abs(actualStart.X - expected[0]) > 1e-8 ||
+                Math.Abs(actualStart.Y - expected[1]) > 1e-8 || Math.Abs(endModel[0] - centerX) > 1e-8 ||
+                endModel[1] <= bottomY + height)
+                throw new InvalidOperationException("The door center reference moved away from the top midpoint or no longer extends upward.");
+            return rectangle;
+        }
+        // Find the actual exterior boundary before inserting geometry or a cut.
+        private Edge FindWallBottomEdge(Face2 exteriorFace)
+        {
+            var edges = exteriorFace.GetEdges() as object[];
+            if (edges != null)
+                foreach (object item in edges)
+                {
+                    var edge = (Edge)item;
+                    var startVertex = (Vertex)edge.GetStartVertex();
+                    var endVertex = (Vertex)edge.GetEndVertex();
+                    if (startVertex == null || endVertex == null) continue;
+                    var start = (double[])startVertex.GetPoint();
+                    var end = (double[])endVertex.GetPoint();
+                    if (Math.Abs(start[1] + wallHeight / 2) < 1e-8 &&
+                        Math.Abs(end[1] + wallHeight / 2) < 1e-8 &&
+                        Math.Abs(start[2] - wallThickness / 2) < 1e-8 &&
+                        Math.Abs(end[2] - wallThickness / 2) < 1e-8 &&
+                        Math.Abs(start[0] - end[0]) > 1e-8)
+                        return edge;
+                }
+            throw new InvalidOperationException("Could not find the exterior wall bottom edge for the door.");
+        }
         // Internal lengths are already converted to meters by the public entry points.
         private ModelDoc2 CreateWindowCore(double width, double height, double centerX, double centerY,
             string sketchName, string cutName)
@@ -243,19 +603,9 @@ namespace SolidWorksAIBridge
                 if (!sketchFeature.Select2(false, 0))
                     throw new InvalidOperationException("Could not select WindowSketch for the cut.");
 
-                // A face sketch's normal points outward. The default cut points into the
-                // wall (opposite that normal), so a single Through All direction suffices.
-                Feature cut = model.FeatureManager.FeatureCut3(
-                    true, false, false,
-                    (int)swEndConditions_e.swEndCondThroughAll,
-                    (int)swEndConditions_e.swEndCondThroughAll,
-                    wallThickness, wallThickness,
-                    false, false, false, false, 0, 0,
-                    false, false, false, false,
-                    false, true, true, false, false, false,
-                    (int)swStartConditions_e.swStartSketchPlane, 0, false);
+                Feature cut = CreateOpeningCut(model, sketch, frontFace, wallThickness, cutName);
                 if (cut == null)
-                    throw new InvalidOperationException("Could not create a Through All window cut into MainWall.");
+                    throw new InvalidOperationException("Could not create a Blind window cut into MainWall.");
                 cut.Name = cutName;
                 if (!model.EditRebuild3())
                     throw new InvalidOperationException("The window was created, but SOLIDWORKS reported a rebuild failure.");
@@ -609,7 +959,8 @@ namespace SolidWorksAIBridge
             {
                 operation = "selecting the wall front face for " + sketchName;
                 model.ClearSelection2(true);
-                if (!((Entity)FindWallFrontFace()).Select4(false, null))
+                Face2 exteriorFace = FindWallFrontFace();
+                if (!((Entity)exteriorFace).Select4(false, null))
                     throw new InvalidOperationException("Could not select MainWall's front face for " + sketchName + ".");
                 operation = "opening " + sketchName;
                 sketches.InsertSketch(true);
@@ -664,7 +1015,7 @@ namespace SolidWorksAIBridge
                 if (!sketchFeature.Select2(false, 0))
                     throw new InvalidOperationException("Could not select " + sketchName + ".");
 
-                operation = additive ? "extruding outward sills" : "creating the Through All window cut";
+                operation = additive ? "extruding outward sills" : "creating the wall-aware Blind window cut";
                 Feature feature;
                 if (additive)
                 {
@@ -681,15 +1032,7 @@ namespace SolidWorksAIBridge
                 }
                 else
                 {
-                    feature = model.FeatureManager.FeatureCut3(
-                        true, false, false,
-                        (int)swEndConditions_e.swEndCondThroughAll,
-                        (int)swEndConditions_e.swEndCondThroughAll,
-                        wallThickness, wallThickness,
-                        false, false, false, false, 0, 0,
-                        false, false, false, false,
-                        false, true, true, false, false, false,
-                        (int)swStartConditions_e.swStartSketchPlane, 0, false);
+                    feature = CreateOpeningCut(model, sketch, exteriorFace, wallThickness, featureName);
                 }
                 if (feature == null)
                     throw new InvalidOperationException("Could not create " + featureName + ".");
@@ -1163,6 +1506,64 @@ namespace SolidWorksAIBridge
             });
         }
 
+        // Shared by all facade opening paths. The caller supplies the exterior face
+        // used to support the selected sketch and the owning wall's thickness (meters).
+        private Feature CreateOpeningCut(ModelDoc2 model, Sketch sketch, Face2 exteriorFace,
+            double owningWallThickness, string openingName)
+        {
+            if (!ReferenceEquals(model, wallModel) || mainWall == null)
+                throw new InvalidOperationException(openingName + ": The opening must belong to the current wall Part.");
+            double depth = owningWallThickness + NonnegativeMeters(
+                openingCutToleranceMm, nameof(OpeningCutToleranceMm));
+            if (double.IsNaN(depth) || double.IsInfinity(depth) || depth <= 0)
+                throw new InvalidOperationException(openingName + ": The wall opening cut depth must be finite and positive.");
+
+            var normal = exteriorFace.Normal as double[];
+            if (normal == null || normal.Length < 3)
+                throw new InvalidOperationException(openingName + ": The opening requires a planar exterior wall face.");
+            var math = (MathUtility)application.GetMathUtility();
+            MathTransform toModel = (MathTransform)sketch.ModelToSketchTransform.Inverse();
+            double[] origin = TransformPoint(math, toModel, 0, 0, 0);
+            double[] zAxis = TransformPoint(math, toModel, 0, 0, 1);
+            double alignment = 0;
+            for (int i = 0; i < 3; i++)
+                alignment += (zAxis[i] - origin[i]) * normal[i];
+            if (double.IsNaN(alignment) || double.IsInfinity(alignment) ||
+                Math.Abs(Math.Abs(alignment) - 1) > 1e-8)
+                throw new InvalidOperationException(openingName + ": The opening sketch must be parallel to its exterior wall face.");
+
+            // Cuts default opposite the sketch normal. Reverse only when that would
+            // point outward relative to this face; never choose a global axis direction.
+            bool reverse = alignment < 0;
+            string details = string.Format(CultureInfo.InvariantCulture,
+                "{0}: Blind opening cut, wall thickness={1:R} mm, tolerance={2:R} mm, depth={3:R} mm, reverse={4}, normal alignment={5:R}",
+                openingName, owningWallThickness * 1000, openingCutToleranceMm, depth * 1000, reverse, alignment);
+            try
+            {
+                if (model.SketchManager.ActiveSketch != null)
+                    throw new InvalidOperationException("The opening sketch is still being edited.");
+                int selectedCount = ((SelectionMgr)model.SelectionManager).GetSelectedObjectCount2(-1);
+                Feature cut = model.FeatureManager.FeatureCut3(
+                    true, false, reverse,
+                    (int)swEndConditions_e.swEndCondBlind,
+                    (int)swEndConditions_e.swEndCondBlind,
+                    depth, depth,
+                    false, false, false, false, 0, 0,
+                    false, false, false, false,
+                    false, true, true, false, false, false,
+                    (int)swStartConditions_e.swStartSketchPlane, 0, false);
+                if (cut == null)
+                    throw new InvalidOperationException("FeatureCut3 returned null; selected object count=" +
+                        selectedCount + " before the call.");
+                return cut;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(details + ". " + ex.Message +
+                    " HRESULT=0x" + ex.HResult.ToString("X8", CultureInfo.InvariantCulture), ex);
+            }
+        }
+
         private Face2 FindWallFrontFace()
         {
             var faces = mainWall.GetFaces() as object[];
@@ -1230,7 +1631,7 @@ namespace SolidWorksAIBridge
             model.ClearSelection2(true);
             try
             {
-                // Dimension the construction diagonal's midpoint: no fixed point or
+                // Dimension the selected segment's midpoint: no fixed point or
                 // auxiliary geometry that could move independently of the rectangle.
                 if (!diagonal.Select4(false, null))
                     throw new InvalidOperationException("Could not select the window center for " + name + ".");
