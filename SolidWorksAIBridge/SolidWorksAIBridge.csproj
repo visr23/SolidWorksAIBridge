@@ -46,6 +46,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="SolidWorksConnector.cs" />
     <Compile Include="SolidWorksModeler.cs" />
+    <Compile Include="SolidWorksModeler.BalconySlab.cs" />
+    <Compile Include="ProjectingBalconySlab.cs" />
+    <Compile Include="BalconyAssembly.cs" />
+    <Compile Include="SolidWorksModeler.BalconyAssembly.cs" />
     <Compile Include="UnitConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -6,7 +6,7 @@ using SwConst;
 
 namespace SolidWorksAIBridge
 {
-    public sealed class SolidWorksModeler
+    public sealed partial class SolidWorksModeler
     {
         private readonly SldWorks.SldWorks application;
         private ModelDoc2 wallModel;

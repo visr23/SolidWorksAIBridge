@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <AssemblyName>SolidWorksAIBridge.RegressionTests</AssemblyName>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <AssemblyName Condition="'$(ManualValidation)' == 'true'">SolidWorksAIBridge.ManualValidation</AssemblyName>
+    <OutputPath Condition="'$(ManualValidation)' == 'true'">bin\Manual\</OutputPath>
+    <IntermediateOutputPath Condition="'$(ManualValidation)' == 'true'">obj\Manual\</IntermediateOutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <!-- Compile current production source; never load a stale application binary. -->
+    <Compile Include="..\SolidWorksAIBridge\UnitConverter.cs"><Link>Production\UnitConverter.cs</Link></Compile>
+    <Compile Include="..\SolidWorksAIBridge\SolidWorksModeler.cs"><Link>Production\SolidWorksModeler.cs</Link></Compile>
+    <Compile Include="..\SolidWorksAIBridge\SolidWorksModeler.BalconySlab.cs"><Link>Production\SolidWorksModeler.BalconySlab.cs</Link></Compile>
+    <Compile Include="..\SolidWorksAIBridge\ProjectingBalconySlab.cs"><Link>Production\ProjectingBalconySlab.cs</Link></Compile>
+    <Compile Include="..\SolidWorksAIBridge\BalconyAssembly.cs"><Link>Production\BalconyAssembly.cs</Link></Compile>
+    <Compile Include="..\SolidWorksAIBridge\SolidWorksModeler.BalconyAssembly.cs"><Link>Production\SolidWorksModeler.BalconyAssembly.cs</Link></Compile>
+    <Compile Include="..\SolidWorksAIBridge\SolidWorksConnector.cs"><Link>Production\SolidWorksConnector.cs</Link></Compile>
+    <Compile Include="BalconyDoorThresholdCase.cs" />
+    <Compile Include="CadFeatureClassifier.cs" />
+    <Compile Include="CadFeatureClassifierTests.cs" Condition="'$(ManualValidation)' != 'true'" />
+    <Compile Include="RegressionTests.cs" Condition="'$(ManualValidation)' != 'true'" />
+    <Compile Include="BalconySlabTests.cs" Condition="'$(ManualValidation)' != 'true'" />
+    <Compile Include="BalconyAssemblyTests.cs" Condition="'$(ManualValidation)' != 'true'" />
+    <Compile Include="ManualValidation.cs" Condition="'$(ManualValidation)' == 'true'" />
+    <Compile Include="BalconyCadChecks.cs" Condition="'$(ManualValidation)' == 'true'" />
+    <Compile Include="BalconyEditValidation.cs" Condition="'$(ManualValidation)' == 'true'" />
+    <Compile Include="BalconyAssemblyCadCase.cs" Condition="'$(ManualValidation)' == 'true'" />
+    <COMReference Include="SldWorks">
+      <Guid>{83A33D31-27C5-11CE-BFD4-00400513BB57}</Guid>
+      <VersionMajor>32</VersionMajor><VersionMinor>0</VersionMinor><Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool><EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="SwConst">
+      <Guid>{4687F359-55D0-4CD3-B6CF-2EB42C11F989}</Guid>
+      <VersionMajor>32</VersionMajor><VersionMinor>0</VersionMinor><Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool><EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
