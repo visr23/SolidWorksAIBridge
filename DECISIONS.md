@@ -213,6 +213,167 @@ Rationale: evaluate the user's simpler six-feature construction against the meas
 
 This session-close instruction authorizes a reviewed commit/push to origin/main without force. It does not authorize geometry changes, SolidWorks execution or implementation during closing, and does not override the future-session default against automatic Git operations.
 
+## BA-006 — Additive equal-height slab-top executor (2026-11-04)
+
+Status: **implemented, compiled and non-CAD tested; Testing; CAD NOT RUN**.
+The current user request authorizes implementation and non-CAD verification only.
+BA-004/BA-005's first increment is `CreateTopFaceBalconyAssembly`, a separate API;
+the validated slab and existing `CreateBalconyAssembly` / `BALCONY_BOTH_WALLS`
+remain unchanged. No new dependency or optimization engine was introduced.
+
+Use one geometrically resolved upward planar slab face, one X/Z-transformed shared
+sketch with two disjoint center rectangles and construction-only diagonals, and one
+upward common-height boss. Require exactly equal heights before CAD; retain independent
+thickness dimensions. Shared geometry does not require a union algorithm for these
+two disjoint footprints; parapet/overlap/unequal-height cases are excluded.
+
+Bind each footprint's depth to SlabDepth, its X center to slab center/width minus
+its own thickness, and its Z center to the unitful fixed facade rear offset plus
+half SlabDepth. Face support locates vertical placement. Initial sign branches and
+an unedited front-facing host remain limits; unsupported sketch axes/origin fail
+explicitly. This avoids reusing the facade-only AddFaceRectangle or silently assuming
+top-sketch axis direction. Face extents use edge endpoints/area because GetBox is
+approximate, per the [SolidWorks API](https://help.solidworks.com/2024/english/api/sldworksapi/SOLIDWORKS.Interop.sldworks~SOLIDWORKS.Interop.sldworks.IFace2~GetBox.html).
+
+Keep the baseline's explicit mark-8 selected balcony body, Merge=true,
+UseFeatScope=true, UseAutoSelect=false, and re-resolve the body for final invariants.
+No MainWall selection or Combine fallback. Body count plus facade bounds/volume,
+balcony volume and topology are required; actual CAD isolation is not proven by
+these source guards or successful compilation.
+
+Validation: 165 non-CAD checks passed (141 existing +24 candidate), all three Debug
+builds passed with existing MSB3305 warnings. The dedicated comparison runs the
+unchanged baseline then candidate in two fresh parts, checks depth 24->26->24 and
+candidate width 56->60->56, expected six-versus-eight features and identical U-shape.
+No CAD, SolidWorks control or Git operations occurred. Actual constraint solving,
+merge scope, stable references/edits and visual review remain approval-gated.
+See [results](tests/results/TOP_FACE_IMPLEMENTATION_2026-11-04.md) and
+[execution scope](tests/TOP_FACE_BALCONY_COMPARISON.md). No promotion or baseline replacement.
+
+## BA-007 — Scoped optimized release and preferred equal-height recipe (2026-11-04)
+
+Status: **user visually approved; scoped Validated**. The user confirms Part3's
+equal-height two-side-wall geometry is correct and matches the intended method.
+All applicable checks for that fixture and its measured edits passed. Promote
+only `lego.balcony.projecting-assembly.equal-height-top-face` **1.0.0**, recipe
+`top-face-shared-r1`, under [this scope/evidence record](tests/results/TOP_FACE_VALIDATED_2026-11-04.md).
+The distinct definition identity prevents broad promotion of the existing assembly
+definition. Retain its eight-feature path/case unchanged as a Testing regression
+baseline, and retain the validated slab V1 unchanged.
+
+Prefer **one shared slab-top sketch and one upward merging boss scoped only to
+the balcony body** for equal-height two-side-wall construction within recorded
+scope. Rationale: actual six-versus-eight feature comparison preserved geometry,
+two bodies, facade isolation, rebuilds and parameter propagation, and the user
+approved the intended method. This is an evidence-based recipe preference, not an
+API replacement, universal optimization rule or authorization to alter geometry.
+
+The scope-body list getter limitation (-1 without rollback), host/sign-branch
+constraints, absence of saved CAD/screenshots and physical print qualification
+remain explicit. Approval covers no parapet, unequal-height, other side modes,
+railings, ground-floor behavior, other hosts or arbitrary parameter combinations.
+Future released-recipe geometry changes require a new candidate/version and checks.
+
+Record the user's next priorities in order: remaining balcony configurations;
+front parapets and railings; Building Dataset Analyzer; Building Process Learning.
+Analyzer and learning are planned capabilities, not subsystems established by
+this decision. No implementation of those priorities is authorized in this session.
+
+Promotion changed only metadata, test expectation and docs. Fresh **165/0** non-CAD
+checks and regression rebuild passed (existing MSB3305 warnings). No SolidWorks or
+Git operations; executor geometry unchanged. Earlier BA-004/BA-006 Testing status
+is historical for this candidate; broad assembly status is not superseded.
+
+## BDA-001 — Silent building evidence and process-learning module (2026-11-04)
+
+Status: **user-requested future design; not implemented or executed**.
+Adopt [BUILDING_DATASET_ANALYZER.md](BUILDING_DATASET_ANALYZER.md) as the module's
+proposed architecture and staged pilot. Building Dataset Analyzer extracts and
+correlates evidence; Building Process Learning derives reusable workflows and
+evaluates alternatives. Keep both separate from the active balcony implementation.
+Priority order: remaining balcony configurations -> front parapets and railings ->
+Building Dataset Analyzer -> Building Process Learning. The learning track later
+supports the image-to-building MVP and Golden Dataset; it does not displace working
+geometry or establish those future systems by documentation alone.
+
+Silent recordings are sufficient input: **voice narration is never required**.
+Combine approximate visible operation intervals with photos, native feature trees,
+sketches, dimensions, dependencies, body/component relationships and 3MF/STL geometry.
+Keep recording time, CAD dependency order and inferred historical sequence distinct;
+final files cannot establish every intermediate operation. A future optional,
+non-mutating API event logger writes sidecar evidence and improves clock/operation
+alignment, subject to supported API coverage. No logger implementation is selected.
+
+Every component/recipe carries source-building, photo-region, native-entity and
+recording-interval provenance with digests/tool versions; unavailable sources stay
+explicitly missing. Separate observed facts, inferred intentions and unverified
+optimization suggestions. Analyze efficiency, parameterization, edit/rebuild
+robustness and profile-specific manufacturing. Propose alternatives rather than
+copying historical workarounds; correctness and repeatability outrank feature count.
+New recipes are **Draft**. Exact-version promotion requires subsequent applicable
+CAD evidence and human approval, never automatic analyzer registration as Validated.
+
+Preserve studio originals read-only and write only to a separate analysis workspace.
+Future comparisons use disposable working copies/reconstructed test parts with
+frozen inputs/environment/tolerances, not original studio documents. Ask short
+human clarification/approval only for necessary unresolved decisions, after the
+modeling session; no narration requests or routine modeling interruptions.
+
+Pilot: 3–5 existing building/address folders, photos, native CAD and available 3MF,
+plus one silent OBS recording of a new session. Start with synthetic manifest/schema
+fixtures, then authorized pilot intake and structured extraction. Fine-tuning is
+outside the initial plan. Rationale: preserve native/visual provenance and test
+whether useful workflow knowledge can be recovered before investing in training.
+
+This decision documents future boundaries only. No production/project changes,
+SolidWorks execution, studio selection/access/analysis, builds/tests or Git operations.
+No existing component lifecycle or validation evidence changed. Open extraction API,
+version/license, scale/units, timing, review and tolerance choices remain in the plan.
+
+## BDA-002 — Prioritize native CAD Inspector V0.1 over sequential family completion (2026-11-04)
+
+Status: **explicitly user-approved strategic decision; implementation not started**.
+Supersedes BDA-001 and BA-007's balcony/family-first scheduling and BDA-001's
+3–5-building multimodal initial pilot. Their source-preservation, evidence and
+Draft-only proposal rules remain in force. Prioritize **Building Dataset Analyzer
+V0.1**, beginning with an independent read-only SolidWorks CAD Inspector, structured
+JSON export and a pilot on **three existing studio building projects**.
+
+Rationale: real studio feature/sketch/dimension/body/dependency evidence can reveal
+reusable building patterns and modeling alternatives across balcony, window,
+railing, stair, roof and other families. Use extracted knowledge to support multiple
+family workstreams rather than manually finishing every variation in sequence.
+This is a strategic expectation to evaluate, not a claim that the analyzer already
+works or that parallel family implementations were produced.
+
+V0.1 extracts native saved-state evidence with explicit source references, units,
+coverage, confidence and provenance; missing/unsupported data remains unknown with
+reasons. Inspect sketches, dimensions/equations, geometry and solid bodies, feature
+dependencies and accessible assembly relationships. Validate structured JSON and
+audit extraction/reproducibility across three explicitly chosen projects. Define
+the read-only access contract and synthetic fixtures before studio intake. Actual
+API/version/configuration support and pilot sources remain to be determined.
+
+Photographs, 3MF/STL, silent OBS recordings, optional API events and more detailed
+Building Process Learning are later integrations; they must not block V0.1 or
+require narration. Fine-tuning remains out of scope. Assess parameterization,
+rebuild/reference robustness and manufacturing alternatives, distinguishing static
+observations from predictions; do not mutate source geometry to test hypotheses.
+Later reproducible comparisons use separately authorized disposable fixtures.
+
+Keep every discovered recipe **Draft** until the exact version has applicable
+geometry/parameter/rebuild/manufacturing validation and required human approval.
+No automatic promotion or alteration of current scoped Validated slab/top-face
+assembly releases. Preserve the eight-feature baseline, all CAD/non-CAD regression
+fixtures and durable evidence. Remaining LEGO families remain planned/incomplete;
+this changes priority, not their completion or approval status.
+
+The [V0.1 scope/acceptance criteria](BUILDING_DATASET_ANALYZER.md) and current
+ROADMAP closeout are authoritative for next work. This closeout changes only the
+three planning documents: no code, new tests/builds, SolidWorks operations, studio
+analysis or Git operations. Previously recorded 165/0 regressions and CAD passes
+are historical evidence, not rerun checks. No implemented architecture changed.
+
 ## Historical change notes
 
 2026-11-03 parameter/integration validation: test each driving dimension in a fresh part. Thickness-only edit preserves the current center-Y constraint; elevation changes calculate center Y explicitly. For the upper-floor door integration, reuse the existing rectangular CreateWindow cut with test-side door semantics rather than modify ground-constrained CreateDoor. Center slab and align top using explicitly calculated threshold coordinates; do not claim a persistent parametric Door-to-Balcony relationship. Rationale: validate the approved slab and actual spatial integration without introducing new production features or hiding current semantics. Six CAD cases passed and 105 automated checks passed; lifecycle promotion awaits human visual review. Evidence: tests/results/BALCONY_EDITS_UPPER_DOOR_2026-11-03.md.

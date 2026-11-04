@@ -25,6 +25,10 @@
     <Compile Include="..\SolidWorksAIBridge\BalconyAssembly.cs"><Link>Production\BalconyAssembly.cs</Link></Compile>
     <Compile Include="..\SolidWorksAIBridge\SolidWorksModeler.BalconyAssembly.cs"><Link>Production\SolidWorksModeler.BalconyAssembly.cs</Link></Compile>
     <Compile Include="..\SolidWorksAIBridge\SolidWorksConnector.cs"><Link>Production\SolidWorksConnector.cs</Link></Compile>
+    <Compile Include="..\SolidWorksAIBridge\TopFaceBalconyAssembly.cs"><Link>Production\TopFaceBalconyAssembly.cs</Link></Compile>
+    <Compile Include="..\SolidWorksAIBridge\SolidWorksModeler.TopFaceBalconyAssembly.cs"><Link>Production\SolidWorksModeler.TopFaceBalconyAssembly.cs</Link></Compile>
+    <Compile Include="TopFaceBalconyTests.cs" Condition="'$(ManualValidation)' != 'true'" />
+    <Compile Include="TopFaceBalconyCadCase.cs" Condition="'$(ManualValidation)' == 'true'" />
     <Compile Include="BalconyDoorThresholdCase.cs" />
     <Compile Include="CadFeatureClassifier.cs" />
     <Compile Include="CadFeatureClassifierTests.cs" Condition="'$(ManualValidation)' != 'true'" />

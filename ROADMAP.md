@@ -1,5 +1,201 @@
 # SolidWorksAIBridge roadmap and handoff
 
+## Phase close — Analyzer V0.1 becomes the next priority (2026-11-04)
+
+**Approved strategic change:** prioritize **Building Dataset Analyzer V0.1** before
+completing the remaining architectural LEGO families. Replace the sequential
+balcony/window/railing/stair/roof expansion schedule with native-CAD knowledge
+extraction first, supporting subsequent development across multiple families.
+This supersedes the earlier balcony-first next-task/priority statements below;
+they remain historical records, not current instructions.
+
+### Next development phase
+
+1. Build an independent **read-only SolidWorks CAD Inspector** for native studio
+   documents. Extract feature trees, sketches, dimensions/equations, geometry,
+   solid bodies, dependencies and accessible assembly relationships.
+2. Export versioned structured **JSON** with source/building/configuration/entity
+   references, content hashes, explicit units, extraction coverage, provenance and
+   confidence; distinguish observed facts, inferred intent and unverified suggestions.
+3. Pilot on **three existing studio building projects**, explicitly selected. Prove
+   original-source preservation, audited extraction coverage and repeatable JSON.
+4. Identify Draft component/recipe candidates across families actually present;
+   assess alternative parameterization, rebuild/reference robustness and 3D-print
+   manufacturing strategies. Later controlled CAD validation must test hypotheses
+   before any recipe promotion. Use findings to scope multiple family workstreams.
+5. Integrate original building photographs, 3MF/STL and silent OBS recordings later;
+   voice narration is never required. Optional API event logging and richer Building
+   Process Learning follow. No fine-tuning in V0.1.
+
+Exact next implementation task: define the V0.1 JSON schema/source manifest,
+read-only adapter interface and synthetic fixtures, then implement the inspector
+without changing geometry executors. Agree supported native versions/configurations
+and safe access before CAD use; choose the three pilot projects before studio intake.
+See [scope and acceptance gates](BUILDING_DATASET_ANALYZER.md) and BDA-002 in
+[DECISIONS.md](DECISIONS.md). Inspector implementation and pilot are **not started**.
+
+### Completed phase and preserved evidence
+
+- Projecting Balcony Slab V1 remains **scoped Validated**, unchanged.
+- Optimized equal-height top-face two-side-wall definition **1.0.0** remains
+  **scoped Validated**, with Part3 user approval and the six-feature preferred recipe
+  within recorded scope. Preserve its [approval record](tests/results/TOP_FACE_VALIDATED_2026-11-04.md).
+- Preserve the existing eight-feature assembly API/case as a **Testing regression
+  baseline**, plus all prior slab/legacy/CAD transcripts and hashes. No generalized
+  family or geometry approval follows from this strategic change.
+- Prior actual comparison: six-versus-eight features, two solids, facade isolation,
+  flush/full-depth walls, depth 24->26->24 and candidate width 56->60->56 passed.
+  Prior metadata-promotion check: **165 non-CAD tests passed, 0 failed**. These are
+  historical verified results, **not rerun during closeout**.
+- Remaining limits: recorded front-facing/unedited host and sampled parameter scope,
+  initial sign branches/cached state, scope-body list readback limitation, no physical
+  print qualification, no general Building JSON/library/image executor. Other balcony
+  configurations and architectural families remain incomplete; they are deferred as
+  sequential priorities, not declared complete or removed from the product goals.
+- Analyzer status: design only; no inspector/schema/exports, chosen studio pilot,
+  extraction accuracy, rebuild comparison or process-learning results exist yet.
+  The earlier 3–5-building/multimodal pilot is deferred; V0.1 requires three native
+  studio projects and does not depend on photographs, 3MF or a new recording.
+- Closeout updated **ROADMAP.md, DECISIONS.md and BUILDING_DATASET_ANALYZER.md**.
+  Document references/content checked. No production changes, builds/tests,
+  SolidWorks operations, studio-file access/analysis or Git operations in this session.
+
+## Latest handoff — future Building Dataset Analyzer / Building Process Learning (2026-11-04)
+
+- Added [BUILDING_DATASET_ANALYZER.md](BUILDING_DATASET_ANALYZER.md): **planned
+  architecture only** for silent video + original photos + SLDPRT/SLDASM + available
+  3MF/STL evidence. Voice narration is **not required**. Optional future API events
+  improve alignment without becoming a dependency of the video-only path.
+- Defined read-only intake/native and mesh extraction, approximate operation/time
+  alignment, photo-to-CAD correspondence, source provenance, LEGO recipe extraction,
+  optimization proposals and reproducible original/optimized CAD comparison gates.
+  Facts, inferred intentions and unverified suggestions remain distinct. Necessary
+  short human questions are deferred until after modeling. All proposed recipes
+  start **Draft**, never automatically Validated; studio originals remain untouched.
+- Pilot is planned for **3–5 existing studio buildings by building/address folder**,
+  with photos, native CAD and available 3MF, plus **one new silent OBS session**.
+  No buildings were selected or analyzed. Begin with structured knowledge extraction,
+  not fine-tuning. Detailed A0–A3/A3b and L1–L3 stages/exit criteria are in the design.
+- Roadmap placement remains **remaining balcony configurations -> front parapets
+  and railings -> Building Dataset Analyzer -> Building Process Learning**.
+  This is a separate future learning track supporting the eventual image-to-building
+  MVP/Golden Dataset, not a dependency or replacement for active balcony work.
+- Exact future module starting point: A0/A1 schema/manifest fixtures using synthetic
+  inputs; then scope and authorize pilot inventory before any real studio access.
+  Current balcony next work and its validated release/baseline remain unchanged.
+- This session updated **BUILDING_DATASET_ANALYZER.md (new), ROADMAP.md and
+  DECISIONS.md only**. Reviewed document references/content; no code/build/test/CAD
+  execution, studio access or Git operations. No extraction/learning capability,
+  dataset, accuracy result or new validation is claimed. Implementation is future work.
+
+## Latest handoff — user approval and scoped optimized release (2026-11-04)
+
+- User explicitly approved **Part3**: optimized equal-height two-side-wall geometry
+  appears correct and matches the intended modeling method. Recorded the approval
+  and acceptance review in [the authoritative validation record](tests/results/TOP_FACE_VALIDATED_2026-11-04.md).
+- All applicable criteria for the recorded sampled configuration/edits are met.
+  Promoted only **lego.balcony.projecting-assembly.equal-height-top-face 1.0.0**,
+  recipe **top-face-shared-r1**, to **scoped Validated**. This distinct identity
+  leaves the broader assembly 1.0.0 **Testing**. Slab V1 stays unchanged/Validated;
+  the existing eight-feature implementation/case stays the regression baseline.
+- Preferred recipe for equal-height two-side walls within the recorded scope:
+  **one slab-top shared sketch + one upward scoped merging Boss-Extrude**, six
+  generated whole-Part features. No API replacement or automatic routing change.
+- Prior actual CAD: two solids, unchanged facade, full-depth/flush side walls,
+  six features, rebuilds and depth 24->26->24 / width 56->60->56 passed; stored
+  boss flags and top-face sketch inspection passed. Scope-body list enumeration
+  remains unavailable without rollback (-1); measured isolation passed.
+- Promotion changed metadata/test expectation/documentation only. Fresh non-CAD
+  runner rebuild passed with existing MSB3305 warnings; **165 passed, 0 failed**.
+  Geometry executors and slab/baseline hashes are unchanged. **No SolidWorks or
+  Git operations**, no application/manual rebuild, no new CAD evidence.
+- Scope is the recorded 180 x 220 x 3 unedited front-facing host; 56 x 24 x 3 slab
+  at X=20/top elevation 120, 20-high/2-thick walls, and the recorded individual
+  width/depth edit cases on SolidWorks 32.5.0. No continuous-domain, other host,
+  parapet, unequal-height, railing, ground-floor or physical printing approval.
+- Next priorities: **remaining balcony configurations**, then **front parapets
+  and railings**, followed by **Building Dataset Analyzer** and **Building Process
+  Learning**. These remain planned; no analyzer/learning engine is implemented.
+  Exact next step: scope an additive remaining-configuration increment, beginning
+  with none/left/right planner fixtures and an evidence-based unequal-height recipe
+  comparison plan, preserving this scoped release and the eight-feature baseline.
+  Separate future CAD execution still requires explicit approval.
+
+Earlier Testing/PENDING entries below are preserved historical checkpoints and
+are superseded only for this exact scoped recipe/version by the release above.
+
+## Latest handoff — optimized comparison actual CAD PASS, visual review pending (2026-11-04)
+
+- Executed the explicitly user-approved `BALCONY_TOP_FACE_COMPARE` once against
+  existing SolidWorks revision 32.5.0. **Exit 0**. Created only **Part2** (unchanged
+  eight-feature baseline) and **Part3** (optimized six-feature candidate), both
+  unsaved. Original Part1 remained clean; existing dirty-flag checks passed after
+  each case. Final inventory: three documents. No launches, saves, closes, exports,
+  existing-document edits, production changes or Git operations.
+- **Actual PASS in both parts:** two solids, MainWall volume/bounds unchanged,
+  connected balcony U-profile (all 16 rear/front corners; V/E/F=16/24/10), no cuts or
+  Combine, successful rebuilds. Depth **24->26->24** propagated with volumes
+  **5952->6448->5952 mm³** within tolerance; rear Z=1.5 stayed flush and fronts
+  followed slab edge Z=25.5->27.5->25.5.
+- **Part3 width 56->60->56 PASS:** both side edges/centers followed slab width,
+  volumes **5952->6240->5952 mm³**; common wall height 20/thicknesses 2 stayed fixed.
+  Part2 has four sketches/four bosses; Part3 has three sketches/three bosses in
+  every measured state. Both parts restored to W=56,D=24.
+- Additional read-only diagnostic **exit 0**: Part3 sketch support is an upward
+  face, eight profile edges/four construction diagonals all on slab-top Y=10;
+  common boss depth 20, direction +Y, **Merge=True, FeatureScope=True,
+  AutoSelect=False**. No AccessSelections/rollback. Creation selected exactly the
+  balcony body; actual facade isolation passed. Stored scope-body enumeration was
+  unavailable (getter -1), so no claim of independently reading that body list.
+- Prior 165/0 non-CAD checks were **not rerun**. No application/manual runner
+  rebuild; only the standalone read-only test diagnostic was compiled. Preserved
+  slab/baseline source hashes match prior values. No architectural decisions changed.
+- **Stopped for user visual review of Part2/Part3.** Candidate/assembly stay
+  **Testing**, not Validated. Exact next step: obtain the user's comparison review
+  (shared slab-top sketch, upward boss, two bodies, rear/front alignment, feature
+  editability and print orientation), record approval/corrections, then assess scoped
+  validation separately. Do not promote, replace baselines, run more CAD or change
+  production geometry automatically. Physical print qualification is unestablished.
+
+Authoritative [actual results and raw evidence](tests/results/TOP_FACE_CAD_2026-11-04.md).
+The implementation-only NOT RUN and execution-approval steps below are historical
+and superseded for this exact comparison by the actual run above.
+
+## Latest handoff — optimized equal-height top-face implementation (2026-11-04)
+
+- Implemented additive `CreateTopFaceBalconyAssembly` / `top-face-shared-r1`, lifecycle **Testing**.
+  One slab-top sketch contains both equal-height wall footprints; one upward Boss-Extrude
+  requests Merge Result with the exclusive balcony body selected (mark 8), selected scope
+  enabled and automatic scope disabled. MainWall is excluded; postconditions check facade
+  invariance, two solids, expected volume and topology. No Combine/cuts.
+- New X/Z-aware helper resolves the slab top by body ownership, planar upward normal,
+  measured edge vertices and face area, then maps through ModelToSketchTransform.
+  Thicknesses remain independently editable; depth and center equations bind both profiles
+  to slab width/depth. Height is common. Host/frame and initial sign-branch restrictions remain.
+- Preserved validated slab and existing eight-feature assembly source/CAD case byte-for-byte
+  (SHA256 checked). Existing paths and Program behavior remain unchanged.
+- Actual verification: **165 non-CAD tests passed, 0 failed** (141 previous +24 candidate).
+  Application, regression runner and manual runner Debug rebuilds passed (exit 0), with
+  existing MSB3305 COM marshaling warnings. Script invocation was blocked by PowerShell
+  policy; equivalent build/run commands succeeded directly without changing policy.
+- Prepared `BALCONY_TOP_FACE_COMPARE`: unchanged eight-feature baseline first, then
+  candidate in a second fresh unsaved part. Expected candidate: six features, two bodies,
+  balcony volumes 5952->6448->5952 mm³ for depth 24->26->24; additionally width 56->60->56
+  with expected intermediate volume 6240 mm³. These remain **expected, not CAD results**.
+- **No SolidWorks connection/control/execution and no Git operations.** CAD constraint
+  solving, face-reference stability, upward boss, actual merge isolation and parameter
+  propagation remain **NOT RUN**; human visual review **PENDING**. No lifecycle promotion.
+- Exact next step: obtain user approval for
+  `.\tests\bin\Manual\SolidWorksAIBridge.ManualValidation.exe --confirm-cad BALCONY_TOP_FACE_COMPARE`,
+  attach to already-running SolidWorks, create only the two comparison parts, stop/preserve
+  on any failure, and record actual measurements plus subsequent visual review. Do not
+  save/close existing documents, launch another instance, replace either baseline, or expand
+  to parapets, unequal heights, ground-floor behavior or other side modes.
+
+Evidence and commands: [implementation result](tests/results/TOP_FACE_IMPLEMENTATION_2026-11-04.md)
+and [comparison contract](tests/TOP_FACE_BALCONY_COMPARISON.md). The 2026-11-03 entries below
+are preserved history; their unimplemented-candidate status is superseded by this entry.
+
 Current lifecycle status: **Projecting Balcony Slab V1 is Validated within its recorded sampled-case and host scope**, after explicit user visual approval of Part3-Part8. See [scope/evidence](tests/results/PROJECTING_SLAB_V1_VALIDATED_2026-11-03.md). Earlier Testing/PENDING status entries below are historical. Top-preserving thickness and ground-floor support are future capabilities.
 
 ## Session close — 2026-11-03 / exact next-session starting point
@@ -70,6 +266,11 @@ Partial capabilities: facade modeling currently means a single wall shell with r
 
 ## Phased delivery
 
+The numbered phases below retain the broad product scope. **They are not the
+current execution order**: the approved Analyzer V0.1 track below is next, before
+exhaustive completion of remaining LEGO families. Current closeout priorities above
+supersede older sequential phase/next-step statements.
+
 | Phase | Scope and exit gate |
 | --- | --- |
 | 1: LEGO/Building JSON contract | Schema, typed definitions/instances/validation records, dependency planning, manufacturing resolution, dry-run reporting, narrow adapters, baseline fixtures. Only implement the subset needed next. |
@@ -77,6 +278,25 @@ Partial capabilities: facade modeling currently means a single wall shell with r
 | 3: Facade recesses/projections | Reusable depth operations with independent zones, printable-thickness checks and regression cases. |
 | 4: First end-to-end MVP | Photos -> AI analysis -> corrected orthographic elevation -> validated Building JSON -> supported SolidWorks model. Prioritize this after balcony/facade validation instead of indefinitely adding isolated details. |
 | 5: Additional components/refinement | Stairs executor, roofs/structural components, pipes/equipment/shutters/awnings, multi-elevation buildings, angled geometry, richer variants, optional video ingestion. |
+
+### Next priority — Building Dataset Analyzer V0.1, then cross-family learning
+
+Begin the read-only native CAD Inspector and three-project JSON pilot **before**
+remaining family completion. Keep it independent of geometry executors; preserve
+validated releases and CAD regression baselines. Extracted knowledge informs multiple
+family workstreams rather than requiring every variation sequentially. Broader
+multimodal/process-learning stages remain planned after this first native-CAD slice.
+
+| Track stage | Scope and gate |
+| --- | --- |
+| V0.1 contract | Versioned JSON/source manifest, read-only adapter contract, units/provenance and synthetic fixtures |
+| V0.1 inspector | Native features/sketches/dimensions/geometry/bodies/dependencies, explicit coverage and safe failure paths; no studio mutation |
+| V0.1 pilot and knowledge | Three studio projects, audited extraction and reproducibility; cross-family Draft inventory and alternative-strategy assessment with later validation plans |
+| Later multimodal integration | Original photos, 3MF/STL, silent OBS timeline and optional event logger; no narration dependency |
+| Later process learning and reuse | Authorized isolated comparisons of original/optimized construction, edit/rebuild/manufacturing evidence and reviewed exact-version lifecycle promotion; never automatic validation |
+
+See [module architecture, pilot and implementation phases](BUILDING_DATASET_ANALYZER.md).
+These stages are **planned, not implemented**; initial work excludes fine-tuning.
 
 Long-term: template adaptation and composition, controlled new-definition proposals, versioned validated library, full buildings and reduced-depth facades, traceable image corrections, and 3D-print manufacturing preparation. All are planned, not implemented.
 

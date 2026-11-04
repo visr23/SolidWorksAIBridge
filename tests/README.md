@@ -1,5 +1,35 @@
 # Regression baseline
 
+Current optimized release: **lego.balcony.projecting-assembly.equal-height-top-face
+1.0.0**, recipe `top-face-shared-r1`, is **Validated within recorded sampled scope**
+after the user's explicit Part3 visual approval. The six-feature shared-top-sketch
+recipe is preferred for the tested equal-height two-side-wall configuration.
+Fresh metadata-promotion check: **165 passed, 0 failed**, regression build passed;
+no new CAD run. The eight-feature baseline remains unchanged/Testing. See the
+[authoritative approval, acceptance criteria and limitations](results/TOP_FACE_VALIDATED_2026-11-04.md).
+Earlier pending-review/testing descriptions below are historical for this recipe.
+
+Latest actual comparison: **BALCONY_TOP_FACE_COMPARE PASS**, exit 0, 2026-11-04.
+Part2 baseline: eight features; Part3 optimized: six features. Both retained two
+solids, facade isolation and depth 24->26->24 propagation with 5952->6448->5952 mm³.
+Part3 also passed width 56->60->56. Read-only inspection confirmed a shared sketch
+on the slab-top face, upward 20 mm boss, Merge=True, FeatureScope=True and
+AutoSelect=False; stored scope-body list readback remains limited. Original Part1
+stayed clean; Part2/Part3 remain unsaved for **user visual review, PENDING**.
+No production changes/Git operations or new non-CAD test run in this validation.
+See [actual evidence](results/TOP_FACE_CAD_2026-11-04.md). Candidate stays Testing;
+the earlier NOT RUN statements below describe the implementation-only checkpoint.
+
+## Slab-top candidate update (2026-11-04)
+
+The non-CAD suite now includes 24 focused equal-height top-face candidate checks:
+**165 passed, 0 failed**. Application and both runner Debug rebuilds pass with
+existing COM marshaling warnings. CAD remains **NOT RUN** for this candidate.
+See [actual result](results/TOP_FACE_IMPLEMENTATION_2026-11-04.md) and the separately
+approved [two-part CAD comparison](TOP_FACE_BALCONY_COMPARISON.md), invoked only
+after explicit permission with `--confirm-cad BALCONY_TOP_FACE_COMPARE`.
+The original baseline implementation/case and validated slab remain unchanged.
+
 Latest CAD result: **BALCONY_BOTH_WALLS PASS**, exit 0, one new unsaved Part9, measured 5952 mm^3 balcony, two solids/eight features, depth 24->26->24 verified. [Actual result](results/BALCONY_BOTH_WALLS_CAD_2026-11-03.md) preserves the transcript. Assembly remains Testing pending user visual review; no broader side-mode validation is implied.
 
 Latest addition: [BalconyAssembly V1 both-wall implementation](BALCONY_ASSEMBLY_V1.md), lifecycle Testing. **141 non-CAD tests passed** (105 existing + 36 assembly). [Implementation checkpoint](results/BALCONY_ASSEMBLY_IMPLEMENTATION_2026-11-03.md) records successful builds; BALCONY_BOTH_WALLS CAD remains NOT RUN pending explicit approval. It is not promoted by the standalone slab's Validated status.

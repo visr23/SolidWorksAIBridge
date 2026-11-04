@@ -1,0 +1,167 @@
+PASS conversion: 180 mm wall width
+PASS conversion: 3 mm thickness
+PASS conversion: signed -55 mm position
+PASS conversion: zero
+PASS conversion rejects NaN
+PASS conversion rejects ∞
+PASS conversion rejects -∞
+PASS modeler rejects null application
+PASS connector Application requires Connect
+PASS positive helper converts
+PASS nonnegative helper permits zero
+PASS position helper preserves sign
+PASS positive helper rejects 0
+PASS positive helper rejects -1
+PASS positive helper rejects NaN
+PASS positive helper rejects ∞
+PASS positive helper rejects -∞
+PASS positive helper rejects 4.94065645841247E-324
+PASS nonnegative helper rejects -1
+PASS nonnegative helper rejects NaN
+PASS nonnegative helper rejects ∞
+PASS nonnegative helper rejects -∞
+PASS wall rejects zero width before COM
+PASS wall rejects negative height before COM
+PASS wall rejects nonfinite thickness before COM
+PASS window rejects width
+PASS window rejects height
+PASS window rejects X
+PASS window rejects Y
+PASS window requires wall
+PASS door rejects width
+PASS door rejects height
+PASS door rejects X
+PASS door requires wall
+PASS door row rejects null widths
+PASS door row rejects null heights
+PASS door row rejects null centers
+PASS door row rejects empty arrays
+PASS door row rejects unequal arrays
+PASS door row requires wall
+PASS row rejects zero count
+PASS row rejects negative gap
+PASS grid rejects zero floors
+PASS grid rejects zero columns
+PASS grid rejects negative vertical gap
+PASS cut tolerance accepts zero and 0.2; preserves value on rejection
+PASS bounds stores actual half-width/height extents
+PASS bounds rejects positive-area overlap
+PASS bounds allows disjoint rectangles
+PASS bounds allows shared edge
+PASS bounds allows shared corner
+PASS bounds honors 1e-10 meter overlap tolerance
+PASS bounds rejects overlap beyond tolerance
+PASS threshold fixture: explicit centered placement and equal overhang
+PASS threshold fixture: V1 rejects slab below host before CAD
+PASS slab: resolved front-facade bounds and elevation
+PASS slab: negative horizontal position
+PASS slab: boundary contact permitted
+PASS slab: custom host dimensions determine face and datum
+PASS slab: definition/instance/evidence remain distinct
+PASS slab: null instance
+PASS slab: null host
+PASS slab: wrong host dependency
+PASS slab: unsafe/invalid ID null
+PASS slab: unsafe/invalid ID 
+PASS slab: unsafe/invalid ID bad id
+PASS slab: unsafe/invalid ID bad@name
+PASS slab: unsafe/invalid ID 1first
+PASS slab: unsafe/invalid ID bad
+
+PASS slab: unsafe/invalid ID aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+PASS slab: invalid width 0
+PASS slab: invalid depth 0
+PASS slab: invalid thickness 0
+PASS slab: invalid width -1
+PASS slab: invalid depth -1
+PASS slab: invalid thickness -1
+PASS slab: invalid width NaN
+PASS slab: invalid depth NaN
+PASS slab: invalid thickness NaN
+PASS slab: invalid width ∞
+PASS slab: invalid depth ∞
+PASS slab: invalid thickness ∞
+PASS slab: invalid width 4.94065645841247E-324
+PASS slab: invalid depth 4.94065645841247E-324
+PASS slab: invalid thickness 4.94065645841247E-324
+PASS slab: nonfinite X
+PASS slab: nonfinite elevation
+PASS slab: too wide
+PASS slab: right boundary exceeded
+PASS slab: left boundary exceeded
+PASS slab: below wall bottom
+PASS slab: above wall top
+PASS slab: invalid host dimension
+PASS slab: depth lost to coordinate precision
+PASS slab: elevation arithmetic lost to precision
+PASS slab: CAD API null instance before COM
+PASS slab: CAD API requires successful host before COM
+PASS classifier: normal Boss without fallback
+PASS classifier: normal Extrusion without fallback
+PASS classifier: ICE wrapping Boss
+PASS classifier: ICE wrapping Extrusion
+PASS classifier: duplicate traversal does not double-count wrapped boss
+PASS classifier: distinct normal and wrapped bosses count two
+PASS classifier: wrapped cut is not a boss
+PASS classifier: repeated absorbed sketch counted once
+PASS assembly: both walls exact bounds and total volume
+PASS assembly: positive area slab contacts and zero rear/front gaps
+PASS assembly: configurable independent wall heights and thicknesses
+PASS assembly: depth derives from child slab
+PASS assembly: depth binding targets exact slab feature
+PASS assembly: print underside maps to zero; walls grow upward
+PASS assembly: negative placement translates both walls
+PASS assembly: independent child names; no false CAD validation
+PASS assembly: null instance
+PASS assembly: null slab
+PASS assembly: null host
+PASS assembly: invalid/duplicate ID null
+PASS assembly: invalid/duplicate ID 
+PASS assembly: invalid/duplicate ID bad id
+PASS assembly: invalid/duplicate ID bad"id
+PASS assembly: invalid/duplicate ID aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+PASS assembly: invalid/duplicate ID both-walls_slab
+PASS assembly: invalid left height 0
+PASS assembly: invalid right thickness 0
+PASS assembly: invalid left height -1
+PASS assembly: invalid right thickness -1
+PASS assembly: invalid left height NaN
+PASS assembly: invalid right thickness NaN
+PASS assembly: invalid left height ∞
+PASS assembly: invalid right thickness ∞
+PASS assembly: invalid left height 4.94065645841247E-324
+PASS assembly: invalid right thickness 4.94065645841247E-324
+PASS assembly: printer minimum required
+PASS assembly: left wall below printer minimum
+PASS assembly: right wall below printer minimum
+PASS assembly: child slab below printer minimum
+PASS assembly: no clear width remains
+PASS assembly: right wall exceeds host top
+PASS assembly: slab exceeds horizontal host boundary
+PASS assembly: CAD API rejects null before COM
+PASS assembly: CAD API requires host before COM
+PASS top face: expected U-section, distinct loops, full slab contact
+PASS top face: analytic depth 24 (not CAD propagation)
+PASS top face: analytic depth 26 (not CAD propagation)
+PASS top face: analytic depth 24 (not CAD propagation)
+PASS top face: width edit moves outer edges and keeps independent thickness
+PASS top face: six exact equation targets, unitful rear offset and child references
+PASS top face: negative slab placement retains signed reference
+PASS top face: signed X/Z axes -1/-1
+PASS top face: signed X/Z axes -1/1
+PASS top face: signed X/Z axes 1/-1
+PASS top face: signed X/Z axes 1/1
+PASS top face: rejects non-unit/nonfinite basis 0
+PASS top face: rejects non-unit/nonfinite basis 0.5
+PASS top face: rejects non-unit/nonfinite basis NaN
+PASS top face: rejects non-unit/nonfinite basis ∞
+PASS top face: rejects rotated/skew basis
+PASS top face: unequal heights rejected before CAD
+PASS top face: thickness cannot close interior
+PASS top face: host bounds retained
+PASS top face: minimum printable section retained
+PASS top face: null input rejected
+PASS top face: executor rejects null without COM
+PASS top face: executor requires host before COM
+PASS top face: lifecycle and names cannot replace baseline
+RESULT: 165 passed, 0 failed. CAD tests: NOT RUN.

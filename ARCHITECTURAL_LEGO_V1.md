@@ -251,6 +251,17 @@ Repeated elements are classified as Unique, RepeatedVertical, RepeatedHorizontal
 
 ### 9.1 BalconyAssembly V1 — approved side-wall rules, Draft composite
 
+Scoped release update (2026-11-04): the separate optimized definition
+**lego.balcony.projecting-assembly.equal-height-top-face 1.0.0**, recipe
+**top-face-shared-r1**, is **Validated only within its recorded sampled host/cases**
+after numeric CAD comparison and explicit user approval of Part3. One slab-top
+shared sketch plus one upward merging boss is the preferred equal-height
+two-side-wall recipe within that scope. See [exact approval and limits](tests/results/TOP_FACE_VALIDATED_2026-11-04.md).
+The broader assembly definition and eight-feature implementation retain their
+own Testing status/baseline; parapets, unequal heights, other side modes, railings
+and all other untested configurations are not promoted. Earlier implementation
+and NOT RUN statements below retain their historical evidence dates.
+
 Definition ID: **lego.balcony.projecting-assembly**, version **1.0.0**, lifecycle **Testing** for the first both-wall implementation. Code and 36 new non-CAD tests now exist; actual assembly CAD remains **NOT RUN**. Other side modes remain planned. See [implementation and approval-gated CAD case](tests/BALCONY_ASSEMBLY_V1.md). This new composite remains separate from scoped Validated lego.balcony.projecting-slab 1.0.0, whose geometry/behavior/evidence are unchanged. Design/validation steps below retain the broader plan; they are not claims that every mode/test has been implemented or run.
 
 #### Component contract and dependencies

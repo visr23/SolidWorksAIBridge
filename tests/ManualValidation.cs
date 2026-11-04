@@ -6,6 +6,11 @@ internal static class ManualValidation
     [STAThread]
     private static int Main(string[] args)
     {
+        if (args.Length == 2 && args[0] == "--confirm-cad" && args[1] == "BALCONY_TOP_FACE_COMPARE")
+        {
+            try { return TopFaceBalconyCadCase.Run(); }
+            catch (Exception ex) { Console.Error.WriteLine(ex); return 1; }
+        }
         if (args.Length == 2 && args[0] == "--confirm-cad" && args[1] == "BALCONY_BOTH_WALLS")
         {
             try { return BalconyAssemblyCadCase.Run(); }

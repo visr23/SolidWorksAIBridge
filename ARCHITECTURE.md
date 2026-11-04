@@ -4,6 +4,19 @@ Evidence baseline: repository inspection on 2026-11-03. Implementation verified 
 
 ## Current implementation
 
+2026-11-04 additive candidate: `TopFaceBalconyAssembly.cs` supplies equal-height
+preflight, X/Z basis checks and footprint dependency equations.
+`SolidWorksModeler.TopFaceBalconyAssembly.cs` adds `CreateTopFaceBalconyAssembly`:
+unchanged slab creation -> measured slab-top face -> two constrained footprints
+in one sketch -> one upward scoped merging boss -> existing body/facade invariants.
+No existing geometry API or entry point is replaced. One common height and independent
+thicknesses are editable; widths/depths bind to slab dimensions. Only equal-height
+both-wall configuration is supported by this recipe. Application, regression and
+manual runner builds pass; 165 non-CAD checks pass. Candidate **Testing**, CAD
+**NOT RUN**, visual review pending. See [comparison](tests/TOP_FACE_BALCONY_COMPARISON.md).
+The historical implementation descriptions below retain their original evidence
+dates; the baseline's actual 2026-11-03 CAD pass is recorded in ROADMAP.md.
+
 Latest additive component: BalconyAssembly.cs defines the immutable both-wall instance, side plans and COM-free validation. SolidWorksModeler.BalconyAssembly.cs adds CreateBalconyAssembly, reusing the unchanged slab and creating two scoped merging Boss-Extrudes plus depth/placement equations. It targets only the current balcony body and checks facade isolation, body count, expected volume and prismatic topology after each wall. Preferred print direction is +Y/underside-down metadata, not physical printer certification. Definition is **Testing**; 141 non-CAD tests/builds pass, while actual merge/equation/connectivity behavior awaits the approval-gated BALCONY_BOTH_WALLS case. See [assembly details](tests/BALCONY_ASSEMBLY_V1.md). Existing slab and wall/window/door methods/Program behavior are unchanged; left/right/none modes and a generic library/Building JSON pipeline remain future work.
 
 ```text

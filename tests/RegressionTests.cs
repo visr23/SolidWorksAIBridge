@@ -175,6 +175,7 @@ internal static partial class RegressionTests
         BalconySlabTests();
         FeatureClassificationTests();
         AssemblyTests();
+        TopFaceTests();
         Console.WriteLine("RESULT: " + passed + " passed, " + failed + " failed. CAD tests: NOT RUN.");
         return failed == 0 ? 0 : 1;
     }
