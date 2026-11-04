@@ -1,3 +1,15 @@
+## Photo-based blockout command — 2026-11-04
+
+Program dispatches `--photo-blockout` through the existing STA connector to
+`SolidWorksModeler.CreatePhotoBlockout` in a new partial file. It creates only a
+new unsaved part, four unmerged solids and analytic body-count/volume checks.
+`--help`/invalid input exit before COM; no arguments preserve the legacy demo.
+Profiles are hard-coded assumed miniature-mm photo-proportion concepts, not
+image analysis, executable Building JSON, a native Inspector or a saved-part
+resume feature. [Setup and boundaries](PHOTO_BLOCKOUT.md);
+[actual build/regression/CAD evidence](tests/results/PHOTO_BLOCKOUT_2026-11-04.md).
+The historical entry-point descriptions below predate this additive dispatch.
+
 # SolidWorksAIBridge architecture
 
 Evidence baseline: repository inspection on 2026-11-03. Implementation verified here means source exists and was inspected, not that SolidWorks execution passed. Documentation-only audit; no build or CAD execution performed.

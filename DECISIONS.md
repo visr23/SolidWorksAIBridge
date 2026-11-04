@@ -1,3 +1,14 @@
+## PB-001 — reproducible photo blockout before source-tree diagnosis (2026-11-04)
+
+Keep the successful massing experiment as explicit `--photo-blockout`, separate
+from the unchanged default demo and from the read-only Analyzer/Inspector. The
+command always creates a new unsaved part; it cannot silently modify a cloud-saved
+pilot or the active user document. No original feature tree is consulted for
+reconstruction; a future Inspector supports later failure diagnosis instead.
+Assumed miniature geometry is labeled ASSUMED and is not promoted to a Validated
+LEGO recipe by visual massing approval. Code and portable handoff go in Git; the
+user saves the CAD model separately. See [pilot instructions](PHOTO_BLOCKOUT.md).
+
 # Architectural decision log
 
 Baseline date: 2026-11-03. Decisions below distinguish existing behavior from approved future design. Approval of a specification does not establish implementation or test completion. Sources are repository-relative and should be rechecked when implementation changes.

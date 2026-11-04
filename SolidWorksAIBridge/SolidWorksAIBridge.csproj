@@ -46,6 +46,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="SolidWorksConnector.cs" />
     <Compile Include="SolidWorksModeler.cs" />
+    <Compile Include="SolidWorksModeler.PhotoBlockout.cs" />
     <Compile Include="SolidWorksModeler.BalconySlab.cs" />
     <Compile Include="ProjectingBalconySlab.cs" />
     <Compile Include="BalconyAssembly.cs" />

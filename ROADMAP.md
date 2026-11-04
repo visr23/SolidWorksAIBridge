@@ -1,3 +1,24 @@
+## Latest handoff — photo-based massing command (2026-11-04)
+
+- Implemented `--photo-blockout`: a separate command creating a NEW UNSAVED Part
+  with two mass bodies and two solid gable envelopes, all named ASSUMED. No source
+  CAD/tree inspection. Existing no-argument wall/door demo remains unchanged;
+  help/invalid arguments return before COM. No automatic saved-file resume.
+- Verified: production build; help exit 0; invalid args exit 1; 165/0 regression
+  checks; integrated CAD run exit 0, four rebuilds/four bodies and measured summed
+  volume 2,624,250 mm³. Existing MSB3305 warnings. Original prototype massing was
+  visually approved by the user; this integrated run has numeric verification.
+- [Actual evidence](tests/results/PHOTO_BLOCKOUT_2026-11-04.md) and
+  [home setup, command and cloud-model handoff](PHOTO_BLOCKOUT.md).
+- User saves/syncs the CAD model separately; Git carries code/docs only. Assumed
+  miniature dimensions, unconstrained sketches and solid roof envelopes remain
+  experimental. Inspector, entrance/opening execution and saved-model continuation
+  are not implemented. No new legacy CAD suite or Analyzer tests run in this task.
+- Exact next step: at home pull/build, open the separately synced pilot, confirm
+  target identity and scale/proportions, then add entrance recess and primary
+  openings with explicit body scope. Keep source-tree diagnosis separate and defer
+  source-tree consultation until a reconstruction problem needs investigation.
+
 # SolidWorksAIBridge roadmap and handoff
 
 ## Phase close — Analyzer V0.1 becomes the next priority (2026-11-04)
