@@ -1,3 +1,33 @@
+## Planned AUE comparison integration — 2026-11-04
+
+[Architectural Understanding Engine V1](ARCHITECTURAL_UNDERSTANDING_ENGINE.md)
+owns photo/optional-video architectural interpretation and shared geometric views.
+Analyzer retains native/visual/process evidence extraction and comparison: evaluate
+AUE interpretations against matched studio CAD, photographs, recordings and reference
+evidence. It does not absorb AUE reconstruction, LEGO recipe planning or CAD execution.
+
+Future comparison inputs identify building, source and interpretation/CAD revisions,
+digests, frames, units/scale, scope, entity correspondences and extraction coverage.
+Freeze the initial photo interpretation before comparison. Align reference frames
+explicitly and distinguish architectural dimensions from miniature/manufacturing
+compression. CAD is evidence with limitations, not automatic real-building truth.
+Return versioned findings with residuals/tolerances, missing dimensions, uncertain
+geometry, discrepancies and review decisions linked to both inputs. AUE corrections
+create a new revision; comparisons do not overwrite source observations or promote
+LEGO recipes. Source-preservation and Draft-only rules remain unchanged.
+
+Building Analysis/Source Manifest 0.1.0 are existing closed native-evidence contracts,
+not AUE interpretation or executable Building JSON schemas. Add a separately versioned
+comparison contract or explicit schema revision during future implementation; do not
+silently extend current fixtures/validator. No integration is implemented here.
+
+Pilot Building #001 is AUE's future facade/necessary-side validation case; its images,
+CAD identity, scale and permissions are unverified in this task. This single-building
+case does not replace Analyzer V0.1's separate three-project acceptance gate. Reference
+access/Inspector safety and extraction require subsequent authorization. No studio
+assets, images or CAD were accessed and no comparison or test was run in this session.
+The Phase 1 implementation status below remains unchanged; broader integration is planned.
+
 # Building Dataset Analyzer — Building Process Learning
 
 Status update, 2026-11-04: **Phase 1 contract foundation implemented and non-CAD

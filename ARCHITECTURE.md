@@ -1,3 +1,42 @@
+## Approved proportional-sizing correction — 2026-11-04
+
+[AUE Dimension-Driven Proportional Scaling](ARCHITECTURAL_UNDERSTANDING_ENGINE.md)
+allows exactly one user-selected Height or Width target in actual miniature mm;
+neither is preferred. Lock that selected-scope extent and apply s=target/relative
+extent uniformly to architectural geometry. Height runs from lowest architectural
+point to highest roof point; width spans the selected scope, excluding context and
+display base. Manufacturing and optional explicit depth compression follow scaling
+and must preserve the lock or report a conflict. Keep relative source geometry,
+uncertainty, target, factor and adjustments traceable. A miniature target does not
+establish real-world architectural mm. ADI and Evidence Reconciliation approval is
+unchanged. This refines planned design only; runtime architecture is unchanged.
+
+## Approved AUE V1 design boundary — 2026-11-04
+
+[Architectural Understanding Engine](ARCHITECTURAL_UNDERSTANDING_ENGINE.md) now
+specifies the planned photo/video understanding stage: source registration,
+segmentation, cameras, shared reconstruction, derived orthographic elevations,
+adaptive scope/view planning, depth/opening mapping, consistency and Building JSON
+compilation. All AUE modules remain **unimplemented**. This addition records an
+approved design boundary; it does not establish a changed runtime architecture.
+
+Facade Only, Partial Building and Full Building share one geometric authority;
+independent generated elevation images are never authoritative. Views carry
+Required/Optional/Not Required/Unknown status. Relative scale and uncertain geometry
+remain explicit. Manufacturing/compression derives a separate plan from architectural
+geometry under existing LEGO rules. No sections are required in V1.
+
+Planned flow: Photos/Video -> AUE -> Shared Architectural Geometry -> derived
+Elevations/optional Top View -> Depth/Relief -> validated architectural Building
+JSON -> LEGO Planner -> deterministic Builder -> printable model. Analyzer compares
+interpretations with registered CAD/photo/recording evidence; Planner selects recipes
+and resolves manufacturing; Builder executes supported operations. Current Analyzer
+0.1.0 schemas are not AUE/Building JSON schemas. Existing code, scoped Validated
+LEGO definitions and baselines remain unchanged. See the specification for MVP gates.
+
+The older generic analysis/elevation flow below is refined by this design; historical
+implementation/test statements retain their original scope and dates.
+
 ## Photo-based blockout command — 2026-11-04
 
 Program dispatches `--photo-blockout` through the existing STA connector to

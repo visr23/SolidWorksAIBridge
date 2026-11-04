@@ -1,3 +1,84 @@
+## Session close — AUE V1 documentation publication (2026-11-04)
+
+- Completed approved AUE V1 design: shared geometry, Adaptive View Planning,
+  Facade/Partial/Full scopes, depth/opening semantics, ADI, Evidence Reconciliation,
+  Height-or-Width uniform proportional sizing and Analyzer/LEGO/Builder boundaries.
+  Named ADI/reconciliation responsibilities consolidate existing approved provisions;
+  no new implementation decision or runtime capability is introduced at closeout.
+- Only five documentation files are included: the new AUE specification plus
+  ARCHITECTURE.md, BUILDING_DATASET_ANALYZER.md, DECISIONS.md and ROADMAP.md.
+  Validated LEGO source, tests and previous evidence are unchanged. No binaries,
+  caches, build output, temporary logs or unrelated files are included.
+- Verification: reviewed all pending content; fetched origin with main aligned (0/0),
+  no conflicts/divergence; local Markdown links and documentation whitespace checks
+  passed. No build/runtime/AUE tests, CAD, dataset access or physical print performed.
+  Prior 70/0 Analyzer and 165/0 regressions remain historical results, not rerun.
+- Approved specifications remain unimplemented. Pilot assets/identity and scale are
+  unverified; geometry/schema encoding, compiler sizing adapter, reconstruction,
+  uncertainty/tolerances and comparison APIs remain open. No AUE validation claimed.
+- User explicitly authorized a reviewed documentation commit and non-force push to
+  origin/main. Earlier no-Git statements describe the preceding design-only tasks.
+- **Exact next task:** begin the smallest practical AUE photo-to-structure pilot using
+  **Pilot Building #001**, starting with the **primary facade, shared geometry,
+  openings, roof profiles and uncertainty tracking**. First verify explicitly supplied
+  pilot image identity and selected scope; retain relative measurements, choose only
+  necessary side views, and freeze initial photo interpretation before reference
+  comparison. Implement non-COM contracts/fixtures as needed within that next approved
+  task. This closeout does not authorize implementation, studio access or CAD execution.
+
+## Current handoff — proportional sizing correction (2026-11-04)
+
+- Updated AUE specification, planned architecture note and AUE-002: Height **or**
+  Width is user-selected, exactly one locked miniature-mm target; uniform s=T/D
+  preserves proportions using selected-scope bounds. Manufacturing follows and
+  must preserve the lock; optional depth compression remains explicit/separate.
+- Retain relative geometry, uncertainty and sizing/adjustment provenance. A user
+  miniature target does not establish real-world metric evidence. ADI and Evidence
+  Reconciliation remain approved and unchanged; their separately named detailed
+  contracts are not present in the current repository specification.
+- Status: documentation/design only; no implementation, builds/runtime tests,
+  SolidWorks, dataset access or Git operations. Documentation checks passed: local links in all four updated documents exist;
+  formula, both worked choices, acceptance gate and retained approval names present.
+- Exact next step: await implementation approval, then add non-COM contract fixtures
+  for both primary choices, invalid selections/targets, scope bounds, uniform ratios,
+  uncertainty and manufacturing lock conflicts alongside the existing AUE MVP gates.
+  Compiler encoding for relative-to-miniature sizing remains an open integration choice.
+
+## Current handoff — approved AUE V1 design, implementation awaiting approval (2026-11-04)
+
+- Created [AUE V1 architecture](ARCHITECTURAL_UNDERSTANDING_ENGINE.md): nine planned
+  modules, one shared geometric authority, three model scopes, adaptive requirements,
+  signed depth/opening semantics, uncertainty, manufacturing separation and MVP gates.
+- Updated architecture's planned boundary, decision AUE-001 and Analyzer comparison
+  integration. Preserved historical records, existing builders, scoped Validated
+  LEGO definitions, regression baselines and test evidence.
+- **Status:** AUE approved/design only; no AUE module, schema/compiler, renderer,
+  interpretation or Pilot #001 validation is implemented by this session. Existing
+  hard-coded photo blockout is experimental and is not AUE reconstruction. Analyzer
+  Phase 1 contracts exist; Inspector and AUE comparison implementation remain future.
+- **Verification:** documentation checks passed: all local Markdown link targets in
+  the five documents exist and all nine planned module rows are present. No build/runtime tests, CAD, image processing, studio access
+  or Git operations. Prior 70/0 Analyzer and 165/0 regressions are historical, not
+  rerun and not evidence of AUE functionality. No new accuracy/print result.
+- **Smallest MVP:** human-assisted Pilot Building #001 main facade plus only necessary
+  side/roof geometry; shared structured fixture, front line drawing, requirement
+  matrix and uncertainty register. Relative measurements are allowed in interpretation;
+  unresolved execution-critical dimensions block executable metric output. Freeze
+  image inference before later authorized comparison to matched CAD evidence.
+- **Priority clarification:** this is the current photo-understanding design track.
+  Earlier instructions to build/pull/run the pilot are historical, not authorization
+  now. Analyzer Inspector Phase 2 remains a separate planned evidence workstream;
+  its three-project acceptance gates are unchanged. Whole-house automation and
+  completion of all LEGO families are not prerequisites for this AUE MVP.
+- **Unresolved:** geometry/schema encoding, camera/reconstruction approach, scale,
+  uncertainty propagation, tolerances/annotations, review UI, comparison contract,
+  compression domains and manufacturing profile. Pilot identity/assets unverified.
+- **Exact next action:** await implementation approval, then define non-COM AUE
+  interpretation/view/quantity contracts and synthetic fixtures for scopes, projection,
+  depth semantics and missing-scale rejection. Do not access Pilot/studio assets or
+  execute CAD without the relevant subsequent authorization. Implementation order
+  and acceptance criteria are in the AUE specification.
+
 ## Analyzer Phase 1 publication checkpoint (2026-11-04)
 
 User authorized publishing the previously local Analyzer foundation for use at

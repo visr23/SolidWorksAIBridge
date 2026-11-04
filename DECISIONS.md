@@ -1,3 +1,67 @@
+## AUE session-close clarification — 2026-11-04
+
+No new architectural decision at closeout. AUE-001/AUE-002 remain approved design,
+not implemented/tested AUE functionality. The AUE specification now names ADI's
+shared-geometry drawing responsibilities and Evidence Reconciliation's traceable
+conflict/revision responsibilities explicitly, consolidating existing approved
+provisions. Earlier notes about absent named contracts are historical; detailed
+interfaces/algorithms remain open. Next work is the Pilot #001 primary-facade
+photo-to-structure MVP recorded in ROADMAP.md. Source, validated releases, regressions
+and evidence remain untouched. User authorized documentation commit/push only here.
+
+## AUE-002 — User-selected Height or Width proportional sizing (2026-11-04)
+
+Status: **approved design correction; unimplemented**. Adopt
+[Dimension-Driven Proportional Scaling](ARCHITECTURAL_UNDERSTANDING_ENGINE.md):
+exactly one Height or Width target, in actual miniature mm, determines one uniform
+factor from selected-scope relative geometry. Neither dimension is preferred.
+Lock the target; preserve proportions, uncertainty and original geometry. Height
+uses lowest architectural point to highest roof point; width uses selected scope
+bounds, excluding context/display base. Facade/partial models use their own scope.
+Apply manufacturing afterward and depth compression only as a separate explicit
+transformation; conflicting adjustments must report a conflict, never silently
+change the lock. Record target, scope, factor, revisions and adjustments.
+
+Rationale: users can size a miniature by either available display dimension without
+distorting architectural relationships. A chosen miniature size is a design input,
+not evidence of real-building dimensions; preserve the architectural/miniature unit
+boundary. ADI and Evidence Reconciliation remain approved, unchanged. No production
+code, runtime tests, CAD or Git operations; implementation awaits approval.
+
+## AUE-001 — Shared architectural geometry before drawings and CAD (2026-11-04)
+
+Status: **explicitly user-approved architectural direction; documentation only**.
+Adopt [AUE V1](ARCHITECTURAL_UNDERSTANDING_ENGINE.md) as the photo/optional-video
+understanding stage. Refines A-002/A-003 and the generic corrected-elevation flow:
+all views derive from one versioned shared geometry model, never independent
+AI-generated elevation images. Rationale: shared corners, frames, datums and depth
+constraints allow cross-view consistency and traceable corrections.
+
+Support Facade Only, Partial Building and Full Building with explicit per-view
+Required/Optional/Not Required/Unknown requirements. Ask for added views only for
+material scope-specific gains. Keep uncertain/relative quantities explicit; do not
+invent metric depths. Separate structured signed-depth/opening semantics from
+optional colored relief visualization and observed geometry from manufacturing
+compression. Retain secondary details and occlusion evidence. No sections in V1.
+
+AUE interprets; Analyzer compares registered interpretations/reference evidence;
+LEGO Planner selects versioned definitions/recipes and resolves manufacturing;
+Builder executes deterministically. Separate contracts and versioned integration
+must preserve Analyzer 0.1.0, current geometry APIs, Validated definitions and tests.
+“Validated Building JSON” does not confer CAD/physical-print validation or recipe
+promotion. Missing critical dimensions block execution eligibility.
+
+Smallest MVP is a human-assisted Pilot #001 facade interpretation with necessary
+side views, a shared fixture, derived front drawing and uncertainty register;
+freeze photo inference before later CAD comparison to avoid reference leakage.
+No whole-house prerequisite. This updates the photo-track handoff without completing
+or canceling the independent Analyzer Inspector/three-project plan. PB-001's
+experimental blockout remains unchanged; it is not an implemented AUE.
+
+No implementation, studio intake, tests or CAD execution occurred. Exact schemas,
+methods/tolerances and pilot evidence remain open. Implementation awaits approval;
+existing historical decisions and validation records are preserved.
+
 ## PB-001 — reproducible photo blockout before source-tree diagnosis (2026-11-04)
 
 Keep the successful massing experiment as explicit `--photo-blockout`, separate
