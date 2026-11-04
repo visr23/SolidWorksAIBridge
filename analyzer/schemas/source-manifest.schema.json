@@ -1,0 +1,414 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:solidworks-ai-bridge:source-manifest:0.1.0",
+  "title": "source-manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "manifestId",
+    "buildingId",
+    "sourceRevision",
+    "synthetic",
+    "rootAliases",
+    "assets",
+    "optionalInputs",
+    "limitations"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "enum": [
+        "0.1.0"
+      ]
+    },
+    "manifestId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "buildingId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "sourceRevision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "synthetic": {
+      "type": "boolean"
+    },
+    "rootAliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "rootAlias",
+          "relativePath",
+          "availability",
+          "sha256",
+          "sizeBytes",
+          "units",
+          "configurationNames",
+          "relatedAssetIds",
+          "associationReason"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "kind": {
+            "enum": [
+              "sldprt",
+              "sldasm",
+              "photo",
+              "stl",
+              "3mf"
+            ]
+          },
+          "rootAlias": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "relativePath": {
+            "type": "string",
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*[\\\\:%])[A-Za-z0-9._ /-]+$"
+          },
+          "availability": {
+            "enum": [
+              "available",
+              "missing",
+              "not_supplied"
+            ]
+          },
+          "sha256": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "status",
+                  "value",
+                  "reason"
+                ],
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "available"
+                    ]
+                  },
+                  "value": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "reason": {
+                    "type": "null"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "status",
+                  "value",
+                  "reason"
+                ],
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "unavailable",
+                      "unsupported",
+                      "not_applicable"
+                    ]
+                  },
+                  "value": {
+                    "type": "null"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            ]
+          },
+          "sizeBytes": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "status",
+                  "value",
+                  "reason"
+                ],
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "available"
+                    ]
+                  },
+                  "value": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "reason": {
+                    "type": "null"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "status",
+                  "value",
+                  "reason"
+                ],
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "unavailable",
+                      "unsupported",
+                      "not_applicable"
+                    ]
+                  },
+                  "value": {
+                    "type": "null"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            ]
+          },
+          "units": {
+            "enum": [
+              "m",
+              "mm",
+              "cm",
+              "in",
+              "unknown"
+            ]
+          },
+          "configurationNames": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "relatedAssetIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            }
+          },
+          "associationReason": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "optionalInputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "photographs",
+        "stl",
+        "threeMf"
+      ],
+      "properties": {
+        "photographs": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "value",
+                "reason"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "available"
+                  ]
+                },
+                "value": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                  }
+                },
+                "reason": {
+                  "type": "null"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "value",
+                "reason"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "unavailable",
+                    "unsupported",
+                    "not_applicable"
+                  ]
+                },
+                "value": {
+                  "type": "null"
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "stl": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "value",
+                "reason"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "available"
+                  ]
+                },
+                "value": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                  }
+                },
+                "reason": {
+                  "type": "null"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "value",
+                "reason"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "unavailable",
+                    "unsupported",
+                    "not_applicable"
+                  ]
+                },
+                "value": {
+                  "type": "null"
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "threeMf": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "value",
+                "reason"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "available"
+                  ]
+                },
+                "value": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                  }
+                },
+                "reason": {
+                  "type": "null"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "value",
+                "reason"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "unavailable",
+                    "unsupported",
+                    "not_applicable"
+                  ]
+                },
+                "value": {
+                  "type": "null"
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "definitions": {}
+}

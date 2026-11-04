@@ -16,6 +16,30 @@ Evidence baseline: repository inspection on 2026-11-03. Implementation verified 
 
 ## Current implementation
 
+### Independent Building Dataset Analyzer foundation — 2026-11-04
+
+`analyzer/BuildingDatasetAnalyzer.Contracts.csproj` is a separate .NET Framework
+4.8 library, not referenced by the production executable/solution, with no COM
+reference. It contains an immutable read-only inspection interface/request/result
+and pure in-memory schema/consistency validation. Draft-07 JSON schemas define
+Building Analysis/Source Manifest 0.1.0 data structures; two synthetic building
+pairs and an isolated test executable exercise them. See [contracts](analyzer/README.md).
+
+```text
+Repository JSON schemas + synthetic building/manifest fixtures
+  -> independent non-CAD test executable
+  -> in-memory schema-subset + consistency validator
+
+IReadOnlyCadAdapter (interface only; no implementation/source resolver)
+```
+
+The library has no filesystem/SolidWorks access. Tests read repository JSON only;
+fixture source paths are never resolved. All candidate components remain Draft.
+Saved-state extraction, safe intake, assembly traversal and studio pilot remain
+planned. Analyzer build/70 checks and existing regression build/165 checks passed;
+these establish contract checks, not extraction accuracy or CAD preservation.
+Historical single-project descriptions below describe the earlier architecture.
+
 2026-11-04 additive candidate: `TopFaceBalconyAssembly.cs` supplies equal-height
 preflight, X/Z basis checks and footprint dependency equations.
 `SolidWorksModeler.TopFaceBalconyAssembly.cs` adds `CreateTopFaceBalconyAssembly`:

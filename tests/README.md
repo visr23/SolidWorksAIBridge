@@ -1,5 +1,11 @@
 # Regression baseline
 
+Independent analyzer Phase 1 checks are documented in [analyzer/README.md](../analyzer/README.md).
+Run `powershell -NoProfile -ExecutionPolicy Bypass -File .\analyzer\Run-AnalyzerTests.ps1`
+from the repository root. This builds a separate COM-free .NET Framework 4.8
+library/test executable, validates synthetic JSON only and never resolves CAD
+source paths or runs SolidWorks. See [actual results](results/ANALYZER_PHASE1_2026-11-04.md).
+
 Current optimized release: **lego.balcony.projecting-assembly.equal-height-top-face
 1.0.0**, recipe `top-face-shared-r1`, is **Validated within recorded sampled scope**
 after the user's explicit Part3 visual approval. The six-feature shared-top-sketch

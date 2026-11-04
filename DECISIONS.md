@@ -11,6 +11,40 @@ user saves the CAD model separately. See [pilot instructions](PHOTO_BLOCKOUT.md)
 
 # Architectural decision log
 
+## BDA-003 — Phase 1 contract and safety boundary (2026-11-04)
+
+Implemented only the [Analyzer contract foundation](analyzer/README.md).
+
+- Independent .NET Framework 4.8 library, explicit Compile entries, no COM or
+  production geometry reference. Validation accepts JSON in memory; the future
+  adapter accepts immutable source IDs, expected digest and explicit configuration
+  names, never CAD paths/streams/handles. No adapter implementation/source resolver
+  exists. This makes CAD mutation unavailable in Phase 1; an interface alone cannot
+  guarantee future COM safety.
+- Building Analysis and Source Manifest **0.1.0** use Draft-07 schemas with unknown
+  fields/versions rejected. Schemas define the authoritative entity structures;
+  defer duplicate C# DTOs until needed by inspection. Analysis JSON remains
+  separate from executable Building JSON.
+- Entity IDs are local to document/configuration snapshots, with qualified claim
+  links and source hashes/revisions through the manifest. Preserve explicit units,
+  frames, coverage, provenance and null-with-reason values; never infer architectural
+  scale. Rationale: names/missing values must not imply unsupported source facts.
+- Separate observed facts, inferred intention and optimization suggestions.
+  Suggestions require checks; candidates require interpretation/missing evidence
+  and remain Draft. Confidence does not confer geometry validation.
+- Use a dependency-free validator for the pinned schema keyword subset plus
+  semantic consistency; unknown schema keywords fail closed. This avoids a new
+  package dependency but is not general Draft-07 conformance. Reassess on expansion.
+- Synthetic paths/hashes are explicitly unavailable placeholders, never resolved
+  or fabricated. Real observations require source hashes. Future intake must
+  enforce path containment/reparse-point handling, safe capabilities and source
+  preservation separately; metadata path checks are not a security boundary.
+
+Evidence: [Phase 1 results](tests/results/ANALYZER_PHASE1_2026-11-04.md): 70 analyzer
+and 165 existing non-CAD checks passed. No studio access/CAD extraction/validation,
+recipe promotion or production geometry change. API/version support and assembly
+contract expansion remain open for Phase 2. Earlier decisions below are preserved.
+
 Baseline date: 2026-11-03. Decisions below distinguish existing behavior from approved future design. Approval of a specification does not establish implementation or test completion. Sources are repository-relative and should be rechecked when implementation changes.
 
 ## Established implementation decisions

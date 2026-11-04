@@ -1,0 +1,723 @@
+{
+  "schemaVersion": "0.1.0",
+  "analysisId": "synthetic-balcony-building-analysis-r1",
+  "buildingId": "synthetic-balcony-building",
+  "manifestId": "synthetic-balcony-building-manifest",
+  "sourceRevision": "synthetic-r1",
+  "synthetic": true,
+  "run": {
+    "id": "synthetic-run-1",
+    "utc": "2026-11-04T00:00:00Z",
+    "tool": "fixture-author",
+    "toolVersion": "0.1.0",
+    "environment": "Synthetic; no SolidWorks"
+  },
+  "documents": [
+    {
+      "id": "doc-1",
+      "assetId": "cad-1",
+      "kind": "part",
+      "units": {
+        "length": "mm",
+        "angle": "rad",
+        "scaleDomain": "miniature",
+        "architecturalScale": {
+          "status": "unavailable",
+          "value": null,
+          "reason": "No architectural scale asserted."
+        }
+      },
+      "frames": [
+        {
+          "id": "model",
+          "origin": [
+            0,
+            0,
+            0
+          ],
+          "xAxis": [
+            1,
+            0,
+            0
+          ],
+          "yAxis": [
+            0,
+            1,
+            0
+          ],
+          "zAxis": [
+            0,
+            0,
+            1
+          ],
+          "handedness": "right",
+          "lengthUnit": "mm",
+          "description": "Centered facade: X right, Y up, Z exterior."
+        }
+      ],
+      "configurations": [
+        {
+          "id": "cfg-default",
+          "name": "Default",
+          "parentId": null,
+          "coverage": [
+            {
+              "category": "bodies",
+              "status": "partial",
+              "reason": "Synthetic fixture; no extraction completeness established."
+            },
+            {
+              "category": "features",
+              "status": "partial",
+              "reason": "Synthetic fixture; no extraction completeness established."
+            },
+            {
+              "category": "sketches",
+              "status": "partial",
+              "reason": "Synthetic fixture; no extraction completeness established."
+            },
+            {
+              "category": "dimensions",
+              "status": "partial",
+              "reason": "Synthetic fixture; no extraction completeness established."
+            },
+            {
+              "category": "dependencies",
+              "status": "partial",
+              "reason": "Synthetic fixture; no extraction completeness established."
+            },
+            {
+              "category": "assemblies",
+              "status": "not_applicable",
+              "reason": "Synthetic fixture; no extraction completeness established."
+            },
+            {
+              "category": "equations",
+              "status": "unavailable",
+              "reason": "Synthetic fixture; no extraction completeness established."
+            }
+          ],
+          "bodies": [
+            {
+              "id": "body-wall",
+              "name": "Facade",
+              "kind": "solid",
+              "bounds": {
+                "status": "available",
+                "value": {
+                  "min": [
+                    -90,
+                    -110,
+                    -1.5
+                  ],
+                  "max": [
+                    90,
+                    110,
+                    1.5
+                  ],
+                  "frameId": "model",
+                  "method": "authored_fixture",
+                  "approximate": false,
+                  "tolerance": 0
+                },
+                "reason": null
+              },
+              "volume": {
+                "status": "unavailable",
+                "value": null,
+                "reason": "No synthetic boolean volume calculation performed."
+              },
+              "volumeUnit": "mm3",
+              "featureIds": [
+                "feature-wall",
+                "feature-window",
+                "feature-door"
+              ],
+              "provenance": {
+                "assetId": "cad-1",
+                "documentId": "doc-1",
+                "configurationId": "cfg-default",
+                "nativeReference": "Facade",
+                "method": "synthetic_fixture_not_CAD_measurement",
+                "confidence": {
+                  "level": "high",
+                  "rationale": "Authored synthetic values only; no extraction evidence."
+                }
+              }
+            },
+            {
+              "id": "body-balcony",
+              "name": "Balcony",
+              "kind": "solid",
+              "bounds": {
+                "status": "available",
+                "value": {
+                  "min": [
+                    -8,
+                    7,
+                    1.5
+                  ],
+                  "max": [
+                    48,
+                    10,
+                    25.5
+                  ],
+                  "frameId": "model",
+                  "method": "authored_fixture",
+                  "approximate": false,
+                  "tolerance": 0
+                },
+                "reason": null
+              },
+              "volume": {
+                "status": "available",
+                "value": 4032,
+                "reason": null
+              },
+              "volumeUnit": "mm3",
+              "featureIds": [
+                "feature-balcony"
+              ],
+              "provenance": {
+                "assetId": "cad-1",
+                "documentId": "doc-1",
+                "configurationId": "cfg-default",
+                "nativeReference": "Balcony",
+                "method": "synthetic_fixture_not_CAD_measurement",
+                "confidence": {
+                  "level": "high",
+                  "rationale": "Authored synthetic values only; no extraction evidence."
+                }
+              }
+            }
+          ],
+          "features": [
+            {
+              "id": "feature-wall",
+              "name": "wall",
+              "nativeType": "Boss",
+              "treeParentId": null,
+              "dependsOn": [],
+              "bodyIds": [
+                "body-wall"
+              ],
+              "suppression": "active",
+              "provenance": {
+                "assetId": "cad-1",
+                "documentId": "doc-1",
+                "configurationId": "cfg-default",
+                "nativeReference": "wall",
+                "method": "synthetic_fixture_not_CAD_measurement",
+                "confidence": {
+                  "level": "high",
+                  "rationale": "Authored synthetic values only; no extraction evidence."
+                }
+              }
+            },
+            {
+              "id": "feature-window",
+              "name": "window",
+              "nativeType": "Cut",
+              "treeParentId": null,
+              "dependsOn": [
+                "feature-wall"
+              ],
+              "bodyIds": [
+                "body-wall"
+              ],
+              "suppression": "active",
+              "provenance": {
+                "assetId": "cad-1",
+                "documentId": "doc-1",
+                "configurationId": "cfg-default",
+                "nativeReference": "window",
+                "method": "synthetic_fixture_not_CAD_measurement",
+                "confidence": {
+                  "level": "high",
+                  "rationale": "Authored synthetic values only; no extraction evidence."
+                }
+              }
+            },
+            {
+              "id": "feature-door",
+              "name": "door",
+              "nativeType": "Cut",
+              "treeParentId": null,
+              "dependsOn": [
+                "feature-wall"
+              ],
+              "bodyIds": [
+                "body-wall"
+              ],
+              "suppression": "active",
+              "provenance": {
+                "assetId": "cad-1",
+                "documentId": "doc-1",
+                "configurationId": "cfg-default",
+                "nativeReference": "door",
+                "method": "synthetic_fixture_not_CAD_measurement",
+                "confidence": {
+                  "level": "high",
+                  "rationale": "Authored synthetic values only; no extraction evidence."
+                }
+              }
+            },
+            {
+              "id": "feature-balcony",
+              "name": "balcony",
+              "nativeType": "Boss",
+              "treeParentId": null,
+              "dependsOn": [
+                "feature-wall"
+              ],
+              "bodyIds": [
+                "body-balcony"
+              ],
+              "suppression": "active",
+              "provenance": {
+                "assetId": "cad-1",
+                "documentId": "doc-1",
+                "configurationId": "cfg-default",
+                "nativeReference": "balcony",
+                "method": "synthetic_fixture_not_CAD_measurement",
+                "confidence": {
+                  "level": "high",
+                  "rationale": "Authored synthetic values only; no extraction evidence."
+                }
+              }
+            }
+          ],
+          "sketches": [
+            {
+              "id": "sketch-wall",
+              "featureId": "feature-wall",
+              "frameId": "model",
+              "entityCount": {
+                "status": "available",
+                "value": 4,
+                "reason": null
+              },
+              "relations": {
+                "status": "available",
+                "value": [
+                  "rectangle"
+                ],
+                "reason": null
+              },
+              "dimensionIds": [
+                "dimension-wall"
+              ],
+              "provenance": {
+                "assetId": "cad-1",
+                "documentId": "doc-1",
+                "configurationId": "cfg-default",
+                "nativeReference": "wall/Sketch",
+                "method": "synthetic_fixture_not_CAD_measurement",
+                "confidence": {
+                  "level": "high",
+                  "rationale": "Authored synthetic values only; no extraction evidence."
+                }
+              }
+            },
+            {
+              "id": "sketch-window",
+              "featureId": "feature-window",
+              "frameId": "model",
+              "entityCount": {
+                "status": "available",
+                "value": 4,
+                "reason": null
+              },
+              "relations": {
+                "status": "available",
+                "value": [
+                  "rectangle"
+                ],
+                "reason": null
+              },
+              "dimensionIds": [
+                "dimension-window"
+              ],
+              "provenance": {
+                "assetId": "cad-1",
+                "documentId": "doc-1",
+                "configurationId": "cfg-default",
+                "nativeReference": "window/Sketch",
+                "method": "synthetic_fixture_not_CAD_measurement",
+                "confidence": {
+                  "level": "high",
+                  "rationale": "Authored synthetic values only; no extraction evidence."
+                }
+              }
+            },
+            {
+              "id": "sketch-door",
+              "featureId": "feature-door",
+              "frameId": "model",
+              "entityCount": {
+                "status": "available",
+                "value": 4,
+                "reason": null
+              },
+              "relations": {
+                "status": "available",
+                "value": [
+                  "rectangle"
+                ],
+                "reason": null
+              },
+              "dimensionIds": [
+                "dimension-door"
+              ],
+              "provenance": {
+                "assetId": "cad-1",
+                "documentId": "doc-1",
+                "configurationId": "cfg-default",
+                "nativeReference": "door/Sketch",
+                "method": "synthetic_fixture_not_CAD_measurement",
+                "confidence": {
+                  "level": "high",
+                  "rationale": "Authored synthetic values only; no extraction evidence."
+                }
+              }
+            },
+            {
+              "id": "sketch-balcony",
+              "featureId": "feature-balcony",
+              "frameId": "model",
+              "entityCount": {
+                "status": "available",
+                "value": 4,
+                "reason": null
+              },
+              "relations": {
+                "status": "available",
+                "value": [
+                  "rectangle"
+                ],
+                "reason": null
+              },
+              "dimensionIds": [
+                "dimension-balcony"
+              ],
+              "provenance": {
+                "assetId": "cad-1",
+                "documentId": "doc-1",
+                "configurationId": "cfg-default",
+                "nativeReference": "balcony/Sketch",
+                "method": "synthetic_fixture_not_CAD_measurement",
+                "confidence": {
+                  "level": "high",
+                  "rationale": "Authored synthetic values only; no extraction evidence."
+                }
+              }
+            }
+          ],
+          "dimensions": [
+            {
+              "id": "dimension-wall",
+              "sketchId": "sketch-wall",
+              "featureId": "feature-wall",
+              "name": "Width",
+              "quantity": "length",
+              "value": {
+                "status": "available",
+                "value": 180,
+                "reason": null
+              },
+              "unit": "mm",
+              "role": "driving",
+              "equation": {
+                "status": "unavailable",
+                "value": null,
+                "reason": "No equation supplied in synthetic fixture."
+              },
+              "provenance": {
+                "assetId": "cad-1",
+                "documentId": "doc-1",
+                "configurationId": "cfg-default",
+                "nativeReference": "wall/Width",
+                "method": "synthetic_fixture_not_CAD_measurement",
+                "confidence": {
+                  "level": "high",
+                  "rationale": "Authored synthetic values only; no extraction evidence."
+                }
+              }
+            },
+            {
+              "id": "dimension-window",
+              "sketchId": "sketch-window",
+              "featureId": "feature-window",
+              "name": "Width",
+              "quantity": "length",
+              "value": {
+                "status": "available",
+                "value": 30,
+                "reason": null
+              },
+              "unit": "mm",
+              "role": "driving",
+              "equation": {
+                "status": "unavailable",
+                "value": null,
+                "reason": "No equation supplied in synthetic fixture."
+              },
+              "provenance": {
+                "assetId": "cad-1",
+                "documentId": "doc-1",
+                "configurationId": "cfg-default",
+                "nativeReference": "window/Width",
+                "method": "synthetic_fixture_not_CAD_measurement",
+                "confidence": {
+                  "level": "high",
+                  "rationale": "Authored synthetic values only; no extraction evidence."
+                }
+              }
+            },
+            {
+              "id": "dimension-door",
+              "sketchId": "sketch-door",
+              "featureId": "feature-door",
+              "name": "Width",
+              "quantity": "length",
+              "value": {
+                "status": "available",
+                "value": 25,
+                "reason": null
+              },
+              "unit": "mm",
+              "role": "driving",
+              "equation": {
+                "status": "unavailable",
+                "value": null,
+                "reason": "No equation supplied in synthetic fixture."
+              },
+              "provenance": {
+                "assetId": "cad-1",
+                "documentId": "doc-1",
+                "configurationId": "cfg-default",
+                "nativeReference": "door/Width",
+                "method": "synthetic_fixture_not_CAD_measurement",
+                "confidence": {
+                  "level": "high",
+                  "rationale": "Authored synthetic values only; no extraction evidence."
+                }
+              }
+            },
+            {
+              "id": "dimension-balcony",
+              "sketchId": "sketch-balcony",
+              "featureId": "feature-balcony",
+              "name": "Width",
+              "quantity": "length",
+              "value": {
+                "status": "available",
+                "value": 56,
+                "reason": null
+              },
+              "unit": "mm",
+              "role": "driving",
+              "equation": {
+                "status": "unavailable",
+                "value": null,
+                "reason": "No equation supplied in synthetic fixture."
+              },
+              "provenance": {
+                "assetId": "cad-1",
+                "documentId": "doc-1",
+                "configurationId": "cfg-default",
+                "nativeReference": "balcony/Width",
+                "method": "synthetic_fixture_not_CAD_measurement",
+                "confidence": {
+                  "level": "high",
+                  "rationale": "Authored synthetic values only; no extraction evidence."
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-wall",
+      "classification": "inferred_intention",
+      "statement": "Possible wall",
+      "evidenceIds": [
+        "doc-1/cfg-default/feature-wall"
+      ],
+      "confidence": {
+        "level": "low",
+        "rationale": "Architectural purpose is authored for testing, not inferred from studio data."
+      },
+      "alternatives": [
+        "Architectural purpose is unverified."
+      ],
+      "requiredChecks": [
+        "Human review of source intent."
+      ]
+    },
+    {
+      "id": "claim-window",
+      "classification": "inferred_intention",
+      "statement": "Possible window",
+      "evidenceIds": [
+        "doc-1/cfg-default/feature-window"
+      ],
+      "confidence": {
+        "level": "low",
+        "rationale": "Architectural purpose is authored for testing, not inferred from studio data."
+      },
+      "alternatives": [
+        "Architectural purpose is unverified."
+      ],
+      "requiredChecks": [
+        "Human review of source intent."
+      ]
+    },
+    {
+      "id": "claim-door",
+      "classification": "inferred_intention",
+      "statement": "Possible door",
+      "evidenceIds": [
+        "doc-1/cfg-default/feature-door"
+      ],
+      "confidence": {
+        "level": "low",
+        "rationale": "Architectural purpose is authored for testing, not inferred from studio data."
+      },
+      "alternatives": [
+        "Architectural purpose is unverified."
+      ],
+      "requiredChecks": [
+        "Human review of source intent."
+      ]
+    },
+    {
+      "id": "claim-balcony",
+      "classification": "inferred_intention",
+      "statement": "Possible balcony",
+      "evidenceIds": [
+        "doc-1/cfg-default/feature-balcony"
+      ],
+      "confidence": {
+        "level": "low",
+        "rationale": "Architectural purpose is authored for testing, not inferred from studio data."
+      },
+      "alternatives": [
+        "Architectural purpose is unverified."
+      ],
+      "requiredChecks": [
+        "Human review of source intent."
+      ]
+    },
+    {
+      "id": "fact-width",
+      "classification": "observed_fact",
+      "statement": "Synthetic wall width is 180 mm.",
+      "evidenceIds": [
+        "doc-1/cfg-default/dimension-wall"
+      ],
+      "confidence": {
+        "level": "high",
+        "rationale": "Fixture assertion, not an actual CAD measurement."
+      },
+      "alternatives": [],
+      "requiredChecks": []
+    },
+    {
+      "id": "suggestion-1",
+      "classification": "optimization_suggestion",
+      "statement": "Consider grouping repeated opening profiles.",
+      "evidenceIds": [
+        "doc-1/cfg-default/feature-window"
+      ],
+      "confidence": {
+        "level": "low",
+        "rationale": "Architectural purpose is authored for testing, not inferred from studio data."
+      },
+      "alternatives": [
+        "Retain original feature structure."
+      ],
+      "requiredChecks": [
+        "Isolated CAD rebuild and parameter-edit comparison.",
+        "Human visual approval."
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "id": "candidate-wall",
+      "version": "0.1.0",
+      "lifecycle": "Draft",
+      "family": "Structural",
+      "type": "wall",
+      "entityIds": [
+        "doc-1/cfg-default/feature-wall"
+      ],
+      "claimIds": [
+        "claim-wall"
+      ],
+      "applicability": "Synthetic front-facing facade only.",
+      "missingEvidence": [
+        "Actual CAD inspection and controlled validation."
+      ]
+    },
+    {
+      "id": "candidate-window",
+      "version": "0.1.0",
+      "lifecycle": "Draft",
+      "family": "Openings",
+      "type": "window",
+      "entityIds": [
+        "doc-1/cfg-default/feature-window"
+      ],
+      "claimIds": [
+        "claim-window"
+      ],
+      "applicability": "Synthetic front-facing facade only.",
+      "missingEvidence": [
+        "Actual CAD inspection and controlled validation."
+      ]
+    },
+    {
+      "id": "candidate-door",
+      "version": "0.1.0",
+      "lifecycle": "Draft",
+      "family": "Openings",
+      "type": "door",
+      "entityIds": [
+        "doc-1/cfg-default/feature-door"
+      ],
+      "claimIds": [
+        "claim-door"
+      ],
+      "applicability": "Synthetic front-facing facade only.",
+      "missingEvidence": [
+        "Actual CAD inspection and controlled validation."
+      ]
+    },
+    {
+      "id": "candidate-balcony",
+      "version": "0.1.0",
+      "lifecycle": "Draft",
+      "family": "Architectural",
+      "type": "balcony",
+      "entityIds": [
+        "doc-1/cfg-default/feature-balcony"
+      ],
+      "claimIds": [
+        "claim-balcony"
+      ],
+      "applicability": "Synthetic front-facing facade only.",
+      "missingEvidence": [
+        "Actual CAD inspection and controlled validation."
+      ]
+    }
+  ],
+  "limitations": [
+    "Synthetic entities are not evidence of successful CAD inspection.",
+    "No photos, mesh ingestion, assembly traversal or geometric topology."
+  ]
+}

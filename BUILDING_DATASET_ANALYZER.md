@@ -1,8 +1,11 @@
 # Building Dataset Analyzer — Building Process Learning
 
-Status: **planned architecture only**, documented 2026-11-04. No analyzer,
-extractor, event logger, pilot dataset, workflow executor or trained model is
-implemented by this document. No studio assets have been inspected or selected.
+Status update, 2026-11-04: **Phase 1 contract foundation implemented and non-CAD
+tested** in [analyzer/](analyzer/README.md): Building Analysis/Source Manifest
+0.1.0 schemas, read-only adapter interface, in-memory validation and synthetic
+fixtures. No CAD extractor, event logger, pilot dataset, workflow executor or
+trained model exists. No studio assets have been inspected or selected. Broader
+capabilities below remain planned unless explicitly stated otherwise.
 
 ## Approved next phase — V0.1 read-only CAD Inspector
 
@@ -39,8 +42,9 @@ or authorized by this phase-closing documentation task.
   native geometry. V0.1 need not serialize an entire boundary representation.
 - Outputs: a versioned JSON schema, per-document/configuration inspection JSON,
   per-building source manifest, cross-project summary and limitations report.
-  Derived artifacts live outside original studio folders. These are planned
-  deliverables; no schema, JSON exports or inspector executable exists yet.
+  Derived artifacts live outside original studio folders. Phase 1 schemas and
+  synthetic JSON fixtures exist; real exports, cross-project summary and inspector
+  executable remain planned.
 - Minimum JSON envelope: schema/tool version, run ID/time, source/building/document
   IDs and content hashes, source-relative references, configuration/environment,
   units, extraction coverage/status, entity records and dependency/body links.
@@ -246,7 +250,9 @@ as separately identified quantities, consistent with existing LEGO contracts.
 Proposed storage: versioned structured manifests/records (initially JSON and
 JSONL plus readable reports), with schemas introduced during implementation.
 An evidence graph links records by IDs; a graph database is not a prerequisite.
-The following are contracts to implement, not existing schemas or services.
+Phase 1 schemas implement the native-CAD subset of these contracts. Operations,
+comparisons, reviews and multimodal services remain future work. Exact implemented
+fields/limitations are in [analyzer/README.md](analyzer/README.md).
 
 | Record | Minimum fields |
 | --- | --- |

@@ -1,3 +1,19 @@
+## Analyzer Phase 1 publication checkpoint (2026-11-04)
+
+User authorized publishing the previously local Analyzer foundation for use at
+home. Fresh verification before publication:
+`powershell.exe -NoProfile -ExecutionPolicy Bypass -File analyzer/Run-AnalyzerTests.ps1`
+rebuilt successfully and reported **70 passed, 0 failed**, including unchanged
+schema/fixture bytes and no COM/geometry assembly reference. No CAD was invoked.
+The latest production regression run in the preceding photo-blockout integration
+was 165/0; it was not rerun for this publication-only checkpoint. No Analyzer
+implementation changes were made during publication. No new architectural
+decision; existing BDA-003 documents this foundation.
+
+Home continuation: pull main to obtain both the photo-blockout command and
+Analyzer contracts/tests. Source-tree Inspector implementation remains future
+work; continue the photo-based pilot first as described in PHOTO_BLOCKOUT.md.
+
 ## Latest handoff — photo-based massing command (2026-11-04)
 
 - Implemented `--photo-blockout`: a separate command creating a NEW UNSAVED Part
@@ -20,6 +36,39 @@
   source-tree consultation until a reconstruction problem needs investigation.
 
 # SolidWorksAIBridge roadmap and handoff
+
+## Latest handoff — Analyzer V0.1 Phase 1 foundation (2026-11-04)
+
+- **Implemented/non-CAD tested:** independent `analyzer/` .NET Framework 4.8
+  library, versioned Draft-07 Building Analysis/Source Manifest 0.1.0 schemas,
+  immutable read-only adapter contract, in-memory schema/consistency validation,
+  two synthetic building pairs and isolated test runner. See [file inventory,
+  contract structure and Phase 2 plan](analyzer/README.md).
+- Records cover documents/configurations, solids/bounds, feature trees/dependencies,
+  sketches/dimensions, units/frames, provenance/confidence and Draft-only candidates.
+  Observed facts, inferred intention and optimization suggestions are explicit;
+  unknown quantities retain null values and reasons.
+- **Actual verification:** analyzer rebuild **70 passed / 0 failed**; existing
+  regression rebuild **165 passed / 0 failed**, existing MSB3305 warnings. Exact
+  commands, initial policy block and corrected initial schema-reference failure:
+  [execution record](tests/results/ANALYZER_PHASE1_2026-11-04.md).
+- No production geometry/LEGO/test-source changes, CAD or studio access, SolidWorks
+  control, saves/exports, CV/video processing, dependency installation or Git
+  operations. Contract library has no filesystem/COM access; fixture source paths
+  are never resolved. No real native preservation/accuracy result is claimed.
+- **Remaining limitations:** no inspector/intake/hash verification, assembly
+  instances/mates/transforms, rich sketch geometry, source-derived ID generator,
+  chosen pilot or real extraction. Validator supports the pinned schema keyword
+  subset, not general Draft-07 conformance. Fixtures are not a Golden Dataset.
+- **Exact next step — Phase 2:** define native-version/configuration support,
+  saved-state access API and capability/failure matrix; then implement the separate
+  inspector and guarded intake/output isolation on disposable synthetic CAD
+  fixtures under separate CAD authorization. Prove unchanged original/reference
+  hashes and existing-document state before an explicitly selected three-project
+  studio pilot. No auto-launch or writable fallback.
+
+This supersedes earlier schema-not-started statements below. Inspector and studio
+pilot remain **not started**; prior historical evidence is preserved.
 
 ## Phase close — Analyzer V0.1 becomes the next priority (2026-11-04)
 

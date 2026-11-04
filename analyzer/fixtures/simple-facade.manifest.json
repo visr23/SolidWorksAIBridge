@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "0.1.0",
+  "manifestId": "synthetic-simple-facade-manifest",
+  "buildingId": "synthetic-simple-facade",
+  "sourceRevision": "synthetic-r1",
+  "synthetic": true,
+  "rootAliases": [
+    "synthetic-root"
+  ],
+  "assets": [
+    {
+      "id": "cad-1",
+      "kind": "sldprt",
+      "rootAlias": "synthetic-root",
+      "relativePath": "simple-facade/building.SLDPRT",
+      "availability": "not_supplied",
+      "sha256": {
+        "status": "unavailable",
+        "value": null,
+        "reason": "Synthetic path only; no CAD file exists."
+      },
+      "sizeBytes": {
+        "status": "unavailable",
+        "value": null,
+        "reason": "No source bytes exist."
+      },
+      "units": "mm",
+      "configurationNames": [
+        "Default"
+      ],
+      "relatedAssetIds": [],
+      "associationReason": "Authored fixture association; not filename inference."
+    },
+    {
+      "id": "photo-1",
+      "kind": "photo",
+      "rootAlias": "synthetic-root",
+      "relativePath": "simple-facade/facade.jpg",
+      "availability": "not_supplied",
+      "sha256": {
+        "status": "unavailable",
+        "value": null,
+        "reason": "No photograph supplied."
+      },
+      "sizeBytes": {
+        "status": "unavailable",
+        "value": null,
+        "reason": "No photograph supplied."
+      },
+      "units": "unknown",
+      "configurationNames": [],
+      "relatedAssetIds": [
+        "cad-1"
+      ],
+      "associationReason": "Placeholder association; not verified."
+    }
+  ],
+  "optionalInputs": {
+    "photographs": {
+      "status": "available",
+      "value": [
+        "photo-1"
+      ],
+      "reason": null
+    },
+    "stl": {
+      "status": "unavailable",
+      "value": null,
+      "reason": "No STL supplied."
+    },
+    "threeMf": {
+      "status": "unavailable",
+      "value": null,
+      "reason": "No 3MF supplied."
+    }
+  },
+  "limitations": [
+    "All source paths are placeholders and must never be resolved during Phase 1."
+  ]
+}
