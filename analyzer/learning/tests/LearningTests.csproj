@@ -1,0 +1,6 @@
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
+  <PropertyGroup><OutputType>Exe</OutputType><TargetFrameworkVersion>v4.8</TargetFrameworkVersion><AssemblyName>LearningTests</AssemblyName><OutputPath>bin\Debug\</OutputPath><LangVersion>latest</LangVersion></PropertyGroup>
+  <ItemGroup><Reference Include="System"/><Reference Include="System.Core"/><Compile Include="LearningTests.cs"/><ProjectReference Include="..\Analyzer.Learning.csproj"><Name>Analyzer.Learning</Name></ProjectReference></ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

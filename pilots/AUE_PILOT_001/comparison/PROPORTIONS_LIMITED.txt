@@ -1,0 +1,11 @@
+BEGIN_READ_ONLY C:\Users\pc\source\repos\visr23\SolidWorksAIBridge\pilots\AUE_PILOT_001\solidworks reasults\AUE_PILOT_001_FRONT_V1.SLDPRT
+BODY_READ Pilot001_LeftBayUpperSupport_PROVISIONAL
+BODY_READ Pilot001_LargeWindowOpening_PROVISIONAL
+BODY_READ Pilot001_OpeningSurround_PROVISIONAL
+BODY_READ Pilot001_LeftGableProfile_PROVISIONAL
+BODY_READ Pilot001_UpperGableWindowOpening_PROVISIONAL
+INSPECTED AUE_PILOT_001_FRONT_V1; Path=C:\Users\pc\source\repos\visr23\SolidWorksAIBridge\pilots\AUE_PILOT_001\solidworks reasults\AUE_PILOT_001_FRONT_V1.SLDPRT; Dirty=False; NeedsRebuild=0; Bodies=5
+BEGIN_READ_ONLY G:\.shortcut-targets-by-id\1JLCVKHnaLXjxYGaZJM5xziEyy9a6prT4\בניינים\טרומפלדור 15 כפר סבא\Part1.SLDPRT
+BODY_READ Boss-Extrude44
+BODY_READ Boss-Extrude60[1]
+BODY_READ Mirror1

@@ -1,0 +1,18 @@
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
+  <PropertyGroup>
+    <OutputType>Exe</OutputType><TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <AssemblyName>AuePilot001.R2</AssemblyName><StartupObject>SolidWorksAIBridge.Pilot001.PilotProgram</StartupObject>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <OutputPath>bin\$(Configuration)\</OutputPath><IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget><LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System"/><Reference Include="System.Core"/><Reference Include="Microsoft.CSharp"/>
+    <ProjectReference Include="..\..\..\SolidWorksAIBridge\SolidWorksAIBridge.csproj"><Name>SolidWorksAIBridge</Name></ProjectReference>
+    <Compile Include="BodyIdentity.cs"/><Compile Include="R2Plan.cs"/><Compile Include="PilotBuilder.cs"/><Compile Include="PilotProgram.cs"/>
+    <COMReference Include="SldWorks"><Guid>{83A33D31-27C5-11CE-BFD4-00400513BB57}</Guid><VersionMajor>32</VersionMajor><VersionMinor>0</VersionMinor><Lcid>0</Lcid><WrapperTool>tlbimp</WrapperTool><EmbedInteropTypes>True</EmbedInteropTypes></COMReference>
+    <COMReference Include="SwConst"><Guid>{4687F359-55D0-4CD3-B6CF-2EB42C11F989}</Guid><VersionMajor>32</VersionMajor><VersionMinor>0</VersionMinor><Lcid>0</Lcid><WrapperTool>tlbimp</WrapperTool><EmbedInteropTypes>True</EmbedInteropTypes></COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

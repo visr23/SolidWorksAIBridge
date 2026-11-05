@@ -1,3 +1,310 @@
+## Current handoff — Reviewed GitHub backup checkpoint (2026-11-05)
+
+- User explicitly authorized checkpoint/commit/non-force push. Verified repository
+  SolidWorksAIBridge, main, origin https://github.com/visr23/SolidWorksAIBridge;
+  fetched origin successfully; initial branch divergence 0/0, no old unpushed commits.
+- [Reviewed backup contents/exclusions and restart handoff](BACKUP_CHECKPOINT_2026-11-05.md).
+  Include project source/tests, reports/native evidence, viewer/annotated images,
+  provided reference inputs and hash-verified saved R2 baseline. Exclude local build
+  products/caches, duplicate checkpoint, empty hash CSV and unverified scratch Part;
+  all excluded files preserved locally. Evidence bytes pinned via .gitattributes.
+- Development verification remains 65 learning /70 analyzer /165 legacy passes,
+  historical 49 body tests; not rerun during backup. 13 production source/project
+  hashes unchanged; R2 native hash matches preserved manifest. No CAD operations.
+- Original studio model last observed dirty=True is NOT saved by Git backup and
+  remains outside the repository. Resolve unsaved CAD state manually before restart.
+- Checkpoint prepared before authorized backup commit/push; final commit ID and
+  remote verification are reported after execution, not assumed here.
+- Exact next development step: correspondence-review manifest/ambiguity fixtures,
+  confirm front datums and missing component roles, obtain frontal-photo/camera
+  evidence, then bounded reads. No automatic model changes or LEGO promotion.
+## Current handoff — Visual comparison + controlled learning foundation (2026-11-05)
+
+- Delivered [comparison viewer](pilots/AUE_PILOT_001/comparison/learning/index.html):
+  two aligned/labeled FRONT views of selected native face edges, separate supported
+  O1/O2/O3 difference overlay, component/confidence/measurement report, first native
+  feature-recipe report, Draft recommendations and controlled-experiment proposal.
+  These are PARTIAL front elevations, not full hidden-line silhouettes.
+- Bounded read PASS, 22 selected planar faces / 32 closed line loops, direct feature
+  parents, preserved paths/configuration/active document/count/dirty flags. Original
+  Part1 dirty=True, generated R2 dirty=False; no save/rebuild/edit/open/close.
+  R2 remains 180 mm / 5 bodies / 11 modeling features; original has 48 bodies.
+- Under provisional height/anchor/role registration, host-panel opening IoU:
+  O1 0.6843, O2 0.1538, O3 0.5432. These are not accuracy scores or proof either CAD
+  is correct. Source roof bands vs filled AUE profiles, different mass partitions,
+  unknown entry/surround counterparts and depth semantics block other area/depth
+  comparisons. Accessible oblique photo reviewed; extra front photos unavailable.
+- Independent `analyzer/learning` COM-free .NET 4.8 library implemented/tested:
+  neutral-reference records, many-to-many matches, explicit unknowns/provenance,
+  provisional diagnoses, Draft competing recipes, proposed correction/experiment
+  state, uniform registration/IoU/line-loop checks and cooperative read budgets.
+  Pilot JSON has 133 evidence records / 12 correspondences / 28 Draft recipe records
+  (observed feature records, summaries and planned alternatives), one Draft proposal
+  and one Pending experiment. No learned recipe or LEGO promotion.
+- Actual checks: **65/0 learning** (62 synthetic +3 actual pilot-record), **70/0
+  existing analyzer**, **165/0 legacy**; all builds pass with existing COM warnings.
+  Windows PowerShell report generation fixed after PowerShell 7 framework-load
+  failure. [Commands/logs/limitations](pilots/AUE_PILOT_001/comparison/learning/TEST_RESULTS.md).
+  13 production source/project hashes unchanged. No Git or CAD modeling tests.
+- Exact next step: add/test correspondence-review manifest confirming front datums,
+  host-panel vs pane/frame boundaries and E1/E2/S1/P2 source roles; obtain/register
+  frontal photo/camera evidence to adjudicate architecture. Only then expand bounded
+  face/definition reads. Proposed equivalent-geometry ring recipe experiment remains
+  Draft/Pending and needs separately authorized disposable CAD fixture; never modify
+  original or successful R2. Do not resume older broad Inspect.cs traversals.
+## Current handoff — First proportional front comparison (2026-11-05)
+
+- User authorized proportions-only comparison of differently sized open models;
+  source need not be opened read-only, but all adapter operations must be reads.
+  Future building height will be supplied from user's existing model (AUE-011).
+- Completed selected-path read-only extraction: R2 5 bodies / 11 modeling features,
+  dirty=False; original Part1 48 bodies / 303 total feature entries, dirty=True;
+  both Default, NeedsRebuild2=0, path/dirty flags unchanged. No CAD saves/rebuilds.
+- [Provisional comparison report, evidence and exact limits](pilots/AUE_PILOT_001/comparison/PROPORTIONS_RESULT.md).
+  Candidate Hsource=203.3453591; normalize both heights to 1 in data only. Source
+  facade/anchor/rectangle semantics are inferred; 3D plane registration incomplete.
+  Measured conditional ratios: right opening height +21.89%, left large width
+  -19.15%/height -15.36%, upper width +19.39%; roof width -1.74%.
+- Three overly broad read extractions stopped (-1), NOT CAD geometry failures or
+  passed tests. Extrema-only then selected-body extraction passed. Source mass and
+  full-face queries omitted. Pure rectangle arithmetic initially rejected 5-point
+  ROI; corrected candidate region, strict four-corner checks then passed. No bypass.
+- Pilot-only Inspect.cs narrowed to selected paths and save/copy branch removed;
+  no production source changes, Git or regression reruns. No automatic geometry
+  correction, LEGO promotion, side/rear construction. Both CAD documents left open.
+- Exact next action: user confirms front candidate/body/rectangle and datum mapping;
+  add bounded source face/loop reads to verify clear apertures/roof boundaries, then
+  entrance/surround/depth comparison. Source dirty state means saved-file equivalence
+  remains unknown. Current data covers open state only; no final architectural verdict.
+## Current handoff — Original studio reference located (2026-11-05)
+
+- User-selected original is `טרומפלדור 15 כפר סבא/Part1.SLDPRT` under Google Drive
+  shortcut target `1JLCVKHnaLXjxYGaZJM5xziEyy9a6prT4/בניינים`.
+  Read-only filesystem metadata verified: 15936633 bytes, modified
+  2026-10-25 15:11:17 local. Exact resolved location is recorded in the
+  [checkpoint identification addendum](pilots/AUE_PILOT_001/PRE_RESTART_CHECKPOINT.md#reference-cad-identified--2026-11-05).
+- Original path is now identified; native contents/hash/configuration and front
+  orientation remain unverified. No CAD open, rebuild, save, tests, production
+  changes or Git operations. R2 remains experimental, 180 mm / 5 bodies / 11 features.
+- Exact next action: safe read-only inspection of selected original and saved R2;
+  establish source configuration, front facade plane, height extent and horizontal
+  anchor, then align extracted data only and measure front-only deviations.
+## Current handoff — Saved R2 baseline located; restart checkpoint (2026-11-05)
+
+- User visually accepts front blockout / 180 mm height as experimental baseline,
+  NOT final architecture or Validated LEGO. Existing manually saved file verified:
+  `pilots/AUE_PILOT_001/solidworks reasults/AUE_PILOT_001_FRONT_V1.SLDPRT`
+  (actual folder spelling), 151934 bytes, last write 2026-11-05 12:41:53 local.
+- [Pre-restart checkpoint](pilots/AUE_PILOT_001/PRE_RESTART_CHECKPOINT.md) records
+  hash, full evidence, saved source/report inventory and exact next step.
+- Read-only native inspection of that open path matches R2: 5 solids, 11 modeling
+  features, 243 x 180 x 20 mm, expected sampled dimensions; NeedsRebuild2=0.
+  No new rebuild/test. Successful run report and regression evidence preserved.
+- IMPORTANT: open CAD document dirty=True and title has *. Unsaved state remains;
+  disk/current-memory equivalence is unknown. No save performed per instruction.
+- No second CAD copy created; interrupted copy command did not run (empty preserved
+  folder, no preservation log). No pilot/inspector/MSBuild running; SolidWorks and
+  sldworks_fs still running. Sixteen source/report files verified saved/nonempty;
+  unsaved editor buffers not inspected. No production edits or Git operations.
+- Original studio Part1.SLDPRT identity/path unconfirmed; front-only comparison
+  pending. Exact next action: verify baseline hash after restart and obtain original
+  source path before safe read-only facade registration and measurements. Keep raw
+  frames, uniform height normalization, explicit datums/uncertainties; no geometry
+  modifications or validation promotion. Do not invoke inspector copy mode.
+## Current handoff — R2 restart CAD construction PASS (2026-11-05)
+
+- ONE newly authorized isolated rerun completed, exit 0, attached to SolidWorks
+  2024 revision 32.5.0. Prior runner inactive; 0 preexisting documents; new unsaved
+  Part1 left open, Front view/Zoom to Fit, no save/close. Attempt guard consumed;
+  original failure evidence/guard preserved. No retry or bypassed checks.
+- Actual geometry: **5 solids, 11 modeling features, 11 sketches**, envelope
+  **243 x 180 x 20 mm**, actual height **180 mm**. All nine pilot operations,
+  wall/right-window checks, body identity/scope/volume checks and per-operation,
+  binding and final rebuilds passed. Full baseline R2 construction achieved.
+- [Actual results, command, full transcript and limits](pilots/AUE_PILOT_001/results/R2_RESTART_ATTEMPT_2026-11-05/RESULT.md).
+  Fresh preparation build/preflight passed; historical 49/165 tests not rerun.
+- No source changes or Git operations; 12 snapshotted root production .cs/.csproj
+  hashes unchanged. No architectural decision/boundary change. OpeningSurround
+  remains Draft; numeric construction PASS is not full validation/promotion.
+- Remaining: human visual review; plan's parameter-edit/restore checks NOT RUN
+  (runner lacks that phase); no screenshot/print qualification, incomplete display
+  dimension enumeration, provisional roof/photo/depth assumptions unchanged.
+- Exact next action: user visually inspect open Part1 against R2, then explicitly
+  scope any parameter-edit/restore experiment. Do not rerun consumed attempt or
+  automatically modify the Part. Earlier NOT RUN handoffs below are historical.
+## Current handoff — Restart rerun prepared; waiting for SolidWorks (2026-11-05)
+
+- User authorized ONE isolated experimental R2 rerun in a new unsaved Part,
+  stop at first CAD/validation failure; no production-builder edits or Git operations.
+- Desktop-context `Get-Process` check found no AuePilot001 runner, MSBuild or
+  SLDWORKS CAD process; only sldworks_fs (PID 3516). Previous attempt is inactive.
+  Initial sandbox CIM inventory was access-denied; desktop process inventory succeeded.
+- Confirmed approved front-only R2, intended five solids, 243 x 180 x 20 mm
+  envelope and locked 180 mm height; provisional dimensions/roof assumptions unchanged.
+- Fresh full-framework MSBuild rebuild of the isolated pilot passed (exit 0;
+  existing COM warnings); fresh --preflight passed, including 3 negative fixtures.
+  Logs and isolated run directory: [restart attempt](pilots/AUE_PILOT_001/results/R2_RESTART_ATTEMPT_2026-11-05/).
+  Historical 49 focused / 165 legacy passes were read, not rerun this session.
+- CAD NOT RUN: SolidWorks 2024 is not running. Requested user start it under
+  attach-only policy. No COM connection, new Part, geometry, measurements or rebuilds.
+  No attempt marker consumed; original marker/evidence preserved. No source changes,
+  existing CAD file access, production-builder edits, promotion or Git operations.
+- Exact next action: once user confirms SolidWorks 2024 is ready, recheck no active
+  pilot, execute the prepared run/AuePilot001.R2.exe --confirm-cad-r2 ONCE in desktop
+  context with output to a new CAD transcript; preserve its CreateNew attempt guard.
+  Stop on first failure, report actual geometry/counts/rebuild/height, compare
+  production hashes against PRODUCTION_BEFORE.csv and leave the new Part open.
+  Existing one-rerun authorization persists; no additional approval needed to run it.
+## Current handoff — Pilot body identity fixed, CAD NOT RUN (2026-11-05)
+
+- Fixed pilot-only role tracking: current feature -> all face owners -> exactly
+  one current solid using COM identity, no body-name lookup/renaming. Rebind after
+  WindowCut and each pilot operation. Verify role/body counts, fail on stale/split/
+  merged owners, preserve non-target volume/bounds/topology. Added explicit future
+  right-aperture dimensions, side-face bounds and rebuild checks.
+- Standalone non-COM policy suite **49/0**, pilot build PASS (existing MSB3305),
+  positive preflight + 3 invalid fixtures PASS, legacy regressions **165/0**.
+  [Commands, logs and limits](pilots/AUE_PILOT_001/results/BODY_TRACKING_FIX_2026-11-05.md).
+  Fake post-cut body/face fixtures are not real CAD Cut-Extrude tests.
+- User visually confirms prior wall/window partial result correct. Historical
+  actual geometry: 224.5x99.8x12, one body, two features/two sketches; full 180 mm
+  remains unachieved. No CAD/COM/UI access or fresh measurements/rebuild this session.
+- All 13 production source/project hashes unchanged; no studio document access,
+  no validated builder changes, no Git/promotion. One-attempt guard retained.
+- Exact next step: obtain separately approved fresh full R2 experimental CAD test,
+  then create a new attempt record without overwriting prior evidence and run one
+  new unsaved Part only, stop on first failure. Do not resume/edit Part1. Ready for
+  that approved experiment at build/non-CAD level; native adapter and remaining
+  operations are CAD-unverified. Numeric R2 and provisional roof assumptions unchanged.
+## Current handoff — R2 single CAD attempt FAILED / STOPPED (2026-11-05)
+
+- User approved one isolated experimental R2 test, not architectural accuracy.
+  Added separate opt-in .NET 4.8/STA [pilot runner](pilots/AUE_PILOT_001/runner/AuePilot001.R2.csproj),
+  referencing unchanged production project; no production source/entry-point edits.
+- Actual build PASS after initial missing Microsoft.CSharp reference correction;
+  positive preflight + 3 negative fixtures PASS; legacy regressions **165/0**.
+  MSB3305 warnings remain. [Full evidence/results](pilots/AUE_PILOT_001/results/R2_CAD_RESULT.md).
+- ONE new unsaved **Part1** created on SolidWorks 32.5.0. Wall/right window rebuilt;
+  pilot checker then FAILED because post-cut body renamed MainWall -> WindowCut.
+  Stop-on-first-failure honored, exit 1, no continuation/retry. This is pilot body
+  identification failure, not observed production-builder geometry failure.
+- Actual **2 modeling features, 2 sketches, 1 solid**; envelope **224.5x99.8x12 mm**;
+  volume 260324.88 mm3. **180 mm height NOT reached**. Entrance/bay/supports/roofs/
+  large and upper openings/surround NOT executed. Parameter edits/final rebuild not run.
+- No existing documents open (0 before, 1 new after); no saves/closes. Thirteen
+  production source/project hashes unchanged across CAD attempt. No LEGO promotion,
+  no Git. OpeningSurround Draft; other pilot geometry compiled but CAD-untested.
+- Part1 left open, Front view requested. Clean screenshot failed due occlusion;
+  user stopped Computer Use with Escape during recovery. No more app control.
+  Direct visual inspection pending. Read-only inspector helper written but NOT RUN.
+- Exact next step: fix pilot body resolution using current feature/face ownership
+  rather than mutable names, add focused identity regression and improve dimension
+  enumeration. Preserve failed evidence and one-attempt guard; obtain NEW CAD
+  authorization before any rerun or modification of partial Part1.
+## Current handoff — Pilot #001 R2, upper window retained (2026-11-05)
+
+- Prepared [numeric CAD plan R2](pilots/AUE_PILOT_001/NUMERIC_CAD_PLAN_R2.md) for final
+  user approval. Retains 180 height, all requested openings including upper gable
+  window, simplified provisional roofs, left bay, entry and Draft surround.
+- User confirms upper window is supported by original front photographs. Corrected
+  prior suppression recommendation: nonvisibility in oblique photo is not absence.
+  Three local references re-viewed; no additional identified original front photos
+  found in pilot inventory/targeted common-folder discovery; their paths requested.
+  Direct additional-photo review remains pending; user evidence is explicit.
+- R2 retains estimated R1 inputs and adds explicit editable left base 99.7x27.7x8,
+  piers 8/8.8 wide and header 23.4 high. Base+upper support merge only within the
+  bay, leaving facade independent; expected total remains five solids. Upper opening
+  48.8x35.1 retained. Roof intersections and all unverified values provisional.
+- Actual checks: 11 numeric plan spot checks passed (scaling, borders, support,
+  containment/spacing, envelope and upper-window roof clearance); three image paths
+  exist. These are analytic plan checks, not CAD/integration/regression validation.
+  No build, runtime regression, SolidWorks/COM, production source changes, studio
+  file edits or Git operations. Architecture unchanged; no executable R2 builder.
+- Exact next step: user final R2 numeric approval, incorporating additional original
+  photos if supplied; then implement/build isolated pilot path and run authorized
+  CAD only in one new unsaved Part. Never suppress upper window by default.
+## Current handoff — Pilot #001 annotated-photo conflicts (2026-11-05)
+
+- Located actual double-extension annotated_building_boundary.png.png, opened it
+  and both generated references; recorded photo size 943x843 and SHA-256 in
+  [photo reconciliation](pilots/AUE_PILOT_001/PHOTO_RECONCILIATION_R1.md).
+- Purple-X side/rear region excluded; distinguish cutoff near image x=200..215
+  from separate 180 mm height annotation near x=640..650. Neither yields calibrated
+  model depth. Front-only scope and 180 architectural-height constraint unchanged.
+- R1 NOT reconciled for final CAD approval: upper window unsupported in photo;
+  generated two-gable outline unconfirmed; entry/right surround obscured and all
+  exact XY/depth values provisional. Main glazed projecting bay qualitatively
+  supported. Generated references' roughly 6% proportional discrepancy unresolved.
+- Verification: image review, photo size/hash, source/document inspection only.
+  No metric reconstruction, builds, regressions, SolidWorks/COM, CAD or Git run.
+- Exact next step: obtain interpretation decision on using draft roof/opening
+  proportions as explicit visual-test assumptions with upper opening suppressed,
+  versus corrected front outline. Then publish numbered numeric revision and seek
+  explicit CAD approval. R1 remains candidate, not authorized geometry.
+## Current handoff — Pilot #001 numeric proposal R1 (2026-11-05)
+
+- Located/viewed elevation and relative depth PNGs in the supplied pilot references
+  directory; recorded sizes/hashes and manual pixel picks in [numeric CAD plan R1](pilots/AUE_PILOT_001/NUMERIC_CAD_PLAN_R1.md).
+  Annotated original photo is missing from that folder/subtree; requested path.
+  No photo comparison/cutoff verification claimed. Generated views differ in width/
+  height by roughly 6%; no metric depth can be extracted from the depth diagram.
+- Proposed 180 high, 224.5 wall width, 243.0 roof envelope width; 12 support thickness,
+  +8 left projection, -6 recess, +3 surround projection; 3.5 independent surround
+  borders (~2x interpreted draft border). All inferred values provisional. Includes
+  visible upper window. Exact bounds, roof polygons, five-body policy and operations
+  in linked plan; no code or CAD exists for R1 yet.
+- Verified PNG sizes/hashes, visual inspection, scaling calculation and 8 arithmetic/
+  spacing spot checks passed. These are not full geometry tests. Photo check NOT RUN:
+  missing file. No builds, runtime regressions, SolidWorks/COM or Git operations.
+- Exact next step: inspect/register annotated original photo and reconcile proposed
+  relationships; obtain explicit numeric-plan approval, then implement/build isolated
+  pilot path and perform approved CAD in one new unsaved Part. Do not run old blockout.
+## Current handoff — Pilot #001 front-facade CAD preflight (2026-11-05)
+
+- Current user scope is FRONT FACADE ONLY. Prepared [feature/operation plan and
+  quantity register](pilots/AUE_PILOT_001_FRONT_PREFLIGHT.md). No pilot code or CAD
+  generated. References not identified in repository/common local image folders;
+  local approved draft/photo paths requested. Numeric proportions remain pending.
+- Latest request resolves approximately 2x correction specifically as border width;
+  projection remains independent and unverified. Height lock remains 180 miniature mm.
+- Existing single-window fixed naming and facade-specific cut assumptions prevent
+  blindly calling the window builder twice or applying it to multiple bodies.
+  Plan reuse only where compatible, with isolated unsupported operations.
+- Verification: source/docs inspected and local asset discovery performed. No builds,
+  regressions, COM, CAD, geometry/edit checks or Git operations run. Previous passing
+  tests are historical, not results for this pilot.
+- Exact next step: obtain local source/draft paths, inspect/hash/register references,
+  derive scaled numeric dimensions and provisional depth/thickness values, prepare
+  isolated code/non-COM checks, then request explicit CAD approval for the concrete
+  plan. Approval is required by the user's current task, not inferred from old runs.
+## Current handoff — AUE Pilot #001 WindowSurround and view planning (2026-11-05)
+
+- Updated [pilot requirements](ARCHITECTURAL_UNDERSTANDING_ENGINE.md) for user-named
+  Trumpeldor 15, Kfar Saba: front, relevant bounded sides, simplified top/roof plan
+  and relative depth/relief Required; rear Not Required; open/hollow rear permitted.
+  No invented rear details/roof extensions. Follow marked photo cutoff and later
+  available matched-source calibration. Preserve the 180 miniature-mm architectural
+  height lock, excluding base and unrelated details.
+- Added [OpeningSurround Draft proposal](ARCHITECTURAL_LEGO_V1.md#opening-surround-draft-proposal)
+  with WindowSurround application, independent aperture/sill, parameter controls,
+  future profiles, minimum sections and independent validation gates. Right-front
+  approximately 2× correction is visual user guidance pending CAD validation;
+  border-width/projection/section interpretation remains unresolved.
+- Status: approved documentation/design only. AUE and surround Builder remain
+  unimplemented; family Draft. No drawing or CAD correction claimed. Existing
+  experimental blockout, Analyzer and scoped Validated LEGO releases unchanged.
+  Actual runtime architecture unchanged; ARCHITECTURE.md needs no change.
+- Verification: documentation checks recorded below. No build, runtime regressions,
+  CAD or physical print run for this documentation-only task; historical passes
+  are not reruns or surround validation.
+- Remaining: unregistered photo, marked cutoff, draft and source-CAD revisions;
+  exact sides, depth, profile quantities, manufacturing profile/tolerances. Item 11
+  is truncated at “Document the planned”; unspecified remainder remains pending.
+- Exact next step: register supplied pilot photo, marked cutoff and current draft
+  with stable revisions; freeze photo-only interpretation, resolve which thickness
+  quantities the visual correction affects and derive required shared-geometry
+  views under the 180 mm lock. Compare matched source CAD later where available.
+  Implement/test the Draft family only in a scoped follow-up.
 ## Session close — AUE V1 documentation publication (2026-11-04)
 
 - Completed approved AUE V1 design: shared geometry, Adaptive View Planning,
@@ -554,3 +861,6 @@ Record changed files, evidence/status changes, exact checks/results, remaining U
 - Evaluate geometry, volume, connectivity/two-body isolation, facade invariance, stable rebuilds/references, edits, manufacturing and then feature complexity. Preserve existing tests/evidence. Candidate best-practice rule: **Build shared geometry first, then modify only the differences.** No Modeling Optimization Engine exists yet.
 - **This session changed only DECISIONS.md and ROADMAP.md. No source changes, tests, SolidWorks execution or Git operations.** No scope promotion or final assembly validation occurred.
 - Exact next step: present/review the equal-height top-face construction and corner policy; **wait for user implementation approval**. Then add an additive equal-height both-wall candidate and planner tests first, without replacing the existing API/case. Further CAD comparison requires explicit approval. Subsequent increments cover other modes/parapet and evidence-based unequal-height recipe selection, without unrelated production features/dependencies.
+
+
+2026-11-05 documentation verification: PowerShell local-link and requirement-presence checks passed (all four updated documents; 11 requirement checks). New surround fragment target reviewed against its heading. These checks establish documentation consistency only, not geometry, Builder, regression or CAD validation. Initial editing helper was unavailable (python not installed); edits completed through PowerShell. No build/runtime/CAD tests run.

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="900" viewBox="0 0 1100 900"><rect width="1100" height="900" fill="#ffffff"/>
+<text x='35' y='40' font-family='Arial,sans-serif' font-size='24' fill='#162333'>Generated AUE R2 CAD</text>
+<text x='35' y='72' font-family='Arial,sans-serif' font-size='14' fill='#445568'>FRONT elevation of selected native planar-face boundaries (partial; not hidden-line silhouette)</text>
+<text x='35' y='100' font-family='Arial,sans-serif' font-size='14' fill='#445568'>Same XY frame and uniform height normalization; source facade datums remain provisional.</text>
+<line x1="130.000" y1="740.000" x2="990.000" y2="740.000" stroke="#e3e8ee" stroke-width="1"/>
+<text x='70' y='745' font-family='Arial,sans-serif' font-size='12' fill='#667788'>0.00</text>
+<line x1="130.000" y1="592.500" x2="990.000" y2="592.500" stroke="#e3e8ee" stroke-width="1"/>
+<text x='70' y='597.5' font-family='Arial,sans-serif' font-size='12' fill='#667788'>0.25</text>
+<line x1="130.000" y1="445.000" x2="990.000" y2="445.000" stroke="#e3e8ee" stroke-width="1"/>
+<text x='70' y='450' font-family='Arial,sans-serif' font-size='12' fill='#667788'>0.50</text>
+<line x1="130.000" y1="297.500" x2="990.000" y2="297.500" stroke="#e3e8ee" stroke-width="1"/>
+<text x='70' y='302.5' font-family='Arial,sans-serif' font-size='12' fill='#667788'>0.75</text>
+<line x1="130.000" y1="150.000" x2="990.000" y2="150.000" stroke="#e3e8ee" stroke-width="1"/>
+<text x='70' y='155' font-family='Arial,sans-serif' font-size='12' fill='#667788'>1.00</text>
+<text x='35' y='130' font-family='Arial,sans-serif' font-size='12' fill='#667788'>Y / H</text>
+<text x='885' y='778' font-family='Arial,sans-serif' font-size='12' fill='#667788'>X / H  -&gt;</text>
+<line x1="196.222" y1="649.206" x2="467.950" y2="649.206" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="196.222" y1="489.578" x2="196.222" y2="649.206" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="467.950" y1="489.578" x2="196.222" y2="489.578" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="467.950" y1="649.206" x2="467.950" y2="489.578" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="756.067" y1="536.778" x2="679.367" y2="536.778" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="756.067" y1="636.422" x2="756.067" y2="536.778" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="679.367" y1="636.422" x2="756.067" y2="636.422" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="679.367" y1="536.778" x2="679.367" y2="636.422" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="170.000" y1="740.000" x2="513.839" y2="740.000" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="513.839" y1="472.206" x2="513.839" y2="740.000" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="615.450" y1="472.206" x2="513.839" y2="472.206" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="615.450" y1="740.000" x2="615.450" y2="472.206" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="615.450" y1="740.000" x2="905.861" y2="740.000" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="905.861" y1="740.000" x2="905.861" y2="412.878" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="905.861" y1="412.878" x2="170.000" y2="412.878" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="170.000" y1="412.878" x2="170.000" y2="740.000" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="531.211" y1="537.433" x2="531.211" y2="695.094" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="599.717" y1="537.433" x2="531.211" y2="537.433" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="599.717" y1="695.094" x2="599.717" y2="537.433" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="531.211" y1="695.094" x2="599.717" y2="695.094" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="513.839" y1="472.206" x2="513.839" y2="740.000" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="513.839" y1="740.000" x2="615.450" y2="740.000" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="615.450" y1="740.000" x2="615.450" y2="472.206" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="615.450" y1="472.206" x2="513.839" y2="472.206" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="467.950" y1="649.206" x2="196.222" y2="649.206" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="196.222" y1="649.206" x2="196.222" y2="489.578" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="196.222" y1="489.578" x2="467.950" y2="489.578" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="467.950" y1="489.578" x2="467.950" y2="649.206" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="170.000" y1="412.878" x2="170.000" y2="740.000" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="170.000" y1="740.000" x2="496.794" y2="740.000" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="496.794" y1="740.000" x2="496.794" y2="412.878" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="496.794" y1="412.878" x2="170.000" y2="412.878" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="525.967" y1="283.078" x2="525.967" y2="398.128" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="685.922" y1="283.078" x2="525.967" y2="283.078" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="685.922" y1="398.128" x2="685.922" y2="283.078" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="525.967" y1="398.128" x2="685.922" y2="398.128" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="496.794" y1="399.111" x2="496.794" y2="412.878" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="496.794" y1="412.878" x2="932.083" y2="412.878" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="932.083" y1="412.878" x2="559.400" y2="150.000" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="559.400" y1="150.000" x2="328.644" y2="310.283" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="328.644" y1="310.283" x2="496.794" y2="399.111" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="332.250" y1="310.283" x2="135.583" y2="412.878" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="135.583" y1="412.878" x2="516.461" y2="412.878" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="516.461" y1="412.878" x2="332.250" y2="310.283" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="667.894" y1="525.306" x2="667.894" y2="647.894" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="667.894" y1="647.894" x2="767.539" y2="647.894" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="767.539" y1="647.894" x2="767.539" y2="525.306" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="767.539" y1="525.306" x2="667.894" y2="525.306" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="679.367" y1="636.422" x2="756.067" y2="636.422" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="679.367" y1="536.778" x2="679.367" y2="636.422" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="756.067" y1="536.778" x2="679.367" y2="536.778" stroke="#c66a13" stroke-width="1.5"/>
+<line x1="756.067" y1="636.422" x2="756.067" y2="536.778" stroke="#c66a13" stroke-width="1.5"/>
+<text x='577.1' y='126.4' font-family='Arial,sans-serif' font-size='17' fill='#303b48'>R1?</text>
+<text x='264.4' y='268' font-family='Arial,sans-serif' font-size='17' fill='#303b48'>R2?</text>
+<text x='878' y='450.9' font-family='Arial,sans-serif' font-size='17' fill='#303b48'>M1?</text>
+<text x='246.7' y='669.2' font-family='Arial,sans-serif' font-size='17' fill='#303b48'>M2 / P1?</text>
+<text x='320.086111111111' y='569.391666666667' font-family='Arial,sans-serif' font-size='17' fill='#a02a46'>O1?</text>
+<text x='705.716666666667' y='586.6' font-family='Arial,sans-serif' font-size='17' fill='#a02a46'>O2?</text>
+<text x='593.944444444444' y='340.602777777778' font-family='Arial,sans-serif' font-size='17' fill='#a02a46'>O3?</text>
+<text x='565.3' y='704.6' font-family='Arial,sans-serif' font-size='14' fill='#a02a46'>E1 / E2</text>
+<text x='789.5' y='639.7' font-family='Arial,sans-serif' font-size='14' fill='#a02a46'>S1?</text>
+<text x='35' y='835' font-family='Arial,sans-serif' font-size='14' fill='#445568'>R1/R2 roofs; O1/O2/O3 host-panel openings; M1/M2 masses; P1 bay projection.</text>
+<text x='35' y='862' font-family='Arial,sans-serif' font-size='14' fill='#445568'>E1 entrance recess; E2 door; S1 surround. ? = provisional correspondence; no geometry invented.</text>
+</svg>

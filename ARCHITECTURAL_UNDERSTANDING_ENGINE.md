@@ -352,3 +352,59 @@ in [Phase 1 evidence](tests/results/ANALYZER_PHASE1_2026-11-04.md); they are not
 tests and were not rerun here. No build, runtime test, AUE extraction, image generation,
 CAD access, studio intake, dataset comparison or physical print was performed.
 Implementation must await approval. Preserve all existing evidence and definitions.
+
+## Pilot #001 — Trumpeldor 15, Kfar Saba (2026-11-05)
+
+Status: **approved requirements; design only, unimplemented and unvalidated**.
+This pilot-specific policy refines the generic MVP above. The user identifies the
+building; photo, marked cutoff, current elevation draft and source CAD revisions
+are not registered repository artifacts here. No revised drawing/model is claimed.
+
+| Deliverable | Requirement | Boundary/purpose |
+| --- | --- | --- |
+| Main front orthographic elevation | Required | Envelope, openings, roof, surround |
+| Relevant side elevation(s) | Required | Only portions within selected reconstruction boundary; exact side IDs unresolved |
+| Simplified top footprint / roof plan | Required | Included footprint, roof and marked depth cutoff |
+| Relative depth and relief mapping | Required | Host-linked projections/recesses; unknown values explicit |
+| Rear elevation | Not Required | Open or hollow rear permitted; no rear evidence prerequisite |
+
+Do not invent unseen rear windows, doors, facade details or roof extensions.
+An open/hollow rear is a permitted reconstruction choice, not an observation of
+the real rear. Any backing/closure is a separate manufacturing proposal.
+Reconstruction depth must follow the user-marked cutoff in the reference photo.
+Register its image revision and marked boundary before assigning numeric depth;
+later calibrate against the matched existing source model where available. Keep
+photo-only and reference-assisted revisions distinct. Missing/ambiguous cutoff
+leaves depth unresolved; do not substitute guessed whole-building depth.
+
+Lock **Height = 180 actual miniature mm**, from the lowest architectural building
+point to the highest roof point, excluding display base and unrelated details.
+Use the uniform proportional sizing contract, recording extrema, scope and factor.
+Manufacturing must preserve the lock or report a conflict. This design target does
+not establish real-world measurements; other pilots retain Height-or-Width choice.
+
+### Right-front WindowSurround and planned workflow
+
+The user reports a visibly projecting architectural surround at the right-front
+window, underrepresented in the current AUE elevation draft, and estimates its
+thickness should be approximately **2× the depicted thickness**. Record this as
+**user-supplied visual guidance pending CAD validation**, not a verified physical
+measurement. Preserve the draft revision/source region when supplied. Whether
+“thickness” affects border width, outward projection or section remains unresolved;
+do not automatically double all dimensions, the aperture, sill or building scale.
+No numeric surround dimensions or successful correction are established here.
+
+Use the independent Draft OpeningSurround family / WindowSurround application in
+[Architectural LEGO](ARCHITECTURAL_LEGO_V1.md#opening-surround-draft-proposal).
+Planned sequence: register photo/cutoff/draft -> freeze photo-only interpretation ->
+resolve visual correction with uncertainty -> update shared surround geometry ->
+regenerate required front, bounded sides, top and relief -> later compare matched
+source CAD -> resolve manufacturing/capability -> independently validate geometry,
+Builder and regressions, with human visual review. None ran in this session.
+
+Future pilot checks must verify cutoff agreement across side/top views, no invented
+rear/roof entities, the 180 mm lock after transformations, independent aperture,
+surround and sill edits, and correction provenance. Missing execution-critical
+quantities block execution; absent rear evidence does not. OpeningSurround remains
+Draft until independent geometry, SolidWorks Builder and regression validation
+supports promotion under the existing lifecycle and visual approval requirements.

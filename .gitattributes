@@ -1,0 +1,9 @@
+# Preserve immutable evidence bytes across checkout platforms and autocrlf settings.
+# These files contain hashes/provenance or are inputs to the recorded manifests.
+pilots/AUE_PILOT_001/**/*.json -text whitespace=cr-at-eol
+pilots/AUE_PILOT_001/**/*.csv -text whitespace=cr-at-eol
+pilots/AUE_PILOT_001/**/*.txt -text whitespace=cr-at-eol,-blank-at-eof
+# This immutable log intentionally prints rejected IDs ending in a space.
+pilots/AUE_PILOT_001/comparison/learning/LEGACY_REGRESSIONS.txt whitespace=cr-at-eol,-blank-at-eof,-blank-at-eol
+*.SLDPRT binary
+*.png binary

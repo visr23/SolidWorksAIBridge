@@ -1,0 +1,77 @@
+﻿[
+    {
+        "id":  "O1",
+        "name":  "Large left host-panel opening",
+        "studioNative":  "Studio/Boss-Extrude67[1]/f1/l0",
+        "generatedNative":  "Generated/Pilot001_LeftBayUpperSupport_PROVISIONAL/f4/l0",
+        "studio":  {
+                       "widthH":  0.56966588277275532,
+                       "heightH":  0.31965322586456346,
+                       "centerXH":  0.32171600590921179,
+                       "centerYH":  0.27293467746897337,
+                       "aspect":  1.7821371307359237
+                   },
+        "generated":  {
+                          "widthH":  0.46055555555555561,
+                          "heightH":  0.27055555555555555,
+                          "centerXH":  0.27472222222222226,
+                          "centerYH":  0.28916666666666668,
+                          "aspect":  1.7022587268993843
+                      },
+        "intersectionOverUnion":  0.68428840259654389,
+        "registration":  "Provisional semantic datum/anchor alignment",
+        "geometry":  "Measured closed CAD host-panel loops; not complete through-body clear apertures",
+        "classification":  "BothPlausible",
+        "verified":  false
+    },
+    {
+        "id":  "O2",
+        "name":  "Right host-panel opening",
+        "studioNative":  "Studio/Combine9/f469/l2",
+        "generatedNative":  "Generated/Pilot001_LargeWindowOpening_PROVISIONAL/f4/l1",
+        "studio":  {
+                       "widthH":  0.13855660419471014,
+                       "heightH":  0.13855660419471011,
+                       "centerXH":  1.020268876175775,
+                       "centerYH":  0.28415426916046227,
+                       "aspect":  1.0000000000000002
+                   },
+        "generated":  {
+                          "widthH":  0.13000000000000003,
+                          "heightH":  0.16888888888888884,
+                          "centerXH":  0.92833333333333345,
+                          "centerYH":  0.25999999999999995,
+                          "aspect":  0.76973684210526361
+                      },
+        "intersectionOverUnion":  0.15381882088856927,
+        "registration":  "Provisional semantic datum/anchor alignment",
+        "geometry":  "Measured closed CAD host-panel loops; not complete through-body clear apertures",
+        "classification":  "BothPlausible",
+        "verified":  false
+    },
+    {
+        "id":  "O3",
+        "name":  "Upper host-panel opening",
+        "studioNative":  "Studio/Combine9/f469/l0",
+        "generatedNative":  "Generated/Pilot001_UpperGableWindowOpening_PROVISIONAL/f6/l0",
+        "studio":  {
+                       "widthH":  0.22708701188417865,
+                       "heightH":  0.20349370984106152,
+                       "centerXH":  0.77299818909791407,
+                       "centerYH":  0.71397355257000927,
+                       "aspect":  1.1159411859046879
+                   },
+        "generated":  {
+                          "widthH":  0.27111111111111119,
+                          "heightH":  0.195,
+                          "centerXH":  0.73888888888888893,
+                          "centerYH":  0.67694444444444446,
+                          "aspect":  1.3903133903133906
+                      },
+        "intersectionOverUnion":  0.54320732768865676,
+        "registration":  "Provisional semantic datum/anchor alignment",
+        "geometry":  "Measured closed CAD host-panel loops; not complete through-body clear apertures",
+        "classification":  "BothPlausible",
+        "verified":  false
+    }
+]

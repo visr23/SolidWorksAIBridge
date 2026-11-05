@@ -1,0 +1,22 @@
+﻿[
+    {
+        "path":  "FRONT_EDGE_EVIDENCE.json",
+        "bytes":  32178,
+        "sha256":  "4E621D6CFCAD54B128599D46B039C2DAD4E0FF52EA81B38CC0A4694A62760CE1"
+    },
+    {
+        "path":  "../PROPORTIONS_FRONT.json",
+        "bytes":  153131,
+        "sha256":  "21CF3215B0CA7E53F061CA68944C14CA48B0AB0AA27C6800BC78453A2105A0D0"
+    },
+    {
+        "path":  "../PROPORTIONS_REGISTRATION.json",
+        "bytes":  2156,
+        "sha256":  "271A6677BB6733E4944F37904C3AC0343A1B6000DE36CCB952657D04741B0FCD"
+    },
+    {
+        "path":  "../../references/annotated_building_boundary.png.png",
+        "bytes":  1278984,
+        "sha256":  "CE1161EF4E262B35B73D6E72C2F94EFAE28592C9DF9952E99A1B39A65C3C017B"
+    }
+]

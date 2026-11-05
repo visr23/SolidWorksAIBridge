@@ -563,3 +563,62 @@ The approved contracts establish direction; the following details require explic
 6. Phase 4: corrected-elevation representation/editor, photo scale calibration, correction synchronization, and the initial Golden Dataset images/building scope.
 
 These decisions do not authorize changing existing behavior by default. Preserve working implementations and add validated capabilities incrementally.
+
+## Opening surround — Draft proposal
+
+Approved proposal, 2026-11-05: **OpeningSurround** is a proposed reusable LEGO
+family; **WindowSurround** is its window-specific application. Status **Draft**.
+No typed contract, registered definition, geometry recipe, SolidWorks Builder or
+surround regression suite exists. Existing window, sill and shared-sketch APIs
+remain unchanged. The surround is independent of the aperture cut and optional sill.
+
+### Planned contract
+
+- Stable surround ID, host wall/opening references, attachment frame, outward
+  normal and source evidence; explicit dependency and placement bindings.
+- Separate inner/outer dimensions or profiles, border width and wall projection.
+  For aligned rectangles, outer width = inner width + left/right borders; outer
+  height = inner height + top/bottom borders. Declare the driving set, derive
+  redundant values and reject inconsistent constraints without resizing the aperture.
+- Independently editable top, bottom, left and right profiles, including per-edge
+  border widths, sections and projection. Uniform border width may be an explicit
+  default binding. Specify corner joins; detect gaps, overlaps and self-intersections.
+- Optional sill as a distinct child/reference with independent dimensions and an
+  explicit bottom-profile interface. No sill is valid; avoid duplicating existing sills.
+- Rectangular initial support; profile-based extension for future nonrectangular
+  openings with explicit boundary segments/joins. Unsupported shapes fail pre-CAD.
+- Parametric updates propagate intended host/opening dependencies while preserving
+  independent controls, unrelated features and sill identity. Exact schema/binding
+  syntax and supported ranges remain future implementation decisions.
+
+Retain architectural/relative evidence separately from resolved miniature mm.
+Apply the AUE sizing adapter before current APIs; convert to COM meters only at
+execution. After scaling, check each profile's narrowest section and corner joins
+against the selected manufacturing profile's minimum printable thickness. No
+universal numeric minimum is assigned. Below-minimum dimensions fail by default;
+explicitly approved thickening records before/after values and preserves the height
+lock or reports a conflict. Bounding width/projection alone does not prove thickness.
+
+### Planned Builder and independent validation
+
+Use named constrained profiles and deterministic additive operations, explicit
+target bodies and merge policy. Choose separate print body versus selected-host
+merge explicitly; contact alone never authorizes merging. Do not enlarge the
+aperture or cut unrelated bodies. Corner recipe and supported parameter ranges
+must be selected during implementation; this proposal establishes no working recipe.
+
+Independently validate geometry (inner/outer bounds, border widths, projections,
+sections, joins, connectivity/body scope), SolidWorks Builder (direction/depth,
+merge isolation, rebuilds and independent parameter edits), and regression tests
+(new surround cases plus existing wall/window/sill/row/grid/door behavior).
+Non-COM fixtures should reject nonfinite/invalid dimensions, inconsistent bounds,
+missing hosts, dependency cycles, unsupported profiles, collisions and minimum
+thickness failures before mutation. CAD cases must cover asymmetric profiles,
+optional/no sill, parameter edits and unrelated-body isolation. Human visual
+approval must reference exact artifacts. Keep Draft until these independent gates
+support Draft -> Testing -> Validated; visual agreement or focused tests alone
+cannot establish full validation. No tests or CAD have run for this proposal.
+
+For [Pilot #001](ARCHITECTURAL_UNDERSTANDING_ENGINE.md), the right-front approximately
+2× correction is user visual guidance pending CAD validation, not measurement.
+Resolve border width, projection and section separately before assigning dimensions.

@@ -65,3 +65,13 @@ _ReSharper*/
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# Pilot checkpoint scratch state and copied build products (keep evidence marker)
+/pilots/AUE_PILOT_001/results/R2_RESTART_ATTEMPT_2026-11-05/run/*
+!/pilots/AUE_PILOT_001/results/R2_RESTART_ATTEMPT_2026-11-05/run/R2_CAD_ATTEMPT.txt
+/pilots/AUE_PILOT_001/comparison/*.json.checkpoint
+/pilots/AUE_PILOT_001/comparison/learning/*.json.checkpoint
+/pilots/AUE_PILOT_001/comparison/SOURCE_HASHES_BEFORE.csv
+
+# Unverified scratch Part; not the selected studio reference or preserved R2
+/pilots/AUE_PILOT_001/cad_tests/Part1.SLDPRT

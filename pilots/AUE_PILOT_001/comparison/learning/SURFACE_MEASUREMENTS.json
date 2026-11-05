@@ -1,0 +1,241 @@
+﻿[
+    {
+        "id":  "R1",
+        "studio":  {
+                       "widthH":  0.969998211279087,
+                       "heightH":  0.43973641379155515,
+                       "centerXH":  0.83597138764876155,
+                       "centerYH":  0.78013179310422243,
+                       "aspect":  2.2058628324987608,
+                       "nativeLoopRefs":  [
+                                              "Studio/Cut-Extrude33[1]/f6/l0",
+                                              "Studio/Cut-Extrude33[1]/f7/l0",
+                                              "Studio/Cut-Extrude33[1]/f14/l0"
+                                          ],
+                       "meaning":  "Bounding box of selected native face boundary edges; not necessarily full component or silhouette"
+                   },
+        "generated":  {
+                          "widthH":  1.0227777777777778,
+                          "heightH":  0.44555555555555548,
+                          "centerXH":  0.78027777777777785,
+                          "centerYH":  0.77722222222222215,
+                          "aspect":  2.2955112219451377,
+                          "nativeLoopRefs":  [
+                                                 "Generated/Pilot001_UpperGableWindowOpening_PROVISIONAL/f6/l1"
+                                             ],
+                          "meaning":  "Bounding box of selected native face boundary edges; not necessarily full component or silhouette"
+                      },
+        "limitation":  "Studio fascia bands versus shallow filled gable; area IoU not equivalent",
+        "intersectionOverUnion":  null,
+        "depthDifference":  null,
+        "verified":  false
+    },
+    {
+        "id":  "R2",
+        "studio":  {
+                       "widthH":  0.74931170498201183,
+                       "heightH":  0.19510527184789725,
+                       "centerXH":  0.32171600590921173,
+                       "centerYH":  0.66330381836565211,
+                       "aspect":  3.8405507851482872,
+                       "nativeLoopRefs":  [
+                                              "Studio/Cut-Extrude31/f6/l0",
+                                              "Studio/Cut-Extrude31/f7/l0",
+                                              "Studio/Cut-Extrude31/f12/l0"
+                                          ],
+                       "meaning":  "Bounding box of selected native face boundary edges; not necessarily full component or silhouette"
+                   },
+        "generated":  {
+                          "widthH":  0.64555555555555555,
+                          "heightH":  0.17388888888888884,
+                          "centerXH":  0.26444444444444443,
+                          "centerYH":  0.64138888888888879,
+                          "aspect":  3.7124600638977645,
+                          "nativeLoopRefs":  [
+                                                 "Generated/Pilot001_LeftGableProfile_PROVISIONAL/f3/l0"
+                                             ],
+                          "meaning":  "Bounding box of selected native face boundary edges; not necessarily full component or silhouette"
+                      },
+        "limitation":  "Studio fascia bands versus shallow triangle; area IoU not equivalent",
+        "intersectionOverUnion":  null,
+        "depthDifference":  null,
+        "verified":  false
+    },
+    {
+        "id":  "M1",
+        "studio":  {
+                       "widthH":  0.88524727888411259,
+                       "heightH":  0.95646532692272279,
+                       "centerXH":  0.8114556995313339,
+                       "centerYH":  0.4782326634613614,
+                       "aspect":  0.92554037659917787,
+                       "nativeLoopRefs":  [
+                                              "Studio/Combine9/f7/l0",
+                                              "Studio/Combine9/f10/l0",
+                                              "Studio/Combine9/f10/l1",
+                                              "Studio/Combine9/f469/l0",
+                                              "Studio/Combine9/f469/l1",
+                                              "Studio/Combine9/f469/l2",
+                                              "Studio/Combine9/f474/l0"
+                                          ],
+                       "meaning":  "Bounding box of selected native face boundary edges; not necessarily full component or silhouette"
+                   },
+        "generated":  {
+                          "widthH":  1.2472222222222222,
+                          "heightH":  0.55444444444444441,
+                          "centerXH":  0.62361111111111112,
+                          "centerYH":  0.2772222222222222,
+                          "aspect":  2.2494989979959921,
+                          "nativeLoopRefs":  [
+                                                 "Generated/Pilot001_LargeWindowOpening_PROVISIONAL/f4/l2"
+                                             ],
+                          "meaning":  "Bounding box of selected native face boundary edges; not necessarily full component or silhouette"
+                      },
+        "limitation":  "Source body includes upper gable; generated backing continues behind bay. Component scopes differ",
+        "intersectionOverUnion":  null,
+        "depthDifference":  null,
+        "verified":  false
+    },
+    {
+        "id":  "M2",
+        "studio":  {
+                       "widthH":  0.64343201181842369,
+                       "heightH":  0.72397338976676662,
+                       "centerXH":  0.32171600590921184,
+                       "centerYH":  0.36198669488338331,
+                       "aspect":  0.88875091393305228,
+                       "nativeLoopRefs":  [
+                                              "Studio/Boss-Extrude67[1]/f1/l0",
+                                              "Studio/Boss-Extrude67[1]/f1/l1",
+                                              "Studio/Boss-Extrude67[1]/f2/l0",
+                                              "Studio/Boss-Extrude67[1]/f70/l0",
+                                              "Studio/Boss-Extrude67[1]/f269/l0"
+                                          ],
+                       "meaning":  "Bounding box of selected native face boundary edges; not necessarily full component or silhouette"
+                   },
+        "generated":  {
+                          "widthH":  0.55388888888888888,
+                          "heightH":  0.55444444444444441,
+                          "centerXH":  0.27694444444444444,
+                          "centerYH":  0.2772222222222222,
+                          "aspect":  0.998997995991984,
+                          "nativeLoopRefs":  [
+                                                 "Generated/Pilot001_LeftBayUpperSupport_PROVISIONAL/f4/l0",
+                                                 "Generated/Pilot001_LeftBayUpperSupport_PROVISIONAL/f4/l1"
+                                             ],
+                          "meaning":  "Bounding box of selected native face boundary edges; not necessarily full component or silhouette"
+                      },
+        "limitation":  "Source support includes upper profile; body-level dimensions are not directly equivalent",
+        "intersectionOverUnion":  null,
+        "depthDifference":  null,
+        "verified":  false
+    },
+    {
+        "id":  "P1",
+        "studio":  {
+                       "widthH":  0.62867878600929028,
+                       "heightH":  0.58521129042897,
+                       "centerXH":  0.32171600590921179,
+                       "centerYH":  0.292605645214485,
+                       "aspect":  1.0742765840154209,
+                       "nativeLoopRefs":  [
+                                              "Studio/Boss-Extrude67[1]/f2/l0",
+                                              "Studio/Boss-Extrude67[1]/f70/l0"
+                                          ],
+                       "meaning":  "Bounding box of selected native face boundary edges; not necessarily full component or silhouette"
+                   },
+        "generated":  {
+                          "widthH":  0.55388888888888888,
+                          "heightH":  0.55444444444444441,
+                          "centerXH":  0.27694444444444444,
+                          "centerYH":  0.2772222222222222,
+                          "aspect":  0.998997995991984,
+                          "nativeLoopRefs":  [
+                                                 "Generated/Pilot001_LeftBayUpperSupport_PROVISIONAL/f4/l0",
+                                                 "Generated/Pilot001_LeftBayUpperSupport_PROVISIONAL/f4/l1"
+                                             ],
+                          "meaning":  "Bounding box of selected native face boundary edges; not necessarily full component or silhouette"
+                      },
+        "limitation":  "Front selected faces only; cross-model exterior-depth datum provisional",
+        "intersectionOverUnion":  null,
+        "depthDifference":  null,
+        "verified":  false
+    },
+    {
+        "id":  "P2",
+        "studio":  {
+                       "widthH":  0.17298079774935546,
+                       "heightH":  0.075580151852466027,
+                       "centerXH":  1.020268876175775,
+                       "centerYH":  0.332854592108907,
+                       "aspect":  2.2887066711246815,
+                       "nativeLoopRefs":  [
+                                              "Studio/Extrude-Thin3/f8/l0",
+                                              "Studio/Extrude-Thin3/f9/l0"
+                                          ],
+                       "meaning":  "Bounding box of selected native face boundary edges; not necessarily full component or silhouette"
+                   },
+        "generated":  null,
+        "limitation":  "Projection role uncertain; no generated counterpart",
+        "intersectionOverUnion":  null,
+        "depthDifference":  null,
+        "verified":  false
+    },
+    {
+        "id":  "E1",
+        "studio":  null,
+        "generated":  {
+                          "widthH":  0.17222222222222225,
+                          "heightH":  0.4538888888888889,
+                          "centerXH":  0.668888888888889,
+                          "centerYH":  0.22694444444444445,
+                          "aspect":  0.379436964504284,
+                          "nativeLoopRefs":  [
+                                                 "Generated/Pilot001_LargeWindowOpening_PROVISIONAL/f13/l1"
+                                             ],
+                          "meaning":  "Bounding box of selected native face boundary edges; not necessarily full component or silhouette"
+                      },
+        "limitation":  "Original entrance/recess not isolated",
+        "intersectionOverUnion":  null,
+        "depthDifference":  null,
+        "verified":  false
+    },
+    {
+        "id":  "E2",
+        "studio":  null,
+        "generated":  {
+                          "widthH":  0.11611111111111104,
+                          "heightH":  0.26722222222222225,
+                          "centerXH":  0.67027777777777775,
+                          "centerYH":  0.2097222222222222,
+                          "aspect":  0.4345114345114342,
+                          "nativeLoopRefs":  [
+                                                 "Generated/Pilot001_LargeWindowOpening_PROVISIONAL/f13/l0"
+                                             ],
+                          "meaning":  "Bounding box of selected native face boundary edges; not necessarily full component or silhouette"
+                      },
+        "limitation":  "Original equivalent door not isolated",
+        "intersectionOverUnion":  null,
+        "depthDifference":  null,
+        "verified":  false
+    },
+    {
+        "id":  "S1",
+        "studio":  null,
+        "generated":  {
+                          "widthH":  0.16888888888888892,
+                          "heightH":  0.20777777777777778,
+                          "centerXH":  0.92833333333333334,
+                          "centerYH":  0.26,
+                          "aspect":  0.81283422459893062,
+                          "nativeLoopRefs":  [
+                                                 "Generated/Pilot001_OpeningSurround_PROVISIONAL/f0/l0"
+                                             ],
+                          "meaning":  "Bounding box of selected native face boundary edges; not necessarily full component or silhouette"
+                      },
+        "limitation":  "Source surround not isolated; outer boundary only",
+        "intersectionOverUnion":  null,
+        "depthDifference":  null,
+        "verified":  false
+    }
+]

@@ -1,0 +1,3 @@
+
+  Analyzer.Learning -> C:\Users\pc\source\repos\visr23\SolidWorksAIBridge\analyzer\learning\bin\Debug\SolidWorksAIBridge.Analysis.Learning.dll
+  LearningTests -> C:\Users\pc\source\repos\visr23\SolidWorksAIBridge\analyzer\learning\tests\bin\Debug\LearningTests.exe

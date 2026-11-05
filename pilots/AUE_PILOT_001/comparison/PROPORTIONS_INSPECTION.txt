@@ -1,0 +1,3 @@
+BEGIN_READ_ONLY C:\Users\pc\source\repos\visr23\SolidWorksAIBridge\pilots\AUE_PILOT_001\solidworks reasults\AUE_PILOT_001_FRONT_V1.SLDPRT
+INSPECTED AUE_PILOT_001_FRONT_V1; Path=C:\Users\pc\source\repos\visr23\SolidWorksAIBridge\pilots\AUE_PILOT_001\solidworks reasults\AUE_PILOT_001_FRONT_V1.SLDPRT; Dirty=False; NeedsRebuild=0; Bodies=5
+BEGIN_READ_ONLY G:\.shortcut-targets-by-id\1JLCVKHnaLXjxYGaZJM5xziEyy9a6prT4\בניינים\טרומפלדור 15 כפר סבא\Part1.SLDPRT

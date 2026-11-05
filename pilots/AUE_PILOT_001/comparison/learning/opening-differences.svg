@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="900" viewBox="0 0 1100 900"><rect width="1100" height="900" fill="#ffffff"/>
+<text x='35' y='40' font-family='Arial,sans-serif' font-size='24' fill='#162333'>Supported difference overlay: O1 / O2 / O3</text>
+<text x='35' y='72' font-family='Arial,sans-serif' font-size='14' fill='#445568'>Measured closed rectangular host-panel loops; overlap is conditional on provisional registration.</text>
+<text x='35' y='100' font-family='Arial,sans-serif' font-size='14' fill='#445568'>Same XY frame and uniform height normalization; source facade datums remain provisional.</text>
+<line x1="130.000" y1="740.000" x2="990.000" y2="740.000" stroke="#e3e8ee" stroke-width="1"/>
+<text x='70' y='745' font-family='Arial,sans-serif' font-size='12' fill='#667788'>0.00</text>
+<line x1="130.000" y1="592.500" x2="990.000" y2="592.500" stroke="#e3e8ee" stroke-width="1"/>
+<text x='70' y='597.5' font-family='Arial,sans-serif' font-size='12' fill='#667788'>0.25</text>
+<line x1="130.000" y1="445.000" x2="990.000" y2="445.000" stroke="#e3e8ee" stroke-width="1"/>
+<text x='70' y='450' font-family='Arial,sans-serif' font-size='12' fill='#667788'>0.50</text>
+<line x1="130.000" y1="297.500" x2="990.000" y2="297.500" stroke="#e3e8ee" stroke-width="1"/>
+<text x='70' y='302.5' font-family='Arial,sans-serif' font-size='12' fill='#667788'>0.75</text>
+<line x1="130.000" y1="150.000" x2="990.000" y2="150.000" stroke="#e3e8ee" stroke-width="1"/>
+<text x='70' y='155' font-family='Arial,sans-serif' font-size='12' fill='#667788'>1.00</text>
+<text x='35' y='130' font-family='Arial,sans-serif' font-size='12' fill='#667788'>Y / H</text>
+<text x='885' y='778' font-family='Arial,sans-serif' font-size='12' fill='#667788'>X / H  -&gt;</text>
+<rect x="191.761" y="484.671" width="336.103" height="188.595" fill="#dceafa"/>
+<rect x="196.222" y="489.578" width="271.728" height="159.628" fill="#fae2c8"/>
+<rect x="196.222" y="489.578" width="271.728" height="159.628" fill="#d6c8e7"/>
+<line x1="191.761" y1="673.266" x2="527.864" y2="673.266" stroke="#2463a0" stroke-width="1.8"/>
+<line x1="527.864" y1="673.266" x2="527.864" y2="484.671" stroke="#2463a0" stroke-width="1.8"/>
+<line x1="527.864" y1="484.671" x2="191.761" y2="484.671" stroke="#2463a0" stroke-width="1.8"/>
+<line x1="191.761" y1="484.671" x2="191.761" y2="673.266" stroke="#2463a0" stroke-width="1.8"/>
+<line x1="196.222" y1="649.206" x2="467.950" y2="649.206" stroke="#c66a13" stroke-width="1.8"/>
+<line x1="467.950" y1="649.206" x2="467.950" y2="489.578" stroke="#c66a13" stroke-width="1.8"/>
+<line x1="467.950" y1="489.578" x2="196.222" y2="489.578" stroke="#c66a13" stroke-width="1.8"/>
+<line x1="196.222" y1="489.578" x2="196.222" y2="649.206" stroke="#c66a13" stroke-width="1.8"/>
+<text x='191.761008068472' y='472.670838663259' font-family='Arial,sans-serif' font-size='16' fill='#303b48'>O1?</text>
+<rect x="731.084" y="531.475" width="81.748" height="81.748" fill="#dceafa"/>
+<rect x="679.367" y="536.778" width="76.700" height="99.644" fill="#fae2c8"/>
+<rect x="731.084" y="536.778" width="24.982" height="76.445" fill="#d6c8e7"/>
+<line x1="731.084" y1="613.223" x2="812.833" y2="613.223" stroke="#2463a0" stroke-width="1.8"/>
+<line x1="812.833" y1="613.223" x2="812.833" y2="531.475" stroke="#2463a0" stroke-width="1.8"/>
+<line x1="812.833" y1="531.475" x2="731.084" y2="531.475" stroke="#2463a0" stroke-width="1.8"/>
+<line x1="731.084" y1="531.475" x2="731.084" y2="613.223" stroke="#2463a0" stroke-width="1.8"/>
+<line x1="679.367" y1="636.422" x2="756.067" y2="636.422" stroke="#c66a13" stroke-width="1.8"/>
+<line x1="756.067" y1="636.422" x2="756.067" y2="536.778" stroke="#c66a13" stroke-width="1.8"/>
+<line x1="756.067" y1="536.778" x2="679.367" y2="536.778" stroke="#c66a13" stroke-width="1.8"/>
+<line x1="679.367" y1="536.778" x2="679.367" y2="636.422" stroke="#c66a13" stroke-width="1.8"/>
+<text x='679.366666666667' y='519.474782957888' font-family='Arial,sans-serif' font-size='16' fill='#303b48'>O2?</text>
+<rect x="559.078" y="258.725" width="133.981" height="120.061" fill="#dceafa"/>
+<rect x="525.967" y="283.078" width="159.956" height="115.050" fill="#fae2c8"/>
+<rect x="559.078" y="283.078" width="126.844" height="95.708" fill="#d6c8e7"/>
+<line x1="559.078" y1="378.786" x2="693.060" y2="378.786" stroke="#2463a0" stroke-width="1.8"/>
+<line x1="693.060" y1="378.786" x2="693.060" y2="258.725" stroke="#2463a0" stroke-width="1.8"/>
+<line x1="693.060" y1="258.725" x2="559.078" y2="258.725" stroke="#2463a0" stroke-width="1.8"/>
+<line x1="559.078" y1="258.725" x2="559.078" y2="378.786" stroke="#2463a0" stroke-width="1.8"/>
+<line x1="525.967" y1="398.128" x2="685.922" y2="398.128" stroke="#c66a13" stroke-width="1.8"/>
+<line x1="685.922" y1="398.128" x2="685.922" y2="283.078" stroke="#c66a13" stroke-width="1.8"/>
+<line x1="685.922" y1="283.078" x2="525.967" y2="283.078" stroke="#c66a13" stroke-width="1.8"/>
+<line x1="525.967" y1="283.078" x2="525.967" y2="398.128" stroke="#c66a13" stroke-width="1.8"/>
+<text x='525.966666666667' y='246.724959580581' font-family='Arial,sans-serif' font-size='16' fill='#303b48'>O3?</text>
+<text x='35' y='810' font-family='Arial,sans-serif' font-size='16' fill='#445568'>Blue: Studio    Orange: AUE R2    Purple: intersection. Neither color indicates correctness.</text>
+<text x='35' y='842' font-family='Arial,sans-serif' font-size='14' fill='#8c3b2d'>Roof/mass silhouette areas and depth are excluded: incomplete equivalent-region evidence.</text>
+<text x='35' y='870' font-family='Arial,sans-serif' font-size='14' fill='#445568'>Native face loops support these rectangles; they do not prove unobstructed through-body apertures.</text>
+</svg>

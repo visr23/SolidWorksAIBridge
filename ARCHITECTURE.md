@@ -1,3 +1,48 @@
+## Isolated learning-record foundation and bounded front evidence — 2026-11-05
+
+`analyzer/learning/Analyzer.Learning.csproj` is an independent COM-free .NET
+Framework 4.8 library, not referenced by production or the existing Analyzer 0.1.0
+contracts. Separate learning JSON stores many-to-many component correspondence,
+provenance/unknowns, provisional classifications, competing Draft recipes,
+proposals and gated experiment state. Pure normalization/rectangle IoU/native-line
+loop and cooperative budget helpers have 65 passing non-COM checks including the
+actual pilot record. This is not the full Building Dataset Analyzer/AUE pipeline.
+
+`pilots/AUE_PILOT_001/comparison/FrontEvidence.csproj` is a separate STA adapter for
+budgeted reads of exact already-open pilot/studio documents: selected planar faces,
+actual line loops and direct feature parents, with progress/cancellation/checkpoints
+and preservation checks. A completed read supplied 22 selected faces / 32 loops.
+No CAD mutation, saved-state Inspector implementation or generic source resolver.
+Derived labeled front views and an opening-only overlay remain semantically
+provisional; no complete silhouette/occlusion or depth registration claimed.
+[Reports and verified limits](pilots/AUE_PILOT_001/comparison/learning/index.html).
+No approved LEGO family or production boundary changed; learned recipes stay Draft.
+## Pilot-only comparison evidence helper — 2026-11-05
+
+`pilots/AUE_PILOT_001/comparison/Inspect.csproj` is a separate .NET Framework 4.8
+STA read-only helper for two explicitly selected already-open pilot/studio paths.
+It reads tree samples, dirty/configuration/rebuild-needed state, body extrema and
+selected vertices into ad-hoc JSON. No save/copy mode, rebuild or CAD geometry
+mutation. Compare-Proportions.ps1 derives a provisional front XY height-normalized
+comparison. This is not an implementation of analyzer/IReadOnlyCadAdapter, the
+production pipeline or a general saved-state Inspector. Source role/datum and
+plane/depth registration remain incomplete; no LEGO promotion. See
+[pilot evidence/limits](pilots/AUE_PILOT_001/comparison/PROPORTIONS_RESULT.md).
+## Isolated experimental AUE Pilot #001 runner — 2026-11-05
+
+`pilots/AUE_PILOT_001/runner/AuePilot001.R2.csproj` is a separate opt-in .NET Framework
+4.8 STA executable referencing the unchanged production project. `--preflight`
+performs non-COM plan checks; `--confirm-cad-r2` attaches through the existing
+connector and uses existing wall/right-window builders plus pilot-only profile,
+equation and body-scope code. It is not in the production solution/dispatch and is
+not an AUE interpretation pipeline or a registered reusable LEGO implementation.
+
+Actual single CAD attempt created unsaved Part1 wall/right opening then stopped on
+a pilot body-label lookup defect. Remaining pilot operations are compiled but
+CAD-untested; full R2 geometry, final height and parameter edits are unverified.
+[Actual result](pilots/AUE_PILOT_001/results/R2_CAD_RESULT.md). OpeningSurround remains
+Draft; validated production geometry and public signatures unchanged. Historical
+statements that no executable pilot runner exists predate this isolated addition.
 ## Approved proportional-sizing correction — 2026-11-04
 
 [AUE Dimension-Driven Proportional Scaling](ARCHITECTURAL_UNDERSTANDING_ENGINE.md)

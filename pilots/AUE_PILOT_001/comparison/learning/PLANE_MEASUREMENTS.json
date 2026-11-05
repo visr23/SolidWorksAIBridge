@@ -1,0 +1,37 @@
+﻿[
+    {
+        "id":  "E1-recess",
+        "role":  "Generated",
+        "valueMm":  6,
+        "kind":  "Within-model entrance recess plane gap",
+        "crossModelMatchVerified":  false
+    },
+    {
+        "id":  "P1-bay",
+        "role":  "Generated",
+        "valueMm":  8,
+        "kind":  "Within-model bay projection plane gap",
+        "crossModelMatchVerified":  false
+    },
+    {
+        "id":  "S1-projection",
+        "role":  "Generated",
+        "valueMm":  3.0000000000000018,
+        "kind":  "Within-model ring projection plane gap",
+        "crossModelMatchVerified":  false
+    },
+    {
+        "id":  "P1-bay-candidate",
+        "role":  "Studio",
+        "valueMm":  47.652068186523287,
+        "kind":  "Named source plane gap; architectural datum semantics unverified",
+        "crossModelMatchVerified":  false
+    },
+    {
+        "id":  "P2-plane-gap",
+        "role":  "Studio",
+        "valueMm":  8.000000000000000,
+        "kind":  "Named source plane gap; projection role unverified",
+        "crossModelMatchVerified":  false
+    }
+]

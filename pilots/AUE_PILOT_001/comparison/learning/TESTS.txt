@@ -1,0 +1,66 @@
+PASS synthetic one-to-many
+PASS synthetic many-to-one
+PASS unknown retained as null
+PASS roundtrip
+PASS canonical ordering
+PASS serialization does not mutate caller
+PASS scope
+PASS version
+PASS no absolute CAD authority
+PASS height 0
+PASS height -1
+PASS height NaN
+PASS height ∞
+PASS duplicate evidence
+PASS missing evidence provenance
+PASS nonfinite measurement
+PASS measurement units
+PASS unknown is not zero
+PASS unknown requires reason
+PASS confidence finite
+PASS confidence range
+PASS dangling measurement
+PASS duplicate body in match
+PASS unmatched generated component allowed
+PASS empty correspondence
+PASS verified match prohibited
+PASS verified classification prohibited
+PASS unknown classification
+PASS dangling finding
+PASS recipe cannot promote
+PASS proposal requires alternatives
+PASS proposal requires known alternatives
+PASS recipe scope mismatch rejected
+PASS fixture mandatory
+PASS stage cannot skip
+PASS diagnose requires measurement
+PASS reject allowed
+PASS rejection terminal
+PASS pending cannot remeasure
+PASS unrelated experiment evidence rejected
+PASS acceptance requires approval
+PASS acceptance requires regression
+PASS failed regression rejected
+PASS acceptance requires remeasurement
+PASS positive controlled acceptance keeps recipe Draft
+PASS full staged workflow
+PASS uniform scale aspect invariant
+PASS IoU identical
+PASS IoU disjoint
+PASS IoU partial and symmetric
+PASS IoU containment
+PASS invalid rectangle
+PASS invalid normalization
+PASS line loop unordered reversible
+PASS open edge chain rejected
+PASS disconnected loops rejected
+PASS degenerate edge rejected
+PASS nonfinite loop rejected
+PASS budget exact stop
+PASS deterministic time budget
+PASS nonfinite clock rejected
+PASS cancellation
+PASS actual pilot record validates and roundtrips
+PASS actual pilot proposals remain Draft/Pending
+PASS actual pilot does not rank studio as truth
+RESULT 65 passed / 0 failed; synthetic, NO COM

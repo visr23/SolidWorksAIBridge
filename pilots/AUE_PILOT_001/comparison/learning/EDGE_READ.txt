@@ -1,0 +1,21 @@
+READ_BODY Generated:Pilot001_LargeWindowOpening_PROVISIONAL
+CHECKPOINT Pilot001_LargeWindowOpening_PROVISIONAL; selected faces=2
+READ_BODY Generated:Pilot001_LeftBayUpperSupport_PROVISIONAL
+CHECKPOINT Pilot001_LeftBayUpperSupport_PROVISIONAL; selected faces=1
+READ_BODY Generated:Pilot001_UpperGableWindowOpening_PROVISIONAL
+CHECKPOINT Pilot001_UpperGableWindowOpening_PROVISIONAL; selected faces=1
+READ_BODY Generated:Pilot001_LeftGableProfile_PROVISIONAL
+CHECKPOINT Pilot001_LeftGableProfile_PROVISIONAL; selected faces=1
+READ_BODY Generated:Pilot001_OpeningSurround_PROVISIONAL
+CHECKPOINT Pilot001_OpeningSurround_PROVISIONAL; selected faces=1
+READ_BODY Studio:Combine9
+CHECKPOINT Combine9; selected faces=4
+READ_BODY Studio:Boss-Extrude67[1]
+CHECKPOINT Boss-Extrude67[1]; selected faces=4
+READ_BODY Studio:Cut-Extrude33[1]
+CHECKPOINT Cut-Extrude33[1]; selected faces=3
+READ_BODY Studio:Cut-Extrude31
+CHECKPOINT Cut-Extrude31; selected faces=3
+READ_BODY Studio:Extrude-Thin3
+CHECKPOINT Extrude-Thin3; selected faces=2
+METADATA_PRESERVED True; SUCCESS True

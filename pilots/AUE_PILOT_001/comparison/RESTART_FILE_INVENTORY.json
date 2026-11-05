@@ -1,0 +1,82 @@
+﻿[
+    {
+        "path":  "pilots/AUE_PILOT_001/runner/PilotProgram.cs",
+        "bytes":  4180,
+        "sha256":  "E386788BE374DF496184F493D5A71EE85AA436D308C68707CAD1B7BD36C0BE97"
+    },
+    {
+        "path":  "pilots/AUE_PILOT_001/runner/PilotBuilder.cs",
+        "bytes":  21407,
+        "sha256":  "C87DA2688F4B638D6E194A22AA6CB5A8E7088556F05F60C2100B74E99B9BD951"
+    },
+    {
+        "path":  "pilots/AUE_PILOT_001/runner/R2Plan.cs",
+        "bytes":  8378,
+        "sha256":  "5602A28BA09F147C8F2E1E37E8B9947F668C9DC35CF6B2635FB53E8DD1200D70"
+    },
+    {
+        "path":  "pilots/AUE_PILOT_001/runner/BodyIdentity.cs",
+        "bytes":  6916,
+        "sha256":  "5DDD990241DDBEBBEFCB50F8C8628AA86C524BAAC96F772E24069DD544CDE2CA"
+    },
+    {
+        "path":  "pilots/AUE_PILOT_001/runner/AuePilot001.R2.csproj",
+        "bytes":  1714,
+        "sha256":  "009F5207B737A2AC04D9B03D4A58918F281D784054E19FBC868CA85810D6DB75"
+    },
+    {
+        "path":  "pilots/AUE_PILOT_001/runner/tests/BodyIdentityTests.cs",
+        "bytes":  8543,
+        "sha256":  "A99E89D1586BBBA7336B58FCCE9ED53418D40EAC39EC779D30B2A1A298A57C54"
+    },
+    {
+        "path":  "pilots/AUE_PILOT_001/results/BODY_TRACKING_FIX_2026-11-05.md",
+        "bytes":  5763,
+        "sha256":  "653316F812B5763A9C7EF0804DF590F866F73ED02A654C619691398D2E33F9CA"
+    },
+    {
+        "path":  "pilots/AUE_PILOT_001/results/BODY_TRACKING_TESTS.txt",
+        "bytes":  4362,
+        "sha256":  "9300C653AB27ED7974B134AF3453FF84A1E932FB8499C5DF658B46F46F30868D"
+    },
+    {
+        "path":  "pilots/AUE_PILOT_001/results/BODY_TRACKING_LEGACY_TESTS.txt",
+        "bytes":  55102,
+        "sha256":  "7980EEF0BE1E2877550B562181E45752C9D28494CF1718A68F8712BEE5FE6B75"
+    },
+    {
+        "path":  "pilots/AUE_PILOT_001/results/R2_CAD_RESULT.md",
+        "bytes":  5414,
+        "sha256":  "73A4D73490922D75ADAAEC06DDFEC0C0A973DF524A4DBA78B6EA57E1FA314DE7"
+    },
+    {
+        "path":  "pilots/AUE_PILOT_001/results/R2_RESTART_ATTEMPT_2026-11-05/RESULT.md",
+        "bytes":  3920,
+        "sha256":  "6F60B1A4ABC53DF389B49558B2F62DBC77B4795D6168F81722D9EAAC2873031D"
+    },
+    {
+        "path":  "pilots/AUE_PILOT_001/results/R2_RESTART_ATTEMPT_2026-11-05/CAD_ACTUAL.txt",
+        "bytes":  15674,
+        "sha256":  "DA63970B99D36ED06EAA46D625B1D967D1FBD84675D252F9C85F9D87B8B8FBFA"
+    },
+    {
+        "path":  "pilots/AUE_PILOT_001/results/R2_RESTART_ATTEMPT_2026-11-05/CAD_EXIT.txt",
+        "bytes":  3,
+        "sha256":  "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354"
+    },
+    {
+        "path":  "pilots/AUE_PILOT_001/comparison/Inspect.cs",
+        "bytes":  6728,
+        "sha256":  "D55F4317EF2551EF475C959DFE24043EDF3B4C712680CEB3F548C21F8D59D317"
+    },
+    {
+        "path":  "pilots/AUE_PILOT_001/comparison/Inspect.csproj",
+        "bytes":  1267,
+        "sha256":  "0503CA0F61030993B25F13348939F67092FD3AABB2046DD389C2EE214BF13D27"
+    },
+    {
+        "path":  "pilots/AUE_PILOT_001/comparison/CAD_EVIDENCE.json",
+        "bytes":  37226,
+        "sha256":  "134497D1582899676A15265B71D04BDD6723E02C326A44DF4D98D773CD40E1A5"
+    }
+]

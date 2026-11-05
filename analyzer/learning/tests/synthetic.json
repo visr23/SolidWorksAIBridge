@@ -1,0 +1,21 @@
+{
+  "Version":"0.1.0", "Scope":"FrontFacade", "ReferenceAuthority":"CompetingEvidence", "TargetHeightMm":180,
+  "Evidence":[
+    {"Id":"measure","Asset":"synthetic-studio","Entity":"face1/loop1","Method":"CadLineLoop","Status":"Measured","Value":20,"Units":"mm","Confidence":1},
+    {"Id":"test","Asset":"synthetic-run","Entity":"fixture1","Method":"IsolatedTest","Status":"Passed","Confidence":1},
+    {"Id":"remeasure","Asset":"synthetic-run","Entity":"fixture1","Method":"Remeasure","Status":"Measured","Value":20,"Units":"mm","Confidence":1},
+    {"Id":"regression","Asset":"synthetic-regression","Entity":"suite1","Method":"Regression","Status":"Passed","Confidence":1},
+    {"Id":"unknown","Asset":"synthetic-photo","Entity":"occluded-entry","Method":"PhotoReview","Status":"Unknown","Confidence":0,"Limitation":"Occluded by vegetation"}
+  ],
+  "Correspondences":[
+    {"Id":"C1","Component":"left-bay","StudioEntities":["body1"],"GeneratedEntities":["base","header"],"EvidenceIds":["measure"],"Confidence":0.7,"Verified":false,"Limitation":"Synthetic one-to-many match"},
+    {"Id":"C2","Component":"main-roof","StudioEntities":["roof","fascia"],"GeneratedEntities":["gable"],"EvidenceIds":["measure"],"Confidence":0.6,"Verified":false,"Limitation":"Synthetic many-to-one match"}
+  ],
+  "Findings":[{"Id":"F1","CorrespondenceId":"C1","Classification":"BothPlausible","Verified":false,"EvidenceIds":["measure","unknown"],"Rationale":"Neither model establishes photo accuracy"}],
+  "Recipes":[
+    {"Id":"R1","Component":"left-bay","Entities":["body1"],"FeatureTypes":["Boss"],"Dependencies":["sketch1"],"EvidenceIds":["measure"],"Status":"Draft","Risks":"Edits untested"},
+    {"Id":"R2","Component":"left-bay","Entities":["base","header"],"FeatureTypes":["Boss","Cut"],"Dependencies":["sketch2"],"EvidenceIds":["measure"],"Status":"Draft","Risks":"Merge scope requires isolated verification"}
+  ],
+  "Proposals":[{"Id":"P1","FindingId":"F1","RecipeIds":["R1","R2"],"Action":"Test two constrained profile alternatives in disposable fixture","Status":"Draft"}],
+  "Experiments":[{"Id":"X1","ProposalId":"P1","FixtureId":"fixture1","Stage":"Measure","Outcome":"Pending","EvidenceIds":["measure"],"RegressionEvidenceIds":[],"HumanApproved":false}]
+}

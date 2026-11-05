@@ -1,3 +1,113 @@
+﻿## AUE-010 — Preserve R2 as experimental front baseline (2026-11-05)
+
+User visually accepts successful R2 and confirms 180 mm height. Preserve the existing
+manually saved native file, not an additional CAD copy; its verified path/hash and
+open-document dirty-state limitation are in the
+[presession restart checkpoint](pilots/AUE_PILOT_001/PRE_RESTART_CHECKPOINT.md).
+Acceptance establishes an experimental comparison baseline only, not final
+architectural correctness, parametric-edit validation or a Validated LEGO recipe.
+Do not save/overwrite/rename/rebuild CAD under the restart task. Future comparison
+is front-facade-only with explicitly identified studio source, facade/height/frame
+registration in derived data, and measured/estimated/unknown evidence separated.
+No production builder or runtime architecture change follows from this decision.
+## AUE-009 — Pilot identity follows current feature-owned solids (2026-11-05)
+
+Use logical role -> current feature -> all live face-owner bodies, requiring one
+unique owner present in the current solid inventory by native COM identity.
+Refresh after Cut-Extrude/boss/merge; reject stale/multiple owners and role merges.
+No display-name identity or geometric similarity fallback. Geometry/topology and
+cut dimensions independently validate results. Rationale: cuts can rename or
+replace Body2 results; geometry equality alone is ambiguous. Policy is pure and
+shared with 49 non-COM regressions, with a thin pilot-only COM adapter.
+Production Wall/Window builders and numeric R2 unchanged. Native adapter still
+CAD-unverified; original attempt guard retained and fresh CAD approval required.
+See [verification](pilots/AUE_PILOT_001/results/BODY_TRACKING_FIX_2026-11-05.md).
+No runtime boundary or LEGO lifecycle change; no CAD was accessed in this session.
+## AUE-008 — Isolated R2 runner and one-attempt failure boundary (2026-11-05)
+
+User approved one experimental construction test only. Implement separate opt-in
+.NET Framework 4.8/STA pilot project referencing unchanged production builders;
+no production geometry changes or LEGO lifecycle promotion. Unsupported features
+use pilot-only constrained profiles/equations and explicit selected-body operations.
+A persistent guard prevents automatic CAD retry; preserve unsaved failure part.
+Rationale: experiment without weakening validated implementations or assuming
+architectural accuracy. Actual attempt stopped at post-window body-name lookup:
+mutable body labels are not reliable identity. Remaining operations are compiled,
+not CAD-validated. Correct identity tracking only in pilot scope before a newly
+authorized test. See [result](pilots/AUE_PILOT_001/results/R2_CAD_RESULT.md).
+## AUE-007 — R2 retains upper window and explicit left-bay support (2026-11-05)
+
+User clarifies upper gable window is visible in original front photographs: retain
+as provisional with user-reported photo support; additional originals not locally
+identified must not be claimed inspected. Supersedes AUE-006 suppression direction
+and earlier handoff recommendation; presence and measured dimensions are separate.
+Keep 180 height and front-only cutoff/exclusions; simplified roof intersections
+remain provisional. R2 retains estimated R1 dimensions and gives the left bay an
+explicit base, piers and header, narrowly merged within bay only, independent of
+main facade. Rationale: preserve approved visible components and supporting geometry
+without extrapolating unseen architecture or changing validated builders.
+See [R2 proposal](pilots/AUE_PILOT_001/NUMERIC_CAD_PLAN_R2.md). No CAD approval,
+implementation, runtime architecture or validation-status change is implied.
+## AUE-006 — Photo reconciliation does not confirm R1 (2026-11-05)
+
+Annotated oblique photo is now registered under its actual double-extension name.
+Respect purple-X exclusion and marked cutoff; no side/rear reconstruction. Keep
+180 mm architectural-height design lock. Do not infer metric depth from annotation
+pixels or photo shadows. R1's upper window is unsupported; generated roof topology
+and obscured entry/right opening dimensions remain unconfirmed. Hold final numeric
+CAD approval pending explicit interpretation decision; retain R1 as provisional
+candidate rather than invent revised dimensions from uncalibrated perspective.
+Rationale: generated reference agreement does not establish observed geometry.
+See [photo reconciliation](pilots/AUE_PILOT_001/PHOTO_RECONCILIATION_R1.md).
+No runtime architecture, implementation, validation status or existing CAD changed.
+## AUE-005 — Provisional numeric facade proposal, approval pending (2026-11-05)
+
+Plan R1 uses manual elevation XY picks with uniform 180 mm sizing; relative depth
+image informs ordering only. Generated views differ in proportions; original
+photograph is missing and must be reconciled before numeric-plan approval.
+Proposed depths (12 support, +8 left, -6 entrance, +3 surround) are explicit visual
+assumptions, not recovered measurements. Propose five separate solids, simplified
+front gable silhouettes and the prominent upper aperture, without rear extension.
+Reuse unchanged compatible wall/right-window operations; all other operations in
+isolated pilot path. Rationale: make the provisional visual test reviewable while
+preserving production validation and distinguishing evidence from design choices.
+No runtime architecture or implemented geometry change. See [R1](pilots/AUE_PILOT_001/NUMERIC_CAD_PLAN_R1.md).
+## AUE-004 — Front-only pilot test and border-width correction (2026-11-05)
+
+Current task narrows this CAD test to the front facade only; broader AUE-003 view
+outputs are not required for this run. User specifies approximately twice the
+initial draft's surround border width, resolving the earlier thickness ambiguity;
+projection is independently unresolved. Preserve 180 mm architectural height.
+Use unchanged compatible builders plus isolated pilot-only unsupported operations,
+not amendments to validated production implementations. Source verification and
+numeric provisional plan precede explicit user CAD approval. No runtime architecture
+change or geometry validation is established by the preparation plan.
+Rationale: test a limited reconstruction without weakening existing validation or
+substituting the old unconstrained deep-mass concept for the approved facade draft.
+## AUE-003 — Pilot #001 bounded views and Draft OpeningSurround (2026-11-05)
+
+User-approved design: Trumpeldor 15, Kfar Saba requires main front orthographic
+view, relevant side portions within the selected boundary, simplified top/roof
+plan and relative depth/relief. Rear elevation is Not Required; open/hollow rear
+is permitted. No invented unseen rear details or roof extensions. Follow the
+photo's user-marked depth cutoff, later calibrated against matched source CAD
+where available. Lock Height=180 miniature mm from lowest architectural point to
+highest roof point, excluding display base and unrelated details.
+Rationale: reconstruct the selected portion with only useful view requirements.
+
+Propose Draft OpeningSurround with WindowSurround application, independent of
+aperture and optional sill. Separate inner/outer dimensions, border widths,
+projection and four independent profiles; plan nonrectangular extension and
+minimum printable sections. The right-front approximately 2× thickness correction
+is user-supplied visual guidance pending CAD validation, not physical measurement;
+which parameter it affects is unresolved. Independent geometry, Builder and
+regression validation plus required visual approval gate lifecycle promotion.
+See [pilot requirements](ARCHITECTURAL_UNDERSTANDING_ENGINE.md) and
+[Draft contract](ARCHITECTURAL_LEGO_V1.md#opening-surround-draft-proposal).
+
+Documentation only; runtime architecture unchanged. No source/CAD/test changes.
+User item 11 ends at “Document the planned”; unspecified remainder is pending
+clarification and adds no inferred implementation scope.
 ## AUE session-close clarification — 2026-11-04
 
 No new architectural decision at closeout. AUE-001/AUE-002 remain approved design,
@@ -496,3 +606,52 @@ are historical evidence, not rerun checks. No implemented architecture changed.
 2026-11-03 regression-baseline addition: retain unchanged production source and link it into a dependency-free .NET Framework console harness. Use reflection for existing private numeric/bounds helpers rather than refactoring geometry for test access. Keep the manual CAD harness separate and explicitly opted in; never infer geometry PASS from a successful build or case generation. Evidence: tests/README.md and tests/results/BASELINE_2026-11-03.md (53 non-COM checks pass; CAD cases NOT RUN). This is an initial regression seed, not library validation or a full Golden Dataset.
 
 Append decisions or mark them superseded with a replacement reference and reason; preserve history. Cite source or approval evidence. Keep implementation status separate from design acceptance. Update ARCHITECTURE.md and ROADMAP.md when a decision becomes executable capability. Unknown prior testing remains UNKNOWN until evidence is recorded.
+
+
+
+
+
+
+
+
+
+## AUE-011 — Proportional comparison for Pilot #001 (2026-11-05)
+
+User explicitly requests comparison by proportions because source/pilot may have
+different dimensions. Normalize selected front-facade architectural height to 1
+in derived comparison data, retain raw coordinates/units and apply uniform scaling
+only. Do not rescale CAD files or use independent width/height stretching. Establish
+front plane, up direction, architectural bottom/top and horizontal anchor before
+claiming normalized deviations. Source can remain open writable; inspection must
+use read calls only, preserve dirty flags/configuration/path and never rebuild/save.
+For the next building, user will supply target height based on their existing CAD
+model; that future height is not yet supplied. R2 height 180 mm remains unchanged.
+
+## AUE-012 / BDA-003 — Neutral evidence, bounded comparison and controlled learning (2026-11-05)
+
+User explicitly establishes studio CAD as reference, not absolute ground truth;
+AUE may be closer to photographs. Keep competing interpretations and distinguish
+native measurement confidence from provisional semantic matching/photo confidence.
+Do not assign Likely AUE Error / Likely Original Discrepancy without sufficient
+independent evidence. Both Plausible, Intentional Simplification and Insufficient
+Evidence remain valid provisional outcomes. No verified classifications asserted.
+
+Architectural correspondence is many-to-many across bodies/features and supports
+unmatched entities. CAD body labels/face indices are snapshot-qualified references,
+not durable IDs. Native line-loop evidence supports partial front elevations and
+conditional host-panel rectangle overlap; never relabel vertex clouds as verified
+silhouettes or backing apertures as unobstructed through-all-body openings.
+
+Implement the smallest separate COM-free learning JSON/library and a bounded
+pilot-only read adapter. Preserve existing Analyzer schemas/production/LEGO releases.
+Workflow Measure -> Diagnose -> Compare Recipes -> Propose -> Test in Isolation ->
+Remeasure -> Accept/Reject requires same-component recipe scope, positive fixture-
+scoped evidence, regressions and human approval. Learning acceptance does not
+promote LEGO. Current experiment Pending, all recommendations/recipes Draft.
+These evidence-storage gates validate claims but do not authenticate test logs.
+
+Rationale: avoid learning a studio modeling artifact or an AUE interpretation error
+as a rule; ground recipe preference in equivalent geometry/detail/manufacturing
+scope and actual edit/rebuild evidence rather than raw tree-entry counts.
+Current 180 mm pilot height unchanged; future pilots use user-supplied studio height.
+Original dirty open state preserved; no save, CAD modeling experiment or Git work.
